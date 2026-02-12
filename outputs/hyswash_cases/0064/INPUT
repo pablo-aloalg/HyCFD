@@ -1,0 +1,56 @@
+$Project name
+PROJECT 'Test' '64'
+$
+$Set water level
+SET LEVEL=1.0414504663417148
+$
+$(1D-mode, flume) or (2D-mode, basin)
+MODE DYNanic ONED
+COORD CARTesian
+$Computational grid: geographic location, size, resolution and orientation
+CGRID 0 0 0 1199 0 1093 0
+$
+$Multi-layered mode
+VERT 5
+$
+$Reading bathymetry values from file
+INPGRID BOTTOM 0 0 0 1199 0 1 0.0
+READINP BOTTOM 1 'depth.bot' 1 0 FREE
+$
+
+$Initial values for flow variables
+INIT ZERO
+$
+$Hydraulic boundary conditions
+BOUNDCOND SIDE W CCW BTYPE WEAK CON REGULAR 5.988685968157518 21.021818310480157
+BOU SIDE E CCW BTYPE RADIATION 
+SPON E 10 
+$
+$Physics
+BREAK 
+FRIC MANNING 0.01
+$Numerics
+NONHYDrostatic BOX 1. PREConditioner ILU
+$
+$Output quantities
+DISCRET UPW MOM
+DISCRET UPW UMOM H NONE
+DISCRET UPW WMOM H NONE
+DISCRET CORR
+$
+$Time integration
+TIMEI 0.1 0.5
+$
+QUANTITY XP hexp=10
+QUANT RUNUP delrp 0.01
+$
+CURVE 'line' 0 0 1199 1199 0
+TABLE 'line' HEAD 'output.tab' TSEC XP YP WATL OUTPUT 0 1 SEC
+$
+TABLE 'NOGRID' HEAD 'run.tab' TSEC RUNUP OUTPUT 0 1 SEC
+$
+$Starts computation
+TEST  1,0
+COMPUTE 000000.000 0.02286721534445746 SEC 001300.000
+STOP
+$
