@@ -12,7 +12,7 @@ FoamFile
 }
 
 // 你的静水位 WL = -0.9（和你网格里的 y=-0.9 对齐）
-seaLevel             -0.9;
+seaLevel             {{ swl }};
 seaLevelAsReference  true;
 
 // 只在 inlet 做造波松弛区
@@ -40,8 +40,8 @@ inletCoeffs
 
     // 频谱：JONSWAP
     spectrum            JONSWAP;
-    Hs                  5.8;
-    Tp                  12;
+    Hs                  {{ hs }};
+    Tp                  {{ tp }};
     gamma               3.3;
 
     // 相位：随机相位 + 种子（保证可复现）
