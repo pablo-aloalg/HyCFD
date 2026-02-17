@@ -2,7 +2,7 @@
 
 CASE_DIR="$1"
 
-source /home/openfoam/OpenFOAM/openfoam-v1912/etc
+source /opt/OpenFOAM/OpenFOAM-v1912/etc/bashrc
 cd "$CASE_DIR" 
 
-mpirun -np 16 waveFoam -parallel
+mpirun -np 8 waveFoam -parallel
