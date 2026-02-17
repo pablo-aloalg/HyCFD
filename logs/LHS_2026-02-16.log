@@ -1,0 +1,1 @@
+2026-02-16 10:42:15,244 - LHS - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.

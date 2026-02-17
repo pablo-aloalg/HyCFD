@@ -1,0 +1,807 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh
+Date   : Feb 16 2026
+Time   : 13:49:02
+Host   : geoocean27
+PID    : 147513
+I/O    : uncollated
+Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0004
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function blockMesh
+    in file findBlockMeshDict.H at line 36
+    Using the old blockMeshDict location: "constant/polyMesh/blockMeshDict"
+    instead of the default location:  "system/blockMeshDict"
+
+Creating block mesh from "constant/polyMesh/blockMeshDict"
+--> FOAM IOWarning :
+    Found [v1012] 'convertToMeters' entry instead of 'scale' in dictionary "/home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0004/constant/polyMesh/blockMeshDict" 
+
+    This keyword is deemed to be 108 months old.
+
+No non-linear block edges defined
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Reading patches section
+
+Creating block mesh topology
+
+Reading physicalType from existing boundary file
+
+Default patch type set to empty
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 59
+		Number of boundary faces : 98
+		Number of defined boundary faces : 98
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list...
+Not deleting polyMesh directory "constant/polyMesh"
+    because it contains blockMeshDict
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 2 .. 2
+        j : 0.758571 .. 0.758571
+        k : 0.1 .. 0.1
+
+    Block 1 cell size :
+        i : 2 .. 2
+        j : 0.268571 .. 0.268571
+        k : 0.1 .. 0.1
+
+    Block 2 cell size :
+        i : 2 .. 2
+        j : 0.2875 .. 0.2875
+        k : 0.1 .. 0.1
+
+    Block 3 cell size :
+        i : 2 .. 2
+        j : 1.39 .. 1.39
+        k : 0.1 .. 0.1
+
+    Block 4 cell size :
+        i : 1.00314 .. 1.00314
+        j : 0.758571 .. 0.758571
+        k : 0.1 .. 0.1
+
+    Block 5 cell size :
+        i : 1.00189 .. 1.00189
+        j : 0.268571 .. 0.268571
+        k : 0.1 .. 0.1
+
+    Block 6 cell size :
+        i : 1.00189 .. 1.00189
+        j : 0.2875 .. 0.2875
+        k : 0.1 .. 0.1
+
+    Block 7 cell size :
+        i : 1.00189 .. 1.00189
+        j : 1.39 .. 1.39
+        k : 0.1 .. 0.1
+
+    Block 8 cell size :
+        i : 0.99071 .. 0.99071
+        j : 0.0103571 .. 0.0103571
+        k : 0.1 .. 0.1
+
+    Block 9 cell size :
+        i : 0.99071 .. 0.99071
+        j : 0.247857 .. 0.247857
+        k : 0.1 .. 0.1
+
+    Block 10 cell size :
+        i : 0.989503 .. 0.989503
+        j : 0.2875 .. 0.2875
+        k : 0.1 .. 0.1
+
+    Block 11 cell size :
+        i : 0.989474 .. 0.989474
+        j : 1.39 .. 1.39
+        k : 0.1 .. 0.1
+
+    Block 12 cell size :
+        i : 1 .. 1
+        j : 0.0103571 .. 0.0103571
+        k : 0.1 .. 0.1
+
+    Block 13 cell size :
+        i : 1 .. 1
+        j : 0.0207143 .. 0.0207143
+        k : 0.1 .. 0.1
+
+    Block 14 cell size :
+        i : 1 .. 1
+        j : 0.282321 .. 0.282321
+        k : 0.1 .. 0.1
+
+    Block 15 cell size :
+        i : 1 .. 1
+        j : 1.39 .. 1.39
+        k : 0.1 .. 0.1
+
+    Block 16 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.0103571 .. 0.0103571
+        k : 0.1 .. 0.1
+
+    Block 17 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.0207143 .. 0.0207143
+        k : 0.1 .. 0.1
+
+    Block 18 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.282321 .. 0.282321
+        k : 0.1 .. 0.1
+
+    Block 19 cell size :
+        i : 0.25 .. 0.25
+        j : 1.39 .. 1.39
+        k : 0.1 .. 0.1
+
+    Block 20 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.0103571 .. 0.0103571
+        k : 0.1 .. 0.1
+
+    Block 21 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.0207143 .. 0.0207143
+        k : 0.1 .. 0.1
+
+    Block 22 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.25375 .. 0.25375
+        k : 0.1 .. 0.1
+
+    Block 23 cell size :
+        i : 0.25 .. 0.25
+        j : 1.39 .. 1.39
+        k : 0.1 .. 0.1
+
+    Block 24 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.0103571 .. 0.0103571
+        k : 0.1 .. 0.1
+
+    Block 25 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.0207143 .. 0.0207143
+        k : 0.1 .. 0.1
+
+    Block 26 cell size :
+        i : 0.251247 .. 0.251247
+        j : 0.237679 .. 0.237679
+        k : 0.1 .. 0.1
+
+    Block 27 cell size :
+        i : 0.25 .. 0.25
+        j : 1.39 .. 1.39
+        k : 0.1 .. 0.1
+
+    Block 28 cell size :
+        i : 0.502494 .. 0.502494
+        j : 0.0103571 .. 0.0103571
+        k : 0.1 .. 0.1
+
+    Block 29 cell size :
+        i : 0.502494 .. 0.502494
+        j : 0.0207143 .. 0.0207143
+        k : 0.1 .. 0.1
+
+    Block 30 cell size :
+        i : 0.502494 .. 0.502494
+        j : 0.182321 .. 0.182321
+        k : 0.1 .. 0.1
+
+    Block 31 cell size :
+        i : 0.500004 .. 0.500004
+        j : 1.39 .. 1.39
+        k : 0.1 .. 0.1
+
+    Block 32 cell size :
+        i : 0.502494 .. 0.502494
+        j : 0.0103571 .. 0.0103571
+        k : 0.1 .. 0.1
+
+    Block 33 cell size :
+        i : 0.502494 .. 0.502494
+        j : 0.0207143 .. 0.0207143
+        k : 0.1 .. 0.1
+
+    Block 34 cell size :
+        i : 0.502494 .. 0.502494
+        j : 0.00258929 .. 0.00258929
+        k : 0.1 .. 0.1
+
+    Block 35 cell size :
+        i : 0.502494 .. 0.502494
+        j : 1.3465 .. 1.3465
+        k : 0.1 .. 0.1
+
+
+There are no merge patch pairs
+
+Writing polyMesh with 0 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 -15 0) (1200 27.5 0.1)
+  nPoints: 231088
+  nCells: 114144
+  nFaces: 457975
+  nInternalFaces: 226889
+----------------
+Patches
+----------------
+  patch 0 (start: 226889 size: 1312) name: atmosphere
+  patch 1 (start: 228201 size: 87) name: inlet
+  patch 2 (start: 228288 size: 87) name: outlet
+  patch 3 (start: 228375 size: 1312) name: bottom
+  patch 4 (start: 229687 size: 228288) name: frontBack
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : checkMesh
+Date   : Feb 16 2026
+Time   : 13:49:02
+Host   : geoocean27
+PID    : 147521
+I/O    : uncollated
+Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0004
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Create mesh for time = 0
+
+// using new solver syntax:
+pcorr
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-06;
+    relTol          0.01;
+}
+
+// using new solver syntax:
+pcorrFinal
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-06;
+    relTol          0.01;
+}
+
+// using new solver syntax:
+p_rgh
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-07;
+    relTol          0.001;
+}
+
+// using new solver syntax:
+p_rghFinal
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-07;
+    relTol          0;
+}
+
+// using new solver syntax:
+U
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+}
+
+// using new solver syntax:
+UFinal
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+}
+
+// using new solver syntax:
+gamma
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-07;
+    relTol          0;
+}
+
+// using new solver syntax:
+alpha.water
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+    nAlphaCorr      1;
+    nAlphaSubCycles 1;
+    cAlpha          1;
+}
+
+Time = 0
+
+Mesh stats
+    points:           231088
+    internal points:  0
+    faces:            457975
+    internal faces:   226889
+    cells:            114144
+    faces per cell:   6
+    boundary patches: 5
+    point zones:      0
+    face zones:       0
+    cell zones:       0
+
+Overall number of cells of each type:
+    hexahedra:     114144
+    prisms:        0
+    wedges:        0
+    pyramids:      0
+    tet wedges:    0
+    tetrahedra:    0
+    polyhedra:     0
+
+Checking topology...
+    Boundary definition OK.
+    Cell to face addressing OK.
+    Point usage OK.
+    Upper triangular ordering OK.
+    Face vertices OK.
+    Number of regions: 1 (OK).
+
+Checking patch topology for multiply connected surfaces...
+    Patch               Faces    Points   Surface topology                  
+    atmosphere          1312     2626     ok (non-closed singly connected)  
+    inlet               87       176      ok (non-closed singly connected)  
+    outlet              87       176      ok (non-closed singly connected)  
+    bottom              1312     2626     ok (non-closed singly connected)  
+    frontBack           228288   231088   ok (non-closed singly connected)  
+
+Checking faceZone topology for multiply connected surfaces...
+    No faceZones found.
+
+Checking basic cellZone addressing...
+    No cellZones found.
+
+Checking geometry...
+    Overall domain bounding box (0 -15 0) (1200 27.5 0.1)
+    Mesh has 2 geometric (non-empty/wedge) directions (1 1 0)
+    Mesh has 2 solution (non-empty) directions (1 1 0)
+    All edges aligned with or perpendicular to non-empty directions.
+    Boundary openness (-1.98956e-19 -2.1161e-17 2.62188e-16) OK.
+    Max cell openness = 3.38545e-16 OK.
+    Max aspect ratio = 96.5517 OK.
+    Minimum face area = 0.000258928. Maximum face area = 2.78.  Face area magnitudes OK.
+    Min volume = 0.000129464. Max volume = 0.278.  Total volume = 4068.75.  Cell volumes OK.
+    Mesh non-orthogonality Max: 49.4689 average: 3.03505
+    Non-orthogonality check OK.
+    Face pyramids OK.
+    Max skewness = 0.25 OK.
+    Coupled point location match (average 0) OK.
+
+Mesh OK.
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : setWaveParameters
+Date   : Feb 16 2026
+Time   : 13:49:03
+Host   : geoocean27
+PID    : 147522
+I/O    : uncollated
+Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0004
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Reading g
+
+Reading waveProperties
+
+
+Constructing: irregularProperties
+
+Constructing: randomPhase
+
+Constructing: JONSWAP
+
+Constructing: potentialCurrentProperties
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : setWaveField
+Date   : Feb 16 2026
+Time   : 13:49:03
+Host   : geoocean27
+PID    : 147523
+I/O    : uncollated
+Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0004
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Create mesh for time = 0
+
+// using new solver syntax:
+pcorr
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-06;
+    relTol          0.01;
+}
+
+// using new solver syntax:
+pcorrFinal
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-06;
+    relTol          0.01;
+}
+
+// using new solver syntax:
+p_rgh
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-07;
+    relTol          0.001;
+}
+
+// using new solver syntax:
+p_rghFinal
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-07;
+    relTol          0;
+}
+
+// using new solver syntax:
+U
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+}
+
+// using new solver syntax:
+UFinal
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+}
+
+// using new solver syntax:
+gamma
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-07;
+    relTol          0;
+}
+
+// using new solver syntax:
+alpha.water
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+    nAlphaCorr      1;
+    nAlphaSubCycles 1;
+    cAlpha          1;
+}
+
+
+Reading g
+
+Reading waveProperties
+
+Reading waveProperties
+
+Reading field alpha
+
+Reading field U
+
+Reading field p
+
+Setting the wave field ...
+
+Global
+
+End
+
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _f3950763fe-20191219 OPENFOAM=1912
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar -force
+Date   : Feb 16 2026
+Time   : 13:49:03
+Host   : geoocean27
+PID    : 147524
+I/O    : uncollated
+Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0004
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+
+Decomposing mesh region0
+
+Create mesh
+
+Calculating distribution of cells
+Selecting decompositionMethod simple [8]
+
+Finished decomposition in 0.02 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Processor 0
+    Number of cells = 14268
+    Number of faces shared with processor 1 = 87
+    Number of processor patches = 1
+    Number of processor faces = 87
+    Number of boundary faces = 28951
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Processor 1
+    Number of cells = 14268
+    Number of faces shared with processor 0 = 87
+    Number of faces shared with processor 2 = 87
+    Number of processor patches = 2
+    Number of processor faces = 174
+    Number of boundary faces = 28864
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Processor 2
+    Number of cells = 14268
+    Number of faces shared with processor 1 = 87
+    Number of faces shared with processor 3 = 87
+    Number of processor patches = 2
+    Number of processor faces = 174
+    Number of boundary faces = 28864
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Processor 3
+    Number of cells = 14268
+    Number of faces shared with processor 2 = 87
+    Number of faces shared with processor 4 = 87
+    Number of processor patches = 2
+    Number of processor faces = 174
+    Number of boundary faces = 28864
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Processor 4
+    Number of cells = 14268
+    Number of faces shared with processor 3 = 87
+    Number of faces shared with processor 5 = 87
+    Number of processor patches = 2
+    Number of processor faces = 174
+    Number of boundary faces = 28864
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Processor 5
+    Number of cells = 14268
+    Number of faces shared with processor 4 = 87
+    Number of faces shared with processor 6 = 87
+    Number of processor patches = 2
+    Number of processor faces = 174
+    Number of boundary faces = 28864
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Processor 6
+    Number of cells = 14268
+    Number of faces shared with processor 5 = 87
+    Number of faces shared with processor 7 = 87
+    Number of processor patches = 2
+    Number of processor faces = 174
+    Number of boundary faces = 28864
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+Processor 7
+    Number of cells = 14268
+    Number of faces shared with processor 6 = 87
+    Number of processor patches = 1
+    Number of processor faces = 87
+    Number of boundary faces = 28951
+
+Number of processor faces = 609
+Max number of cells = 14268 (0% above average 14268)
+Max number of processor patches = 2 (14.2857% above average 1.75)
+Max number of faces between processors = 174 (14.2857% above average 152.25)
+
+Time = 0
+
+Processor 0: field transfer
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Processor 1: field transfer
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Processor 2: field transfer
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Processor 3: field transfer
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Processor 4: field transfer
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Processor 5: field transfer
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Processor 6: field transfer
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+Processor 7: field transfer
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+
+End
+
+
+Process exited with code 0

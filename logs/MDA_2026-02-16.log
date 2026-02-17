@@ -1,0 +1,11 @@
+2026-02-16 10:42:16,315 - MDA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-16 10:42:16,337 - MDA - INFO - Using specified seed=0 as first centroid.
+2026-02-16 10:42:16,338 - MDA - INFO -    MDA centroids: 02/10
+2026-02-16 10:42:16,339 - MDA - INFO -    MDA centroids: 03/10
+2026-02-16 10:42:16,339 - MDA - INFO -    MDA centroids: 04/10
+2026-02-16 10:42:16,339 - MDA - INFO -    MDA centroids: 05/10
+2026-02-16 10:42:16,340 - MDA - INFO -    MDA centroids: 06/10
+2026-02-16 10:42:16,340 - MDA - INFO -    MDA centroids: 07/10
+2026-02-16 10:42:16,340 - MDA - INFO -    MDA centroids: 08/10
+2026-02-16 10:42:16,340 - MDA - INFO -    MDA centroids: 09/10
+2026-02-16 10:42:16,340 - MDA - INFO -    MDA centroids: 10/10
