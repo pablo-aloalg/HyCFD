@@ -1,0 +1,61 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volSymmTensorField;
+    location    "0";
+    object      R;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+
+internalField   uniform (8.00903e-07 -1.358e-07 0 8.00903e-07 0 8.00903e-07);
+
+boundaryField
+{
+    atmosphere
+    {
+        type            inletOutlet;
+        inletValue      uniform (8.00903e-07 -1.358e-07 0 8.00903e-07 0 8.00903e-07);
+        value           uniform (8.00903e-07 -1.358e-07 0 8.00903e-07 0 8.00903e-07);
+    }
+    inlet
+    {
+        type            zeroGradient;
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    bottom
+    {
+        type            kqRWallFunction;
+        value           uniform (8.00903e-07 -1.358e-07 0 8.00903e-07 0 8.00903e-07);
+    }
+    frontBack
+    {
+        type            empty;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform (8.00903e-07 -1.358e-07 0 8.00903e-07 0 8.00903e-07);
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform (8.00903e-07 -1.358e-07 0 8.00903e-07 0 8.00903e-07);
+    }
+}
+
+
+// ************************************************************************* //

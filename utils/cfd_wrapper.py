@@ -50,7 +50,19 @@ class OpenFoamWrapper(BaseModelWrapper):
         if case_context['preprocess_script'] is not None:
             script_path = case_context['preprocess_script']
             arg1 = case_dir
-            process = subprocess.Popen(["bash", script_path, arg1], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) #### TODO write stdout and stderr into the log
-            process.wait()
+            log_file_path = f"logs/cases_openfoam/{case_context['case_num']:04d}"
+
+            with open(log_file_path, "w") as log_file:
+
+                process = subprocess.Popen(["bash", script_path, arg1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True) #### TODO write stdout and stderr into the log
+
+                for line in process.stdout:
+                    log_file.write(line)
+                    log_file.flush()
+
+                process.wait()
+
+                log_file.write(f"\nProcess exited with code {process.returncode}\n")
+
 
 
