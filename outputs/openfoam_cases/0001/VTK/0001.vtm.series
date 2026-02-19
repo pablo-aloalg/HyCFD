@@ -1,0 +1,16 @@
+{
+  "file-series-version" : "1.0",
+  "files" : [
+    { "name" : "0001_0.vtm", "time" : 0 },
+    { "name" : "0001_13825.vtm", "time" : 10 },
+    { "name" : "0001_30594.vtm", "time" : 20 },
+    { "name" : "0001_42180.vtm", "time" : 30 },
+    { "name" : "0001_50298.vtm", "time" : 40 },
+    { "name" : "0001_58593.vtm", "time" : 50 },
+    { "name" : "0001_66993.vtm", "time" : 60 },
+    { "name" : "0001_75675.vtm", "time" : 70 },
+    { "name" : "0001_83398.vtm", "time" : 80 },
+    { "name" : "0001_92261.vtm", "time" : 90 },
+    { "name" : "0001_106975.vtm", "time" : 100 }
+  ]
+}
