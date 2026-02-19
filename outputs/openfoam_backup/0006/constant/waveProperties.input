@@ -1,0 +1,85 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| waves2Foam waveProperties.input (irregular JONSWAP)                         |
+| flume: x 0~1200, y vertical, z thin (0~0.1)                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      waveProperties;
+}
+
+// 你的静水位 WL = -0.9（和你网格里的 y=-0.9 对齐）
+seaLevel             -0.02;
+seaLevelAsReference  true;
+
+// 只在 inlet 做造波松弛区
+relaxationNames     ( inlet );
+
+// 初始仍然用你原来的 init
+initializationName  init;
+
+inletCoeffs
+{
+    // ===== 不规则波 =====
+    waveType            irregular;
+
+    // 分量数（常用 100~500，先用 200）
+    N                   200;
+
+    // 入口处静水深：seaLevel(-0.9) 到床面(-15) => 14.1 m
+    depth               14.1;
+
+    // 起波平滑（建议 >= 2~3 Tp）
+    Tsoft               24;
+
+    // 传播方向（+x）
+    direction           (1 0 0);
+
+    // 频谱：JONSWAP
+    spectrum            JONSWAP;
+    Hs                  2.24;
+    Tp                  15.11;
+    gamma               3.3;
+
+    // 相位：随机相位 + 种子（保证可复现）
+    phaseMethod         randomPhase;
+    seedForRandomPhase  12345;
+
+    // 频率轴（按 Tp 给一个合理范围）
+    frequencyAxis
+    {
+        discretisation          cosineStretchedFrequencyAxis;
+        lowerFrequencyCutoff   0.0277778;   // 1/(3*Tp)
+        upperFrequencyCutoff   0.25;        // 3/Tp
+        writeSpectrum          true;
+    }
+
+    // ===== 松弛区（造波区）=====
+    relaxationZone
+    {
+        relaxationScheme    Spatial;
+        relaxationShape     Rectangular;
+        beachType           Empty;
+        relaxType           INLET;
+
+        // 你的深水平台是 0~500，这里用 0~400 做造波松弛区
+        // y、z 这里按 waves2Foam 常见写法给一条“中心线”即可
+        startX              (0    0   -1);
+        endX                (400  0    1);
+
+        orientation         (1 0 0);
+
+        // 如果你的版本支持 fieldNames 就保留；不支持也通常不会报错
+        fieldNames          (alpha.water U);
+    }
+}
+
+initCoeffs
+{
+    waveType            potentialCurrent;
+    U                   ( 0 0 0 );
+    Tsoft               24;
+}
