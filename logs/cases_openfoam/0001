@@ -8,10 +8,10 @@
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : blockMesh
-Date   : Feb 16 2026
-Time   : 13:48:52
+Date   : Feb 19 2026
+Time   : 02:21:55
 Host   : geoocean27
-PID    : 145782
+PID    : 315067
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0001
 nProcs : 1
@@ -282,10 +282,10 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : checkMesh
-Date   : Feb 16 2026
-Time   : 13:48:53
+Date   : Feb 19 2026
+Time   : 02:21:56
 Host   : geoocean27
-PID    : 145783
+PID    : 315068
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0001
 nProcs : 1
@@ -452,10 +452,10 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveParameters
-Date   : Feb 16 2026
-Time   : 13:48:53
+Date   : Feb 19 2026
+Time   : 02:21:56
 Host   : geoocean27
-PID    : 145784
+PID    : 315069
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0001
 nProcs : 1
@@ -496,10 +496,10 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveField
-Date   : Feb 16 2026
-Time   : 13:48:53
+Date   : Feb 19 2026
+Time   : 02:21:56
 Host   : geoocean27
-PID    : 145785
+PID    : 315070
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0001
 nProcs : 1
@@ -620,10 +620,10 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : decomposePar -force
-Date   : Feb 16 2026
-Time   : 13:48:54
+Date   : Feb 19 2026
+Time   : 02:21:57
 Host   : geoocean27
-PID    : 145792
+PID    : 315077
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0001
 nProcs : 1
@@ -642,12 +642,13 @@ Create time
 
 Decomposing mesh region0
 
+Removing 8 existing processor directories
 Create mesh
 
 Calculating distribution of cells
 Selecting decompositionMethod simple [8]
 
-Finished decomposition in 0.02 s
+Finished decomposition in 0.03 s
 
 Calculating original mesh data
 
