@@ -8,10 +8,10 @@
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : blockMesh
-Date   : Feb 16 2026
-Time   : 13:48:55
+Date   : Feb 19 2026
+Time   : 02:21:58
 Host   : geoocean27
-PID    : 146352
+PID    : 315636
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
 nProcs : 1
@@ -282,10 +282,10 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : checkMesh
-Date   : Feb 16 2026
-Time   : 13:48:56
+Date   : Feb 19 2026
+Time   : 02:21:59
 Host   : geoocean27
-PID    : 146359
+PID    : 315643
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
 nProcs : 1
@@ -452,10 +452,10 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveParameters
-Date   : Feb 16 2026
-Time   : 13:48:57
+Date   : Feb 19 2026
+Time   : 02:22:00
 Host   : geoocean27
-PID    : 146361
+PID    : 315644
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
 nProcs : 1
@@ -481,8 +481,8 @@ Constructing: irregularProperties
 Constructing: randomPhase
 
 Constructing: JONSWAP
-#0  Foam::error::printStack(Foam::Ostream&)munmap_chunk(): invalid pointer
-/home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/preprocess_case.sh: line 11: 146361 Aborted                 (core dumped) setWaveParameters
+double free or corruption (out)
+/home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/preprocess_case.sh: line 11: 315644 Aborted                 (core dumped) setWaveParameters
 /*---------------------------------------------------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
@@ -493,10 +493,10 @@ Constructing: JONSWAP
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveField
-Date   : Feb 16 2026
-Time   : 13:48:57
+Date   : Feb 19 2026
+Time   : 02:22:00
 Host   : geoocean27
-PID    : 146365
+PID    : 315646
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
 nProcs : 1
@@ -620,10 +620,10 @@ FOAM exiting
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : decomposePar -force
-Date   : Feb 16 2026
-Time   : 13:48:57
+Date   : Feb 19 2026
+Time   : 02:22:00
 Host   : geoocean27
-PID    : 146367
+PID    : 315648
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
 nProcs : 1
@@ -642,12 +642,13 @@ Create time
 
 Decomposing mesh region0
 
+Removing 8 existing processor directories
 Create mesh
 
 Calculating distribution of cells
 Selecting decompositionMethod simple [8]
 
-Finished decomposition in 0.03 s
+Finished decomposition in 0.02 s
 
 Calculating original mesh data
 
