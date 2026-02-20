@@ -30,10 +30,10 @@ inletCoeffs
     N                   200;
 
     // 入口处静水深：seaLevel(-0.9) 到床面(-15) => 14.1 m
-    depth               14.1;
+    depth               14.0;
 
     // 起波平滑（建议 >= 2~3 Tp）
-    Tsoft               24;
+    Tsoft               17.78;
 
     // 传播方向（+x）
     direction           (1 0 0);
@@ -52,8 +52,8 @@ inletCoeffs
     frequencyAxis
     {
         discretisation          cosineStretchedFrequencyAxis;
-        lowerFrequencyCutoff   0.0277778;   // 1/(3*Tp)
-        upperFrequencyCutoff   0.25;        // 3/Tp
+        lowerFrequencyCutoff   0.03749531308586426;   // 1/(3*Tp)
+        upperFrequencyCutoff   0.3374578177727784;   // 3/Tp
         writeSpectrum          true;
     }
 
@@ -81,5 +81,5 @@ initCoeffs
 {
     waveType            potentialCurrent;
     U                   ( 0 0 0 );
-    Tsoft               24;
+    Tsoft               17.78;
 }
