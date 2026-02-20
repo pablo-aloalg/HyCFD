@@ -55,20 +55,7 @@ maxDeltaT       0.5;
 
 functions
 {
-  //  #includeIfPresent "../waveGaugesNProbes/surfaceElevationAnyName_controlDict";
-}
-
-functions
-{
-    readZeta
-    {
-        type            readFields;
-        libs            ("libfieldFunctionObjects.so");
-        fields          (zeta);
-
-        executeControl  timeStep;
-        executeInterval 1;
-    }
+  #includeIfPresent "../waveGaugesNProbes/surfaceElevationAnyName_controlDict";
 }
 
 // ************************************************************************* //
