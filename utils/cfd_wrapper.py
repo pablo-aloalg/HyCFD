@@ -1,5 +1,7 @@
 import os
+import os.path as op
 import subprocess
+import copy
 from typing import List, Union
 
 import xarray as xr
@@ -18,6 +20,10 @@ class OpenFoamWrapper(BaseModelWrapper):
             "value": None,
             "description": "Bash script for preprocessing case files."},        
         }
+
+    available_launchers = {
+        "mpi": "bash inputs/scripts_openfoam/run_case.sh /case_dir",
+    }
 
     def __init__(
         self,
@@ -103,10 +109,6 @@ class OpenFoamWrapper(BaseModelWrapper):
         remove_nc : bool, optional
             Remove the netCDF file. Default is False.
 
-        Returns
-        -------
-        xr.Dataset
-            The postprocessed Dataset.
         """
 
         import warnings
@@ -169,11 +171,11 @@ class OpenFoamWrapper(BaseModelWrapper):
             self.output_dir, "output_postprocessed.nc"
         )
 
-            self.logger.warning(
-        #if op.exists(output_postprocessed_file_path):
+        '''self.logger.warning(
+        if op.exists(output_postprocessed_file_path):
                 "Output postprocessed file already exists. Skipping postprocessing."
             )
-            return xr.open_dataset(output_postprocessed_file_path)
+            return xr.open_dataset(output_postprocessed_file_path)'''
 
         if cases_to_postprocess is not None:
             self.logger.warning(
