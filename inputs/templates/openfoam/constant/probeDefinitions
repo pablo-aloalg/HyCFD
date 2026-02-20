@@ -21,16 +21,16 @@ surfaceElevationAnyName
     pointDistribution lineDistribution;
 
     // 你要多少个测点（例如每 5 m 一个：1200/5 +1 = 241）
-    N 241;
+    N 11;
 
     // 起点/终点：y 是竖直，这里给一个固定高度（建议放在水体里，比如 y = -0.9 静水位）
     // z 放在薄域中间 0.05
-    linestart (0   -0.9 0.05);
-    lineend   (950 -0.9 0.05);
+    linestart (400 -10 0.05);
+    lineend   (950 -10 0.05);
 
     // 竖直方向
     axis y;
-    add       ( 0 0 0);
+    add       ( 0 20 0);
     // 是否拉伸（=1 表示均匀）
     stretch 1;
 
