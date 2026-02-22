@@ -1,0 +1,13 @@
+{
+  "file-series-version" : "1.0",
+  "files" : [
+    { "name" : "0009_0.vtm", "time" : 0 },
+    { "name" : "0009_13181.vtm", "time" : 10 },
+    { "name" : "0009_29665.vtm", "time" : 20 },
+    { "name" : "0009_45750.vtm", "time" : 30 },
+    { "name" : "0009_54803.vtm", "time" : 40 },
+    { "name" : "0009_64456.vtm", "time" : 50 },
+    { "name" : "0009_73350.vtm", "time" : 60 },
+    { "name" : "0009_82975.vtm", "time" : 70 }
+  ]
+}
