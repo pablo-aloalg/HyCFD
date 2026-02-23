@@ -1,0 +1,26 @@
+{
+  "file-series-version" : "1.0",
+  "files" : [
+    { "name" : "0007_0.vtm", "time" : 0 },
+    { "name" : "0007_103.vtm", "time" : 0.5 },
+    { "name" : "0007_216.vtm", "time" : 1 },
+    { "name" : "0007_318.vtm", "time" : 1.5 },
+    { "name" : "0007_426.vtm", "time" : 2 },
+    { "name" : "0007_528.vtm", "time" : 2.5 },
+    { "name" : "0007_674.vtm", "time" : 3 },
+    { "name" : "0007_859.vtm", "time" : 3.5 },
+    { "name" : "0007_1076.vtm", "time" : 4 },
+    { "name" : "0007_1311.vtm", "time" : 4.5 },
+    { "name" : "0007_1551.vtm", "time" : 5 },
+    { "name" : "0007_1768.vtm", "time" : 5.5 },
+    { "name" : "0007_1985.vtm", "time" : 6 },
+    { "name" : "0007_2197.vtm", "time" : 6.5 },
+    { "name" : "0007_2391.vtm", "time" : 7 },
+    { "name" : "0007_2579.vtm", "time" : 7.5 },
+    { "name" : "0007_2775.vtm", "time" : 8 },
+    { "name" : "0007_2991.vtm", "time" : 8.5 },
+    { "name" : "0007_3192.vtm", "time" : 9 },
+    { "name" : "0007_3376.vtm", "time" : 9.5 },
+    { "name" : "0007_3548.vtm", "time" : 10 }
+  ]
+}
