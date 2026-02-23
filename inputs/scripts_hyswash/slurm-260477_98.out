@@ -1,0 +1,9 @@
+SLURM_CPUS_ON_NODE: 1
+
+ SWASH is preparing computation
+
++SWASH is processing output request    1
++SWASH is processing output request    2
+[  0%]   step 1
+[  0%]   step 2
+Terminating error: INSTABLE: water level is too far below the bottom level!
