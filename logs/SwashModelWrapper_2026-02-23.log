@@ -1,0 +1,9 @@
+2026-02-23 06:13:30,536 - SwashModelWrapper - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-23 06:13:30,536 - SwashModelWrapper - INFO - Parameter Hs has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Significant wave height.'}
+2026-02-23 06:13:30,536 - SwashModelWrapper - INFO - Parameter Hs_L0 has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Wave height at deep water.'}
+2026-02-23 06:13:30,536 - SwashModelWrapper - INFO - Parameter WL has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Water level.'}
+2026-02-23 06:13:30,536 - SwashModelWrapper - INFO - Templates name is 'all', so all templates in inputs/templates/hyswash will be used.
+2026-02-23 06:13:30,536 - SwashModelWrapper - INFO - Templates names: ['INPUT', 'depth.bot']
+2026-02-23 06:13:30,537 - SwashModelWrapper - INFO - Saving model to outputs/hyswash/swash_model.pkl
+2026-02-23 06:13:30,574 - SwashModelWrapper - INFO - 10 cases created in one_by_one mode and saved in outputs/hyswash_cases
+2026-02-23 06:13:30,575 - SwashModelWrapper - INFO - SBATCH example file generated in outputs/hyswash_cases
