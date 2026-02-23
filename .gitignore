@@ -1,1 +1,2 @@
 outputs/openfoam_cases/*/processor*/
+outputs/openfoam_cases/*/constant/polyMesh/*
