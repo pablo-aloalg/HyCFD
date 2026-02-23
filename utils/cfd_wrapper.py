@@ -58,7 +58,7 @@ class OpenFoamWrapper(BaseModelWrapper):
         )
 
     available_launchers = {
-        "mpi": "inputs/scripts_openfoam/run_case.sh",
+        "mpi": "bash /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/run_case.sh",
     }
         
     def rescale_mesh_ppw(self, ppw, wavelength, input_file, output_file):
@@ -118,7 +118,7 @@ class OpenFoamWrapper(BaseModelWrapper):
         if case_context['points_per_wavelenght'] is not None:
             ppw = case_context['points_per_wavelenght']
 
-            input_base_path  = '/Users/pabloalonsoalguacil/Documents/Proyectos/HyCFD/inputs/templates/openfoam/constant/polyMesh/blockMeshDict'
+            input_base_path  = case_context['block_mesh_dict']
             output_mesh_path = os.path.join(case_dir,'constant','polyMesh','blockMeshDict')
 
             wavelength = 9.81 * ( (case_context['tp']) ** 2 ) / (2 * math.pi)

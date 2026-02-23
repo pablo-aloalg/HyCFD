@@ -8,7 +8,7 @@ cd "$CASE_DIR"
 
 blockMesh # 1. Generate mesh
 checkMesh # 2. Optional: check mesh quality
-setWaveParameters # 3. Set wave parameters (if needed, depends on your waveProperties)
+setWaveParameters # 3. Set wave parameters 
 setWaveField # 4. Initialize wave field in 0/ folder
-waveGaugesNProbes
-decomposePar # 5. Decompose per processor
+waveGaugesNProbes # 5. Set up wave gauges and probes 
+decomposePar # 6. Decompose per processor
