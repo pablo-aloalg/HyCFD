@@ -9,9 +9,9 @@ Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : blockMesh
 Date   : Feb 23 2026
-Time   : 04:44:35
+Time   : 05:09:04
 Host   : geoocean27
-PID    : 10408
+PID    : 28497
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0003
 nProcs : 1
@@ -70,22 +70,22 @@ Creating patches
 Creating cells
 Creating points with scale 1
     Block 0 cell size :
-        i : 11.6279 .. 11.6279
+        i : 11.9048 .. 11.9048
         j : 0.758571 .. 0.758571
         k : 0.1 .. 0.1
 
     Block 1 cell size :
-        i : 11.6279 .. 11.6279
+        i : 11.9048 .. 11.9048
         j : 0.268571 .. 0.268571
         k : 0.1 .. 0.1
 
     Block 2 cell size :
-        i : 11.6279 .. 11.6279
+        i : 11.9048 .. 11.9048
         j : 0.2875 .. 0.2875
         k : 0.1 .. 0.1
 
     Block 3 cell size :
-        i : 11.6279 .. 11.6279
+        i : 11.9048 .. 11.9048
         j : 1.39 .. 1.39
         k : 0.1 .. 0.1
 
@@ -257,18 +257,18 @@ Writing polyMesh with 0 cellZones
 Mesh Information
 ----------------
   boundingBox: (0 -15 0) (1200 27.5 0.1)
-  nPoints: 18304
-  nCells: 8961
-  nFaces: 36034
-  nInternalFaces: 17732
+  nPoints: 18128
+  nCells: 8874
+  nFaces: 35685
+  nInternalFaces: 17559
 ----------------
 Patches
 ----------------
-  patch 0 (start: 17732 size: 103) name: atmosphere
-  patch 1 (start: 17835 size: 87) name: inlet
-  patch 2 (start: 17922 size: 87) name: outlet
-  patch 3 (start: 18009 size: 103) name: bottom
-  patch 4 (start: 18112 size: 17922) name: frontBack
+  patch 0 (start: 17559 size: 102) name: atmosphere
+  patch 1 (start: 17661 size: 87) name: inlet
+  patch 2 (start: 17748 size: 87) name: outlet
+  patch 3 (start: 17835 size: 102) name: bottom
+  patch 4 (start: 17937 size: 17748) name: frontBack
 
 End
 
@@ -283,9 +283,9 @@ Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : checkMesh
 Date   : Feb 23 2026
-Time   : 04:44:35
+Time   : 05:09:04
 Host   : geoocean27
-PID    : 10409
+PID    : 28498
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0003
 nProcs : 1
@@ -380,11 +380,11 @@ alpha.water
 Time = 0
 
 Mesh stats
-    points:           18304
+    points:           18128
     internal points:  0
-    faces:            36034
-    internal faces:   17732
-    cells:            8961
+    faces:            35685
+    internal faces:   17559
+    cells:            8874
     faces per cell:   6
     boundary patches: 5
     point zones:      0
@@ -392,7 +392,7 @@ Mesh stats
     cell zones:       0
 
 Overall number of cells of each type:
-    hexahedra:     8961
+    hexahedra:     8874
     prisms:        0
     wedges:        0
     pyramids:      0
@@ -410,11 +410,11 @@ Checking topology...
 
 Checking patch topology for multiply connected surfaces...
     Patch               Faces    Points   Surface topology                  
-    atmosphere          103      208      ok (non-closed singly connected)  
+    atmosphere          102      206      ok (non-closed singly connected)  
     inlet               87       176      ok (non-closed singly connected)  
     outlet              87       176      ok (non-closed singly connected)  
-    bottom              103      208      ok (non-closed singly connected)  
-    frontBack           17922    18304    ok (non-closed singly connected)  
+    bottom              102      206      ok (non-closed singly connected)  
+    frontBack           17748    18128    ok (non-closed singly connected)  
 
 Checking faceZone topology for multiply connected surfaces...
     No faceZones found.
@@ -427,12 +427,12 @@ Checking geometry...
     Mesh has 2 geometric (non-empty/wedge) directions (1 1 0)
     Mesh has 2 solution (non-empty) directions (1 1 0)
     All edges aligned with or perpendicular to non-empty directions.
-    Boundary openness (1.04738e-19 -6.58354e-19 2.05594e-15) OK.
+    Boundary openness (1.04738e-19 2.12197e-19 2.52952e-15) OK.
  ***High aspect ratio cells found, Max aspect ratio: 1135.9, number of cells 238
   <<Writing 238 cells with high aspect ratio to set highAspectRatioCells
     Minimum face area = 0.000258928. Maximum face area = 22.24.  Face area magnitudes OK.
     Min volume = 0.00288057. Max volume = 2.224.  Total volume = 4068.75.  Cell volumes OK.
-    Mesh non-orthogonality Max: 89.3392 average: 3.23202
+    Mesh non-orthogonality Max: 89.3392 average: 3.2479
    *Number of severely non-orthogonal (> 70 degrees) faces: 12.
     Non-orthogonality check OK.
   <<Writing 12 non-orthogonal faces to set nonOrthoFaces
@@ -455,9 +455,9 @@ Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveParameters
 Date   : Feb 23 2026
-Time   : 04:44:35
+Time   : 05:09:04
 Host   : geoocean27
-PID    : 10410
+PID    : 28499
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0003
 nProcs : 1
@@ -499,9 +499,9 @@ Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveField
 Date   : Feb 23 2026
-Time   : 04:44:35
+Time   : 05:09:04
 Host   : geoocean27
-PID    : 10411
+PID    : 28500
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0003
 nProcs : 1
@@ -623,9 +623,9 @@ Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : waveGaugesNProbes
 Date   : Feb 23 2026
-Time   : 04:44:35
+Time   : 05:09:04
 Host   : geoocean27
-PID    : 10412
+PID    : 28501
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0003
 nProcs : 1
@@ -654,9 +654,9 @@ Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : decomposePar
 Date   : Feb 23 2026
-Time   : 04:44:35
+Time   : 05:09:04
 Host   : geoocean27
-PID    : 10413
+PID    : 28502
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0003
 nProcs : 1
@@ -680,7 +680,7 @@ Create mesh
 Calculating distribution of cells
 Selecting decompositionMethod simple [8]
 
-Finished decomposition in 0 s
+Finished decomposition in 0.01 s
 
 Calculating original mesh data
 
@@ -697,97 +697,97 @@ Constructing processor meshes
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 0
-    Number of cells = 1121
+    Number of cells = 1110
     Number of faces shared with processor 1 = 88
     Number of processor patches = 1
     Number of processor faces = 88
-    Number of boundary faces = 2354
+    Number of boundary faces = 2332
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 1
-    Number of cells = 1120
+    Number of cells = 1110
     Number of faces shared with processor 0 = 88
     Number of faces shared with processor 2 = 88
     Number of processor patches = 2
     Number of processor faces = 176
-    Number of boundary faces = 2266
+    Number of boundary faces = 2246
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 2
-    Number of cells = 1120
+    Number of cells = 1109
     Number of faces shared with processor 1 = 88
     Number of faces shared with processor 3 = 88
     Number of processor patches = 2
     Number of processor faces = 176
-    Number of boundary faces = 2266
+    Number of boundary faces = 2244
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 3
-    Number of cells = 1120
+    Number of cells = 1109
     Number of faces shared with processor 2 = 88
     Number of faces shared with processor 4 = 89
     Number of processor patches = 2
     Number of processor faces = 177
-    Number of boundary faces = 2267
+    Number of boundary faces = 2243
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 4
-    Number of cells = 1120
+    Number of cells = 1109
     Number of faces shared with processor 3 = 89
     Number of faces shared with processor 5 = 88
     Number of processor patches = 2
     Number of processor faces = 177
-    Number of boundary faces = 2265
+    Number of boundary faces = 2243
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 5
-    Number of cells = 1120
+    Number of cells = 1109
     Number of faces shared with processor 4 = 88
     Number of faces shared with processor 6 = 88
     Number of processor patches = 2
     Number of processor faces = 176
-    Number of boundary faces = 2266
+    Number of boundary faces = 2244
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 6
-    Number of cells = 1120
+    Number of cells = 1109
     Number of faces shared with processor 5 = 88
     Number of faces shared with processor 7 = 89
     Number of processor patches = 2
     Number of processor faces = 177
-    Number of boundary faces = 2265
+    Number of boundary faces = 2243
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 7
-    Number of cells = 1120
+    Number of cells = 1109
     Number of faces shared with processor 6 = 89
     Number of processor patches = 1
     Number of processor faces = 89
-    Number of boundary faces = 2353
+    Number of boundary faces = 2331
 
 Number of processor faces = 618
-Max number of cells = 1121 (0.0781163% above average 1120.12)
+Max number of cells = 1110 (0.0676133% above average 1109.25)
 Max number of processor patches = 2 (14.2857% above average 1.75)
 Max number of faces between processors = 177 (14.5631% above average 154.5)
 

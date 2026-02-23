@@ -20,34 +20,34 @@ FoamFile
     atmosphere
     {
         type            patch;
-        nFaces          779;
-        startFace       134680;
+        nFaces          645;
+        startFace       111498;
     }
     inlet
     {
         type            patch;
         nFaces          87;
-        startFace       135459;
+        startFace       112143;
     }
     outlet
     {
         type            patch;
         nFaces          87;
-        startFace       135546;
+        startFace       112230;
     }
     bottom
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          779;
-        startFace       135633;
+        nFaces          645;
+        startFace       112317;
     }
     frontBack
     {
         type            empty;
         inGroups        1(empty);
-        nFaces          135546;
-        startFace       136412;
+        nFaces          112230;
+        startFace       112962;
     }
 )
 

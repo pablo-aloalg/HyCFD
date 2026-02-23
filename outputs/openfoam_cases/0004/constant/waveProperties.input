@@ -40,7 +40,7 @@ inletCoeffs
 
     // 频谱：JONSWAP
     spectrum            JONSWAP;
-    Hs                  5.97;
+    Hs                  5.98;
     Tp                  8.86;
     gamma               3.3;
 
