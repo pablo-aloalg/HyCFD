@@ -23,13 +23,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         100; //250
+endTime         10; //250
 
 deltaT          0.001;
 
 writeControl    adjustableRunTime;
 
-writeInterval   10; 
+writeInterval   0.5; 
 
 purgeWrite      0;
 
@@ -55,20 +55,7 @@ maxDeltaT       0.5;
 
 functions
 {
-  //  #includeIfPresent "../waveGaugesNProbes/surfaceElevationAnyName_controlDict";
-}
-
-functions
-{
-    readZeta
-    {
-        type            readFields;
-        libs            ("libfieldFunctionObjects.so");
-        fields          (zeta);
-
-        executeControl  timeStep;
-        executeInterval 1;
-    }
+  #includeIfPresent "../waveGaugesNProbes/surfaceElevationAnyName_controlDict";
 }
 
 // ************************************************************************* //

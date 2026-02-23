@@ -33,7 +33,7 @@ boundaryField
     }
     inlet
     {
-        type            waveSurfacePressure;
+        type            zeroGradient;
         value           uniform 0;
     }
     outlet

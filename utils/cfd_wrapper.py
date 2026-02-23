@@ -1,8 +1,10 @@
 import os
 import os.path as op
+import re
 import subprocess
 import copy
 from typing import List, Union
+import math
 
 import xarray as xr
 
@@ -11,6 +13,10 @@ from bluemath_tk.wrappers._base_wrappers import BaseModelWrapper
 class OpenFoamWrapper(BaseModelWrapper):
 
     default_parameters = {
+        "points_per_wavelenght": {
+            "type": int,
+            "value": None,
+            "description": "Bash script for preprocessing case files."},        
         "preprocess_script": {
             "type": str,
             "value": None,
@@ -50,7 +56,56 @@ class OpenFoamWrapper(BaseModelWrapper):
         self.set_logger_name(
             name=self.__class__.__name__, level="DEBUG" if debug else "INFO"
         )
+
+    available_launchers = {
+        "mpi": "inputs/scripts_openfoam/run_case.sh",
+    }
         
+    def rescale_mesh_ppw(self, ppw, wavelength, input_file, output_file):
+        with open(input_file, "r") as f:
+            text = f.read()
+        
+        dx_target = wavelength / ppw
+
+        vertices_block = re.search(r'vertices\s*\((.*?)\);', text, re.S).group(1)
+        vertex_lines = re.findall(r'\((.*?)\)', vertices_block)
+
+        vertices = []
+        for v in vertex_lines:
+            x, y, z = map(float, v.split())
+            vertices.append((x, y, z))
+
+        blocks_block = re.search(r'blocks\s*\((.*?)\);', text, re.S).group(1)
+        block_lines = re.findall(r'hex\s*\((.*?)\)\s*\((.*?)\)\s*simpleGrading\s*\((.*?)\)', blocks_block)
+
+        new_blocks = []
+
+        for verts, cells, grading in block_lines:
+            vert_ids = list(map(int, verts.split()))
+            nx_old, ny_old, nz_old = map(int, cells.split())
+
+            v0 = vertices[vert_ids[0]]
+            v1 = vertices[vert_ids[1]]
+
+            Lx = abs(v1[0] - v0[0])
+
+            nx_new = max(1, round(Lx / dx_target))
+
+            new_blocks.append((vert_ids, nx_new, ny_old, nz_old, grading))
+
+        new_blocks_text = "blocks\n(\n"
+
+        for verts, nx, ny, nz, grading in new_blocks:
+            vert_string = " ".join(map(str, verts))
+            new_blocks_text += f"    hex ({vert_string}) ({nx} {ny} {nz}) simpleGrading ({grading})\n"
+
+        new_blocks_text += ");"
+
+        text_new = re.sub(r'blocks\s*\(.*?\);', new_blocks_text, text, flags=re.S)
+        
+        with open(output_file, "w") as f:
+            f.write(text_new)
+
     def build_case(self, case_context: dict, case_dir: str) -> None:
         
         os.makedirs(os.path.join(case_dir,'0'), exist_ok=True)
@@ -59,6 +114,16 @@ class OpenFoamWrapper(BaseModelWrapper):
 
     def build_case_and_render_files(self, case_context: str, case_dir: str) -> None:
         super().build_case_and_render_files(case_context=case_context, case_dir=case_dir)
+
+        if case_context['points_per_wavelenght'] is not None:
+            ppw = case_context['points_per_wavelenght']
+
+            input_base_path  = '/Users/pabloalonsoalguacil/Documents/Proyectos/HyCFD/inputs/templates/openfoam/constant/polyMesh/blockMeshDict'
+            output_mesh_path = os.path.join(case_dir,'constant','polyMesh','blockMeshDict')
+
+            wavelength = 9.81 * ( (case_context['tp']) ** 2 ) / (2 * math.pi)
+
+            self.rescale_mesh_ppw(ppw=ppw, wavelength=wavelength, input_file=input_base_path, output_file=output_mesh_path)
 
         if case_context['preprocess_script'] is not None:
             script_path = case_context['preprocess_script']
