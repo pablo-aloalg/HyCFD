@@ -2,13 +2,13 @@ $Project name
 PROJECT 'Test' '0'
 $
 $Set water level
-SET LEVEL=1.8241567521161843
+SET LEVEL=1.82
 $
 $(1D-mode, flume) or (2D-mode, basin)
 MODE DYNanic ONED
 COORD CARTesian
 $Computational grid: geographic location, size, resolution and orientation
-CGRID 0 0 0 1199 0 2328 0
+CGRID 0 0 0 1199 0 1959 0
 $
 $Multi-layered mode
 VERT 5
@@ -22,7 +22,7 @@ $Initial values for flow variables
 INIT ZERO
 $
 $Hydraulic boundary conditions
-BOUNDCOND SIDE W CCW BTYPE WEAK CON REGULAR 2.63909290702518 9.917674852439067
+BOUNDCOND SIDE W CCW BTYPE WEAK CON REGULAR 4.32 11.76403944317239
 BOU SIDE E CCW BTYPE RADIATION 
 SPON E 10 
 $
@@ -51,6 +51,6 @@ TABLE 'NOGRID' HEAD 'run.tab' TSEC RUNUP OUTPUT 0 1 SEC
 $
 $Starts computation
 TEST  1,0
-COMPUTE 000000.000 0.01119205494548202 SEC 001300.000
+COMPUTE 000000.000 0.01309368454405642 SEC 011000.000
 STOP
 $
