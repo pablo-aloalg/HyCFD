@@ -30,7 +30,7 @@ boundaryField
     inlet
     {
         type            waveVelocity;
-        refValue        uniform (0 0 0);
+        refValue        uniform (-0 0 0);
         refGradient     uniform (0 0 0);
         valueFraction   uniform 1;
         value           uniform (0 0 0);

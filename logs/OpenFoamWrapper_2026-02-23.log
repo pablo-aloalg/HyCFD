@@ -67,3 +67,16 @@
 2026-02-23 05:09:30,161 - OpenFoamWrapper - INFO - 10 cases created in one_by_one mode and saved in outputs/openfoam_cases
 2026-02-23 05:09:30,161 - OpenFoamWrapper - INFO - SBATCH example file generated in outputs/openfoam_cases
 2026-02-23 05:09:30,166 - OpenFoamWrapper - INFO - Saving model to outputs/openfoam/openfoam_model.pkl
+2026-02-23 06:04:37,825 - OpenFoamWrapper - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-23 06:04:37,826 - OpenFoamWrapper - WARNING - Parameter hs is not in the default_parameters
+2026-02-23 06:04:37,827 - OpenFoamWrapper - WARNING - Parameter tp is not in the default_parameters
+2026-02-23 06:04:37,827 - OpenFoamWrapper - WARNING - Parameter swl is not in the default_parameters
+2026-02-23 06:04:37,828 - OpenFoamWrapper - WARNING - Parameter tpsoft is not in the default_parameters
+2026-02-23 06:04:37,828 - OpenFoamWrapper - WARNING - Parameter depth is not in the default_parameters
+2026-02-23 06:04:37,829 - OpenFoamWrapper - WARNING - Parameter lowfreqcutoff is not in the default_parameters
+2026-02-23 06:04:37,829 - OpenFoamWrapper - WARNING - Parameter uppfreqcutoff is not in the default_parameters
+2026-02-23 06:04:37,831 - OpenFoamWrapper - INFO - Templates name is 'all', so all templates in inputs/templates/openfoam will be used.
+2026-02-23 06:04:37,832 - OpenFoamWrapper - INFO - Templates names: ['0/R', '0/U', '0/U.org', '0/alpha.water', '0/alpha1.org', '0/k', '0/nut', '0/omega', '0/p', '0/p_rgh', '0/pd.org', '0/zeta.org', 'constant/dynamicMeshDict', 'constant/environmentalProperties', 'constant/g', 'constant/polyMesh/blockMeshDict', 'constant/polyMesh/boundary', 'constant/polyMesh/faces', 'constant/polyMesh/neighbour', 'constant/polyMesh/owner', 'constant/polyMesh/points', 'constant/postProcessingProperties', 'constant/probeDefinitions', 'constant/transportProperties', 'constant/turbulenceProperties', 'constant/waveProperties', 'constant/waveProperties.input', 'system/controlDict', 'system/controlDict.org', 'system/decomposeParDict', 'system/fvSchemes', 'system/fvSolution', 'system/sampleDict', 'system/sets', 'system/surfaceElevationDict']
+2026-02-23 06:05:01,663 - OpenFoamWrapper - INFO - 10 cases created in one_by_one mode and saved in outputs/openfoam_cases
+2026-02-23 06:05:01,664 - OpenFoamWrapper - INFO - SBATCH example file generated in outputs/openfoam_cases
+2026-02-23 06:05:01,669 - OpenFoamWrapper - INFO - Saving model to outputs/openfoam/openfoam_model.pkl

@@ -33,15 +33,15 @@ inletCoeffs
     depth               14.83;
 
     // 起波平滑（建议 >= 2~3 Tp）
-    Tsoft               12.8;
+    Tsoft               15.18;
 
     // 传播方向（+x）
     direction           (1 0 0);
 
     // 频谱：JONSWAP
     spectrum            JONSWAP;
-    Hs                  2.98;
-    Tp                  6.4;
+    Hs                  4.19;
+    Tp                  7.59;
     gamma               3.3;
 
     // 相位：随机相位 + 种子（保证可复现）
@@ -52,8 +52,8 @@ inletCoeffs
     frequencyAxis
     {
         discretisation          cosineStretchedFrequencyAxis;
-        lowerFrequencyCutoff   0.05208333333333333;   // 1/(3*Tp)
-        upperFrequencyCutoff   0.46875;   // 3/Tp
+        lowerFrequencyCutoff   0.04391743522178305;   // 1/(3*Tp)
+        upperFrequencyCutoff   0.3952569169960474;   // 3/Tp
         writeSpectrum          true;
     }
 
@@ -81,5 +81,5 @@ initCoeffs
 {
     waveType            potentialCurrent;
     U                   ( 0 0 0 );
-    Tsoft               12.8;
+    Tsoft               15.18;
 }
