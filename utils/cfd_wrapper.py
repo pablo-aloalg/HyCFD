@@ -5,7 +5,11 @@ import subprocess
 import copy
 from typing import List, Union
 import math
+<<<<<<< HEAD
 import numpy as np
+=======
+
+>>>>>>> origin/main
 import xarray as xr
 
 from bluemath_tk.wrappers._base_wrappers import BaseModelWrapper
@@ -107,6 +111,7 @@ class OpenFoamWrapper(BaseModelWrapper):
         with open(output_file, "w") as f:
             f.write(text_new)
 
+<<<<<<< HEAD
     def rewrite_boundary_cond(self, case_context: str, case_dir: str, Ncells) -> None:
 
         boundary_file = case_context['boundary_file']
@@ -152,6 +157,8 @@ class OpenFoamWrapper(BaseModelWrapper):
             alpha_inlet_patch_vals=alpha_inlet_patch_vals,
         )
 
+=======
+>>>>>>> origin/main
     def build_case(self, case_context: dict, case_dir: str) -> None:
         os.makedirs(os.path.join(case_dir,'0'), exist_ok=True)
         os.makedirs(os.path.join(case_dir,'constant','polyMesh'), exist_ok=True)
@@ -187,8 +194,11 @@ class OpenFoamWrapper(BaseModelWrapper):
 
                 log_file.write(f"\nProcess exited with code {process.returncode}\n")
 
+<<<<<<< HEAD
             rewrite_boundary_cond(case_context=case_context, case_dir=case_dir, Ncells=)
 
+=======
+>>>>>>> origin/main
     def postprocess_case(
         self,
         case_num: int,
