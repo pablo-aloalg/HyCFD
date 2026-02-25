@@ -63,6 +63,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
     available_launchers = {
         "mpi": "bash /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/run_case.sh",
+        "mpi_continuerun": "bash /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/continue_run_case.sh", #TODO Test behavior
     }
         
     def rescale_mesh_ppw(self, ppw, wavelength, input_file, output_file):
