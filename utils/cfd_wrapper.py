@@ -148,7 +148,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
         alpha_inlet_patch_vals = case_context['alpha_inlet_patch_vals']
         
-        Ncells = get_n_cells(case_dir)
+        Ncells = self.get_n_cells(case_dir)
         Uvec = np.zeros((Ncells, 3))
         p_rgh_vec = np.zeros(Ncells)
         alphaCol = np.zeros(Ncells) 
@@ -176,7 +176,7 @@ class OpenFoamWrapper(BaseModelWrapper):
         )
 
         write_openfoam_field(
-            output_file=p_join(case_dir,"0","alpha.water"),
+            output_file=op.join(case_dir,"0","alpha.water"),
             class_name="volScalarField",
             dims=[0, 0, 0, 0, 0, 0, 0],
             internal_data=alphaCol,
@@ -204,6 +204,8 @@ class OpenFoamWrapper(BaseModelWrapper):
             wavelength = 9.81 * ( (case_context['tp']) ** 2 ) / (2 * math.pi)
 
             self.rescale_mesh_ppw(ppw=ppw, wavelength=wavelength, input_file=input_base_path, output_file=output_mesh_path)
+        
+        self.rewrite_boundary_cond(case_context=case_context, case_dir=case_dir)
 
         if case_context['preprocess_script'] is not None:
             script_path = case_context['preprocess_script']
@@ -220,9 +222,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
                 process.wait()
 
-                log_file.write(f"\nProcess exited with code {process.returncode}\n")
-
-            #rewrite_boundary_cond(case_context=case_context, case_dir=case_dir, Ncells=)
+                log_file.write(f"\nProcess exited with code {process.returncode}\n") 
 
     def postprocess_case(
         self,
