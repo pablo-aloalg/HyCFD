@@ -1,0 +1,213 @@
+2026-02-24 04:04:23,328 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:04:23,328 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 04:04:23,328 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 04:04:23,328 - PCA - INFO - Using PCA
+2026-02-24 04:04:23,329 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 04:04:23,329 - PCA - INFO - Generating stacked data matrix
+2026-02-24 04:04:23,329 - PCA - INFO - Generating data matrix with variables to stack: ['Hs'] and coordinates to stack: ['Xp']
+2026-02-24 04:04:23,331 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 04:04:23,332 - PCA - WARNING - Data contains NaNs.
+2026-02-24 04:04:23,333 - PCA - INFO - NaNs replaced with 0.0.
+2026-02-24 04:04:23,333 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 04:04:23,333 - PCA - INFO - Standarizing data matrix
+2026-02-24 04:04:23,335 - PCA - INFO - Data preprocessed successfully
+2026-02-24 04:04:23,336 - PCA - INFO - Fitting PCA model
+2026-02-24 04:04:24,160 - PCA - INFO - PCA model fitted successfully
+2026-02-24 04:04:24,162 - PCA - INFO - Saving model to outputs/hyswash/pca_model.pkl
+2026-02-24 04:04:24,184 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!
+2026-02-24 04:06:39,035 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:06:39,035 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 04:06:39,036 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 04:06:39,036 - PCA - INFO - Using PCA
+2026-02-24 04:06:39,037 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 04:06:39,037 - PCA - INFO - Generating stacked data matrix
+2026-02-24 04:06:39,037 - PCA - INFO - Generating data matrix with variables to stack: ['Msetup'] and coordinates to stack: ['Xp']
+2026-02-24 04:06:39,039 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 04:06:39,040 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 04:06:39,040 - PCA - INFO - Standarizing data matrix
+2026-02-24 04:06:39,041 - PCA - INFO - Data preprocessed successfully
+2026-02-24 04:06:39,042 - PCA - INFO - Fitting PCA model
+2026-02-24 04:06:41,744 - PCA - INFO - PCA model fitted successfully
+2026-02-24 04:06:41,747 - PCA - INFO - Saving model to outputs/hyswash/pca_model_Msetup.pkl
+2026-02-24 04:06:41,778 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!
+2026-02-24 04:13:23,718 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:13:23,718 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 04:13:23,718 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 04:13:23,718 - PCA - INFO - Using PCA
+2026-02-24 04:13:23,719 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 04:13:23,719 - PCA - INFO - Generating stacked data matrix
+2026-02-24 04:13:23,719 - PCA - INFO - Generating data matrix with variables to stack: ['Msetup'] and coordinates to stack: ['Xp']
+2026-02-24 04:13:23,721 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 04:13:23,722 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 04:13:23,723 - PCA - INFO - Standarizing data matrix
+2026-02-24 04:13:23,724 - PCA - INFO - Data preprocessed successfully
+2026-02-24 04:13:23,725 - PCA - INFO - Fitting PCA model
+2026-02-24 04:13:26,321 - PCA - INFO - PCA model fitted successfully
+2026-02-24 04:13:26,323 - PCA - INFO - Saving model to outputs/hyswash/pca_model_Msetup.pkl
+2026-02-24 04:13:26,324 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!
+2026-02-24 04:18:40,295 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:18:40,295 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 04:18:40,295 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 04:18:40,295 - PCA - INFO - Using PCA
+2026-02-24 04:18:40,296 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 04:18:40,296 - PCA - INFO - Generating stacked data matrix
+2026-02-24 04:18:40,296 - PCA - INFO - Generating data matrix with variables to stack: ['Msetup'] and coordinates to stack: ['Xp']
+2026-02-24 04:18:40,298 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 04:18:40,299 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 04:18:40,299 - PCA - INFO - Standarizing data matrix
+2026-02-24 04:18:40,301 - PCA - INFO - Data preprocessed successfully
+2026-02-24 04:18:40,302 - PCA - INFO - Fitting PCA model
+2026-02-24 04:18:42,833 - PCA - INFO - PCA model fitted successfully
+2026-02-24 04:18:42,860 - PCA - INFO - Saving model to outputs/hyswash/pca_model_Msetup.pkl
+2026-02-24 04:18:42,881 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!
+2026-02-24 04:21:10,092 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:21:10,092 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 04:21:10,092 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 04:21:10,093 - PCA - INFO - Using PCA
+2026-02-24 04:21:10,093 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 04:21:10,093 - PCA - INFO - Generating stacked data matrix
+2026-02-24 04:21:10,094 - PCA - INFO - Generating data matrix with variables to stack: ['Msetup'] and coordinates to stack: ['Xp']
+2026-02-24 04:21:10,096 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 04:21:10,097 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 04:21:10,097 - PCA - INFO - Standarizing data matrix
+2026-02-24 04:21:10,099 - PCA - INFO - Data preprocessed successfully
+2026-02-24 04:21:10,100 - PCA - INFO - Fitting PCA model
+2026-02-24 04:21:12,716 - PCA - INFO - PCA model fitted successfully
+2026-02-24 04:21:12,722 - PCA - INFO - Saving model to outputs/hyswash/pca_model_Msetup.pkl
+2026-02-24 04:21:12,768 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!
+2026-02-24 04:21:45,976 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:21:45,976 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 04:21:45,976 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 04:21:45,976 - PCA - INFO - Using PCA
+2026-02-24 04:21:45,977 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 04:21:45,977 - PCA - INFO - Generating stacked data matrix
+2026-02-24 04:21:45,977 - PCA - INFO - Generating data matrix with variables to stack: ['Msetup'] and coordinates to stack: ['Xp']
+2026-02-24 04:21:45,980 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 04:21:45,981 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 04:21:45,981 - PCA - INFO - Standarizing data matrix
+2026-02-24 04:21:45,983 - PCA - INFO - Data preprocessed successfully
+2026-02-24 04:21:45,984 - PCA - INFO - Fitting PCA model
+2026-02-24 04:21:48,489 - PCA - INFO - PCA model fitted successfully
+2026-02-24 04:21:48,492 - PCA - INFO - Saving model to outputs/hyswash/pca_model_Msetup.pkl
+2026-02-24 04:21:48,534 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!
+2026-02-24 04:22:43,831 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:22:43,832 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 04:22:43,832 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 04:22:43,832 - PCA - INFO - Using PCA
+2026-02-24 04:22:43,832 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 04:22:43,832 - PCA - INFO - Generating stacked data matrix
+2026-02-24 04:22:43,832 - PCA - INFO - Generating data matrix with variables to stack: ['Msetup'] and coordinates to stack: ['Xp']
+2026-02-24 04:22:43,834 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 04:22:43,836 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 04:22:43,836 - PCA - INFO - Standarizing data matrix
+2026-02-24 04:22:43,838 - PCA - INFO - Data preprocessed successfully
+2026-02-24 04:22:43,839 - PCA - INFO - Fitting PCA model
+2026-02-24 04:22:47,312 - PCA - INFO - PCA model fitted successfully
+2026-02-24 04:22:47,340 - PCA - INFO - Saving model to outputs/hyswash/pca_model_Msetup.pkl
+2026-02-24 04:22:47,373 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!
+2026-02-24 04:28:32,082 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:28:32,082 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 04:28:32,083 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 04:28:32,083 - PCA - INFO - Using PCA
+2026-02-24 04:28:32,083 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 04:28:32,083 - PCA - INFO - Generating stacked data matrix
+2026-02-24 04:28:32,083 - PCA - INFO - Generating data matrix with variables to stack: ['Hs'] and coordinates to stack: ['Xp']
+2026-02-24 04:28:32,085 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 04:28:32,086 - PCA - WARNING - Data contains NaNs.
+2026-02-24 04:28:32,087 - PCA - INFO - NaNs replaced with 0.0.
+2026-02-24 04:28:32,087 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 04:28:32,087 - PCA - INFO - Standarizing data matrix
+2026-02-24 04:28:32,089 - PCA - INFO - Data preprocessed successfully
+2026-02-24 04:28:32,090 - PCA - INFO - Fitting PCA model
+2026-02-24 04:28:34,631 - PCA - INFO - PCA model fitted successfully
+2026-02-24 04:28:34,638 - PCA - INFO - Saving model to outputs/hyswash/pca_model_Hs.pkl
+2026-02-24 04:28:34,691 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!
+2026-02-24 05:28:55,024 - PCA - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 05:28:55,024 - PCA - INFO - 
+        -------------------------------------------------------------------
+        | Initializing PCA reduction model with the following parameters:
+        |    - n_components: 0.98
+        |    - is_incremental: False
+        | For more information, please refer to the documentation.
+        -------------------------------------------------------------------
+        
+2026-02-24 05:28:55,024 - PCA - INFO - Explained variance ratio: 0.98
+2026-02-24 05:28:55,024 - PCA - INFO - Using PCA
+2026-02-24 05:28:55,024 - PCA - INFO - Adding windows in PCA dimension for rows
+2026-02-24 05:28:55,024 - PCA - INFO - Generating stacked data matrix
+2026-02-24 05:28:55,025 - PCA - INFO - Generating data matrix with variables to stack: ['Hs'] and coordinates to stack: ['Xp']
+2026-02-24 05:28:55,039 - PCA - WARNING - Using 1200 out of 1200 available variables 
+If this is originated by using few times, please check 'nan_threshold_to_drop' parameter in fit method
+2026-02-24 05:28:55,040 - PCA - WARNING - Data contains NaNs.
+2026-02-24 05:28:55,041 - PCA - INFO - NaNs replaced with 0.0.
+2026-02-24 05:28:55,041 - PCA - INFO - Data matrix generated successfully with shape: (93, 1200)
+2026-02-24 05:28:55,041 - PCA - INFO - Standarizing data matrix
+2026-02-24 05:28:55,042 - PCA - INFO - Data preprocessed successfully
+2026-02-24 05:28:55,043 - PCA - INFO - Fitting PCA model
+2026-02-24 05:28:57,686 - PCA - INFO - PCA model fitted successfully
+2026-02-24 05:28:57,688 - PCA - INFO - Saving model to outputs/hyswash/pca_model_Hs.pkl
+2026-02-24 05:28:57,725 - PCA - WARNING - Attribute pcs is an xarray Dataset / Dataarray and will be pickled!

@@ -1,0 +1,14 @@
+2026-02-24 03:23:40,251 - SwashModelWrapper - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 03:23:40,251 - SwashModelWrapper - INFO - Parameter Hs has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Significant wave height.'}
+2026-02-24 03:23:40,252 - SwashModelWrapper - INFO - Parameter Hs_L0 has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Wave height at deep water.'}
+2026-02-24 03:23:40,252 - SwashModelWrapper - INFO - Parameter WL has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Water level.'}
+2026-02-24 03:23:40,252 - SwashModelWrapper - INFO - Templates name is 'all', so all templates in inputs/templates/hyswash will be used.
+2026-02-24 03:23:40,252 - SwashModelWrapper - INFO - Templates names: ['INPUT', 'depth.bot']
+2026-02-24 03:23:40,252 - SwashModelWrapper - INFO - Saving model to outputs/hyswash/swash_model.pkl
+2026-02-24 03:27:02,674 - SwashModelWrapper - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 03:27:02,674 - SwashModelWrapper - INFO - Parameter Hs has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Significant wave height.'}
+2026-02-24 03:27:02,674 - SwashModelWrapper - INFO - Parameter Hs_L0 has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Wave height at deep water.'}
+2026-02-24 03:27:02,674 - SwashModelWrapper - INFO - Parameter WL has the correct type: {'type': <class 'float'>, 'value': None, 'description': 'Water level.'}
+2026-02-24 03:27:02,674 - SwashModelWrapper - INFO - Templates name is 'all', so all templates in inputs/templates/hyswash will be used.
+2026-02-24 03:27:02,675 - SwashModelWrapper - INFO - Templates names: ['INPUT', 'depth.bot']
+2026-02-24 03:27:02,675 - SwashModelWrapper - INFO - Saving model to outputs/hyswash/swash_model.pkl

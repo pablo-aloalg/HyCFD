@@ -11,4 +11,4 @@ checkMesh # 2. Optional: check mesh quality
 setWaveParameters # 3. Set wave parameters 
 setWaveField # 4. Initialize wave field in 0/ folder
 waveGaugesNProbes # 5. Set up wave gauges and probes 
-decomposePar # 6. Decompose per processor
+

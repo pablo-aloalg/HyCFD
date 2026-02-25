@@ -1,0 +1,354 @@
+2026-02-24 04:08:38,960 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:08:38,960 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 04:08:38,963 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 04:08:38,963 - RBF - INFO - Preprocessing subset data
+2026-02-24 04:08:38,964 - RBF - INFO - Normalizing subset data
+2026-02-24 04:08:38,965 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 04:08:38,965 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 04:08:38,965 - RBF - INFO - Preprocessing target data
+2026-02-24 04:08:38,965 - RBF - INFO - Normalizing target data
+2026-02-24 04:08:38,968 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 04:08:38,968 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 04:08:38,968 - RBF - INFO - Fitting RBF for variable PC1
+2026-02-24 04:08:41,919 - RBF - INFO - Optimal sigma: 0.16320390590136813 - Time: 2.95 seconds
+2026-02-24 04:08:41,921 - RBF - INFO - Fitting RBF for variable PC2
+2026-02-24 04:09:02,566 - RBF - INFO - Optimal sigma: 0.3549764927879975 - Time: 20.64 seconds
+2026-02-24 04:09:02,578 - RBF - INFO - Fitting RBF for variable PC3
+2026-02-24 04:09:11,149 - RBF - INFO - Optimal sigma: 0.14525796268898525 - Time: 8.56 seconds
+2026-02-24 04:09:11,151 - RBF - INFO - Fitting RBF for variable PC4
+2026-02-24 04:09:23,794 - RBF - INFO - Optimal sigma: 0.17213817771299553 - Time: 12.63 seconds
+2026-02-24 04:09:23,916 - RBF - INFO - Fitting RBF for variable PC5
+2026-02-24 04:09:29,342 - RBF - INFO - Optimal sigma: 0.023009441660801426 - Time: 5.43 seconds
+2026-02-24 04:09:29,343 - RBF - INFO - Fitting RBF for variable PC6
+2026-02-24 04:09:35,463 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:09:35,463 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 04:09:35,465 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 04:09:35,465 - RBF - INFO - Preprocessing subset data
+2026-02-24 04:09:35,465 - RBF - INFO - Normalizing subset data
+2026-02-24 04:09:35,466 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 04:09:35,466 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 04:09:35,466 - RBF - INFO - Preprocessing target data
+2026-02-24 04:09:35,466 - RBF - INFO - Normalizing target data
+2026-02-24 04:09:35,468 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 04:09:35,469 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 04:09:35,469 - RBF - INFO - Fitting RBF model using parallel execution and num_workers=24
+2026-02-24 04:09:35,469 - RBF - INFO - Using ThreadPoolExecutor for parallel execution
+2026-02-24 04:09:36,389 - RBF - INFO - Optimal sigma: 0.02443578614118424 - Time: 0.92 seconds
+2026-02-24 04:09:36,481 - RBF - INFO - Optimal sigma: 0.08202939449189875 - Time: 0.98 seconds
+2026-02-24 04:09:36,537 - RBF - INFO - Optimal sigma: 0.14525796268898525 - Time: 1.07 seconds
+2026-02-24 04:09:37,284 - RBF - INFO - Optimal sigma: 0.023009441660801426 - Time: 1.81 seconds
+2026-02-24 04:09:37,639 - RBF - INFO - Optimal sigma: 0.16320390590136813 - Time: 2.17 seconds
+2026-02-24 04:09:37,847 - RBF - INFO - Optimal sigma: 0.14469162203545105 - Time: 2.28 seconds
+2026-02-24 04:09:38,036 - RBF - INFO - Optimal sigma: 0.21960744830084952 - Time: 2.57 seconds
+2026-02-24 04:09:38,037 - RBF - INFO - Optimal sigma: 0.11668815824410043 - Time: 2.57 seconds
+2026-02-24 04:09:38,163 - RBF - INFO - Optimal sigma: 0.14997925938526468 - Time: 2.69 seconds
+2026-02-24 04:09:39,265 - RBF - INFO - Optimal sigma: 0.17213817771299553 - Time: 3.79 seconds
+2026-02-24 04:09:44,560 - RBF - INFO - Optimal sigma: 0.3549764927879975 - Time: 9.09 seconds
+2026-02-24 04:09:44,588 - RBF - INFO - Saving model to outputs/hyswash/rbf_model_Msetup.pkl
+2026-02-24 04:13:26,737 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:13:26,737 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 04:13:26,741 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 04:13:26,741 - RBF - INFO - Preprocessing subset data
+2026-02-24 04:13:26,741 - RBF - INFO - Normalizing subset data
+2026-02-24 04:13:26,743 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 04:13:26,743 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 04:13:26,743 - RBF - INFO - Preprocessing target data
+2026-02-24 04:13:26,743 - RBF - INFO - Normalizing target data
+2026-02-24 04:13:26,745 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 04:13:26,746 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 04:13:26,746 - RBF - INFO - Fitting RBF model using parallel execution and num_workers=24
+2026-02-24 04:13:26,746 - RBF - INFO - Using ThreadPoolExecutor for parallel execution
+2026-02-24 04:13:27,509 - RBF - INFO - Optimal sigma: 0.08202939449189875 - Time: 0.66 seconds
+2026-02-24 04:13:28,192 - RBF - INFO - Optimal sigma: 0.02443578614118424 - Time: 1.44 seconds
+2026-02-24 04:13:28,259 - RBF - INFO - Optimal sigma: 0.023009441660801426 - Time: 1.51 seconds
+2026-02-24 04:13:29,164 - RBF - INFO - Optimal sigma: 0.14525796268898525 - Time: 2.42 seconds
+2026-02-24 04:13:29,480 - RBF - INFO - Optimal sigma: 0.11668815824410043 - Time: 2.73 seconds
+2026-02-24 04:13:29,568 - RBF - INFO - Optimal sigma: 0.16320390590136813 - Time: 2.82 seconds
+2026-02-24 04:13:29,918 - RBF - INFO - Optimal sigma: 0.14469162203545105 - Time: 3.03 seconds
+2026-02-24 04:13:30,652 - RBF - INFO - Optimal sigma: 0.17213817771299553 - Time: 3.90 seconds
+2026-02-24 04:13:31,227 - RBF - INFO - Optimal sigma: 0.21960744830084952 - Time: 4.48 seconds
+2026-02-24 04:13:31,642 - RBF - INFO - Optimal sigma: 0.14997925938526468 - Time: 4.89 seconds
+2026-02-24 04:13:38,771 - RBF - INFO - Optimal sigma: 0.3549764927879975 - Time: 12.02 seconds
+2026-02-24 04:13:38,801 - RBF - INFO - Saving model to outputs/hyswash/rbf_model_Msetup.pkl
+2026-02-24 04:18:43,205 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:18:43,205 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 04:18:43,208 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 04:18:43,209 - RBF - INFO - Preprocessing subset data
+2026-02-24 04:18:43,209 - RBF - INFO - Normalizing subset data
+2026-02-24 04:18:43,210 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 04:18:43,210 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 04:18:43,210 - RBF - INFO - Preprocessing target data
+2026-02-24 04:18:43,210 - RBF - INFO - Normalizing target data
+2026-02-24 04:18:43,213 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 04:18:43,213 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 04:18:43,213 - RBF - INFO - Fitting RBF model using parallel execution and num_workers=24
+2026-02-24 04:18:43,213 - RBF - INFO - Using ThreadPoolExecutor for parallel execution
+2026-02-24 04:18:43,751 - RBF - INFO - Optimal sigma: 0.14525796268898525 - Time: 0.54 seconds
+2026-02-24 04:18:44,358 - RBF - INFO - Optimal sigma: 0.08202939449189875 - Time: 1.14 seconds
+2026-02-24 04:18:44,658 - RBF - INFO - Optimal sigma: 0.16320390590136813 - Time: 1.44 seconds
+2026-02-24 04:18:44,719 - RBF - INFO - Optimal sigma: 0.14469162203545105 - Time: 1.39 seconds
+2026-02-24 04:18:44,739 - RBF - INFO - Optimal sigma: 0.02443578614118424 - Time: 1.52 seconds
+2026-02-24 04:18:45,229 - RBF - INFO - Optimal sigma: 0.023009441660801426 - Time: 2.01 seconds
+2026-02-24 04:18:45,316 - RBF - INFO - Optimal sigma: 0.11668815824410043 - Time: 2.10 seconds
+2026-02-24 04:18:45,935 - RBF - INFO - Optimal sigma: 0.21960744830084952 - Time: 2.72 seconds
+2026-02-24 04:18:46,566 - RBF - INFO - Optimal sigma: 0.14997925938526468 - Time: 3.35 seconds
+2026-02-24 04:18:46,844 - RBF - INFO - Optimal sigma: 0.17213817771299553 - Time: 3.63 seconds
+2026-02-24 04:18:47,001 - RBF - INFO - Optimal sigma: 0.3549764927879975 - Time: 3.79 seconds
+2026-02-24 04:18:47,032 - RBF - INFO - Saving model to outputs/hyswash/rbf_model_Msetup.pkl
+2026-02-24 04:21:13,065 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:21:13,065 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 04:21:13,069 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 04:21:13,070 - RBF - INFO - Preprocessing subset data
+2026-02-24 04:21:13,070 - RBF - INFO - Normalizing subset data
+2026-02-24 04:21:13,071 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 04:21:13,071 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 04:21:13,071 - RBF - INFO - Preprocessing target data
+2026-02-24 04:21:13,071 - RBF - INFO - Normalizing target data
+2026-02-24 04:21:13,074 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 04:21:13,074 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 04:21:13,074 - RBF - INFO - Fitting RBF model using parallel execution and num_workers=24
+2026-02-24 04:21:13,074 - RBF - INFO - Using ThreadPoolExecutor for parallel execution
+2026-02-24 04:21:13,729 - RBF - INFO - Optimal sigma: 0.12822596401270078 - Time: 0.65 seconds
+2026-02-24 04:21:13,804 - RBF - INFO - Optimal sigma: 0.02458092610985619 - Time: 0.73 seconds
+2026-02-24 04:21:13,875 - RBF - INFO - Optimal sigma: 0.1279007165168612 - Time: 0.80 seconds
+2026-02-24 04:21:14,077 - RBF - INFO - Optimal sigma: 0.02460554972672466 - Time: 1.00 seconds
+2026-02-24 04:21:14,321 - RBF - INFO - Optimal sigma: 0.12912704059907307 - Time: 1.24 seconds
+2026-02-24 04:21:14,430 - RBF - INFO - Optimal sigma: 0.13432807684086837 - Time: 1.29 seconds
+2026-02-24 04:21:14,492 - RBF - INFO - Optimal sigma: 0.07164871887048153 - Time: 1.41 seconds
+2026-02-24 04:21:14,544 - RBF - INFO - Optimal sigma: 0.14088224846438918 - Time: 1.47 seconds
+2026-02-24 04:21:14,737 - RBF - INFO - Optimal sigma: 0.16864013324275334 - Time: 1.66 seconds
+2026-02-24 04:21:15,432 - RBF - INFO - Optimal sigma: 0.22142336177743155 - Time: 2.36 seconds
+2026-02-24 04:21:16,844 - RBF - INFO - Optimal sigma: 0.16243390780941294 - Time: 3.77 seconds
+2026-02-24 04:21:16,885 - RBF - INFO - Saving model to outputs/hyswash/rbf_model_Msetup.pkl
+2026-02-24 04:21:48,996 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:21:48,996 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 04:21:48,999 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 04:21:48,999 - RBF - INFO - Preprocessing subset data
+2026-02-24 04:21:48,999 - RBF - INFO - Normalizing subset data
+2026-02-24 04:21:49,000 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 04:21:49,000 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 04:21:49,001 - RBF - INFO - Preprocessing target data
+2026-02-24 04:21:49,001 - RBF - INFO - Normalizing target data
+2026-02-24 04:21:49,002 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 04:21:49,003 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 04:21:49,003 - RBF - INFO - Fitting RBF model using parallel execution and num_workers=24
+2026-02-24 04:21:49,003 - RBF - INFO - Using ThreadPoolExecutor for parallel execution
+2026-02-24 04:21:49,818 - RBF - INFO - Optimal sigma: 0.02460554972672466 - Time: 0.81 seconds
+2026-02-24 04:21:50,561 - RBF - INFO - Optimal sigma: 0.02458092610985619 - Time: 1.56 seconds
+2026-02-24 04:21:50,635 - RBF - INFO - Optimal sigma: 0.07164871887048153 - Time: 1.55 seconds
+2026-02-24 04:21:51,286 - RBF - INFO - Optimal sigma: 0.12912704059907307 - Time: 2.28 seconds
+2026-02-24 04:21:51,307 - RBF - INFO - Optimal sigma: 0.12822596401270078 - Time: 2.30 seconds
+2026-02-24 04:21:51,337 - RBF - INFO - Optimal sigma: 0.1279007165168612 - Time: 2.33 seconds
+2026-02-24 04:21:51,640 - RBF - INFO - Optimal sigma: 0.22142336177743155 - Time: 2.64 seconds
+2026-02-24 04:21:51,727 - RBF - INFO - Optimal sigma: 0.14088224846438918 - Time: 2.72 seconds
+2026-02-24 04:21:51,791 - RBF - INFO - Optimal sigma: 0.16243390780941294 - Time: 2.79 seconds
+2026-02-24 04:21:54,065 - RBF - INFO - Optimal sigma: 0.13432807684086837 - Time: 4.97 seconds
+2026-02-24 04:21:54,858 - RBF - INFO - Optimal sigma: 0.16864013324275334 - Time: 5.81 seconds
+2026-02-24 04:21:54,885 - RBF - INFO - Saving model to outputs/hyswash/rbf_model_Msetup.pkl
+2026-02-24 04:22:47,815 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:22:47,815 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 04:22:47,820 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 04:22:47,820 - RBF - INFO - Preprocessing subset data
+2026-02-24 04:22:47,820 - RBF - INFO - Normalizing subset data
+2026-02-24 04:22:47,821 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 04:22:47,822 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 04:22:47,822 - RBF - INFO - Preprocessing target data
+2026-02-24 04:22:47,822 - RBF - INFO - Normalizing target data
+2026-02-24 04:22:47,824 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 04:22:47,824 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 04:22:47,824 - RBF - INFO - Fitting RBF model using parallel execution and num_workers=24
+2026-02-24 04:22:47,824 - RBF - INFO - Using ThreadPoolExecutor for parallel execution
+2026-02-24 04:22:49,449 - RBF - INFO - Optimal sigma: 0.14088224846438918 - Time: 1.62 seconds
+2026-02-24 04:22:49,477 - RBF - INFO - Optimal sigma: 0.07164871887048153 - Time: 1.65 seconds
+2026-02-24 04:22:49,555 - RBF - INFO - Optimal sigma: 0.16243390780941294 - Time: 1.73 seconds
+2026-02-24 04:22:49,601 - RBF - INFO - Optimal sigma: 0.02458092610985619 - Time: 1.77 seconds
+2026-02-24 04:22:49,887 - RBF - INFO - Optimal sigma: 0.12822596401270078 - Time: 2.06 seconds
+2026-02-24 04:22:49,902 - RBF - INFO - Optimal sigma: 0.12912704059907307 - Time: 2.08 seconds
+2026-02-24 04:22:49,956 - RBF - INFO - Optimal sigma: 0.02460554972672466 - Time: 2.13 seconds
+2026-02-24 04:22:50,209 - RBF - INFO - Optimal sigma: 0.1279007165168612 - Time: 2.38 seconds
+2026-02-24 04:22:51,142 - RBF - INFO - Optimal sigma: 0.13432807684086837 - Time: 3.22 seconds
+2026-02-24 04:22:51,319 - RBF - INFO - Optimal sigma: 0.22142336177743155 - Time: 3.49 seconds
+2026-02-24 04:22:52,051 - RBF - INFO - Optimal sigma: 0.16864013324275334 - Time: 4.22 seconds
+2026-02-24 04:22:52,054 - RBF - INFO - Saving model to outputs/hyswash/rbf_model_Msetup.pkl
+2026-02-24 04:28:34,989 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 04:28:34,989 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 04:28:34,993 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 04:28:34,993 - RBF - INFO - Preprocessing subset data
+2026-02-24 04:28:34,993 - RBF - INFO - Normalizing subset data
+2026-02-24 04:28:34,995 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 04:28:34,995 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 04:28:34,995 - RBF - INFO - Preprocessing target data
+2026-02-24 04:28:34,995 - RBF - INFO - Normalizing target data
+2026-02-24 04:28:34,999 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 04:28:34,999 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 04:28:34,999 - RBF - INFO - Fitting RBF model using parallel execution and num_workers=24
+2026-02-24 04:28:35,000 - RBF - INFO - Using ThreadPoolExecutor for parallel execution
+2026-02-24 04:28:36,181 - RBF - INFO - Optimal sigma: 0.026333581043716362 - Time: 1.18 seconds
+2026-02-24 04:28:36,859 - RBF - INFO - Optimal sigma: 0.02541821686719851 - Time: 1.85 seconds
+2026-02-24 04:28:37,083 - RBF - INFO - Optimal sigma: 0.0350234189687166 - Time: 1.89 seconds
+2026-02-24 04:28:37,625 - RBF - INFO - Optimal sigma: 0.026207105983755072 - Time: 2.62 seconds
+2026-02-24 04:28:37,759 - RBF - INFO - Optimal sigma: 0.11583636127464231 - Time: 2.49 seconds
+2026-02-24 04:28:37,931 - RBF - INFO - Optimal sigma: 0.02449766138652519 - Time: 2.80 seconds
+2026-02-24 04:28:38,233 - RBF - INFO - Optimal sigma: 0.024874436005946226 - Time: 2.73 seconds
+2026-02-24 04:28:38,412 - RBF - INFO - Optimal sigma: 0.10927802091698431 - Time: 3.01 seconds
+2026-02-24 04:28:38,743 - RBF - INFO - Optimal sigma: 0.13357028690999392 - Time: 3.42 seconds
+2026-02-24 04:28:38,804 - RBF - INFO - Optimal sigma: 0.11852482416030571 - Time: 3.68 seconds
+2026-02-24 04:28:38,807 - RBF - INFO - Optimal sigma: 0.021439245102844326 - Time: 3.39 seconds
+2026-02-24 04:28:38,900 - RBF - INFO - Optimal sigma: 0.10417839539356233 - Time: 3.69 seconds
+2026-02-24 04:28:38,926 - RBF - INFO - Optimal sigma: 0.02458257302639682 - Time: 3.50 seconds
+2026-02-24 04:28:38,953 - RBF - INFO - Optimal sigma: 0.1338354363412157 - Time: 3.84 seconds
+2026-02-24 04:28:38,979 - RBF - INFO - Optimal sigma: 0.13694106419290253 - Time: 3.98 seconds
+2026-02-24 04:28:39,086 - RBF - INFO - Optimal sigma: 0.02529982236996848 - Time: 3.86 seconds
+2026-02-24 04:28:39,143 - RBF - INFO - Optimal sigma: 0.11722130695751617 - Time: 4.00 seconds
+2026-02-24 04:28:39,355 - RBF - INFO - Optimal sigma: 0.1257516410865824 - Time: 4.06 seconds
+2026-02-24 04:28:39,540 - RBF - INFO - Optimal sigma: 0.1599770480432795 - Time: 4.54 seconds
+2026-02-24 04:28:39,544 - RBF - INFO - Optimal sigma: 0.12210868926158494 - Time: 4.29 seconds
+2026-02-24 04:28:40,270 - RBF - INFO - Optimal sigma: 0.18362597678834075 - Time: 5.27 seconds
+2026-02-24 04:28:40,608 - RBF - INFO - Optimal sigma: 0.15141653371804598 - Time: 5.61 seconds
+2026-02-24 04:28:46,725 - RBF - INFO - Optimal sigma: 0.15243890934687432 - Time: 11.72 seconds
+2026-02-24 04:28:46,782 - RBF - INFO - Saving model to outputs/hyswash/rbf_model_Hs.pkl
+2026-02-24 05:28:57,747 - RBF - INFO - Setting self.num_workers to 1. Change it using self.set_num_processors_to_use method.
+2026-02-24 05:28:57,747 - RBF - INFO - 
+        ---------------------------------------------------------------------------------
+        | Initializing RBF interpolation model with the following parameters:
+        |    - sigma_min: 0.001
+        |    - sigma_max: 0.1
+        |    - sigma_diff: 0.0001
+        |    - sigma_opt: None
+        |    - kernel: gaussian
+        |    - smooth: 1e-05
+        | For more information, please refer to the documentation.
+        | Recommended lecture: https://link.springer.com/article/10.1023/A:1018975909870
+        ---------------------------------------------------------------------------------
+        
+2026-02-24 05:28:57,751 - RBF - INFO - Checking for NaNs in subset data
+2026-02-24 05:28:57,751 - RBF - INFO - Preprocessing subset data
+2026-02-24 05:28:57,751 - RBF - INFO - Normalizing subset data
+2026-02-24 05:28:57,752 - RBF - INFO - Subset data preprocessed successfully
+2026-02-24 05:28:57,752 - RBF - INFO - Checking for NaNs in target data
+2026-02-24 05:28:57,752 - RBF - INFO - Preprocessing target data
+2026-02-24 05:28:57,752 - RBF - INFO - Normalizing target data
+2026-02-24 05:28:57,757 - RBF - INFO - Target data preprocessed successfully
+2026-02-24 05:28:57,757 - RBF - INFO - Fitting RBF model to the data
+2026-02-24 05:28:57,761 - RBF - INFO - Fitting RBF model using parallel execution and num_workers=24
+2026-02-24 05:28:57,761 - RBF - INFO - Using ThreadPoolExecutor for parallel execution
+2026-02-24 05:28:59,048 - RBF - INFO - Optimal sigma: 0.026333581043716362 - Time: 1.29 seconds
+2026-02-24 05:28:59,420 - RBF - INFO - Optimal sigma: 0.02541821686719851 - Time: 1.58 seconds
+2026-02-24 05:28:59,973 - RBF - INFO - Optimal sigma: 0.026207105983755072 - Time: 2.21 seconds
+2026-02-24 05:29:00,128 - RBF - INFO - Optimal sigma: 0.02529982236996848 - Time: 2.14 seconds
+2026-02-24 05:29:00,487 - RBF - INFO - Optimal sigma: 0.10417839539356233 - Time: 2.54 seconds
+2026-02-24 05:29:00,753 - RBF - INFO - Optimal sigma: 0.0350234189687166 - Time: 2.83 seconds
+2026-02-24 05:29:00,802 - RBF - INFO - Optimal sigma: 0.024874436005946226 - Time: 2.67 seconds
+2026-02-24 05:29:00,868 - RBF - INFO - Optimal sigma: 0.02449766138652519 - Time: 2.97 seconds
+2026-02-24 05:29:00,998 - RBF - INFO - Optimal sigma: 0.13694106419290253 - Time: 3.24 seconds
+2026-02-24 05:29:01,152 - RBF - INFO - Optimal sigma: 0.02458257302639682 - Time: 3.03 seconds
+2026-02-24 05:29:01,224 - RBF - INFO - Optimal sigma: 0.11852482416030571 - Time: 3.34 seconds
+2026-02-24 05:29:01,301 - RBF - INFO - Optimal sigma: 0.10927802091698431 - Time: 3.23 seconds
+2026-02-24 05:29:01,326 - RBF - INFO - Optimal sigma: 0.021439245102844326 - Time: 3.22 seconds
+2026-02-24 05:29:01,426 - RBF - INFO - Optimal sigma: 0.11722130695751617 - Time: 3.52 seconds
+2026-02-24 05:29:01,487 - RBF - INFO - Optimal sigma: 0.1257516410865824 - Time: 3.45 seconds
+2026-02-24 05:29:01,492 - RBF - INFO - Optimal sigma: 0.1338354363412157 - Time: 3.62 seconds
+2026-02-24 05:29:01,544 - RBF - INFO - Optimal sigma: 0.13357028690999392 - Time: 3.48 seconds
+2026-02-24 05:29:01,929 - RBF - INFO - Optimal sigma: 0.12210868926158494 - Time: 3.91 seconds
+2026-02-24 05:29:01,946 - RBF - INFO - Optimal sigma: 0.11583636127464231 - Time: 3.92 seconds
+2026-02-24 05:29:02,382 - RBF - INFO - Optimal sigma: 0.15141653371804598 - Time: 4.62 seconds
+2026-02-24 05:29:02,540 - RBF - INFO - Optimal sigma: 0.18362597678834075 - Time: 4.78 seconds
+2026-02-24 05:29:02,675 - RBF - INFO - Optimal sigma: 0.1599770480432795 - Time: 4.91 seconds
+2026-02-24 05:29:02,876 - RBF - INFO - Optimal sigma: 0.15243890934687432 - Time: 5.11 seconds
+2026-02-24 05:29:02,919 - RBF - INFO - Saving model to outputs/hyswash/rbf_model_Hs.pkl

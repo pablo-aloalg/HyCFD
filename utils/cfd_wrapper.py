@@ -5,10 +5,11 @@ import subprocess
 import copy
 from typing import List, Union
 import math
-
+import numpy as np
 import xarray as xr
 
 from bluemath_tk.wrappers._base_wrappers import BaseModelWrapper
+from cfd_functions import read_boundary_patches, write_openfoam_field
 
 class OpenFoamWrapper(BaseModelWrapper):
 
@@ -106,8 +107,52 @@ class OpenFoamWrapper(BaseModelWrapper):
         with open(output_file, "w") as f:
             f.write(text_new)
 
+    def rewrite_boundary_cond(self, case_context: str, case_dir: str, Ncells) -> None:
+
+        boundary_file = case_context['boundary_file']
+        patches = read_boundary_patches(boundary_file)
+
+        alpha_inlet_patch_vals = case_context['alpha_inlet_patch_vals']
+
+        Uvec = np.zeros((Ncells, 3))
+        p_rgh_vec = np.zeros(Ncells)
+        alphaCol = np.zeros(Ncells) 
+
+        write_openfoam_field(
+            output_file=op.join(case_dir,"0","U"),
+            class_name="volVectorField",
+            dims=[0, 1, -1, 0, 0, 0, 0],
+            internal_data=Uvec,
+            patches=patches,
+            field_name="U",
+            location="0",
+            alpha_inlet_patch_vals=alpha_inlet_patch_vals,
+        )
+
+        write_openfoam_field(
+            output_file=op.join(case_dir,"0","p_rgh"),
+            class_name="volScalarField",
+            dims=[1, -1, -2, 0, 0, 0, 0],
+            internal_data=p_rgh_vec,
+            patches=patches,
+            field_name="p_rgh",
+            location="0",
+            alpha_inlet_patch_vals=alpha_inlet_patch_vals,
+        )
+
+        write_openfoam_field(
+            output_file=p_join(case_dir,"0","alpha.water"),
+            class_name="volScalarField",
+            dims=[0, 0, 0, 0, 0, 0, 0],
+            internal_data=alphaCol,
+            patches=patches,
+            field_name="alpha.water",
+            location="0",
+            force_nonuniform=True,
+            alpha_inlet_patch_vals=alpha_inlet_patch_vals,
+        )
+
     def build_case(self, case_context: dict, case_dir: str) -> None:
-        
         os.makedirs(os.path.join(case_dir,'0'), exist_ok=True)
         os.makedirs(os.path.join(case_dir,'constant','polyMesh'), exist_ok=True)
         os.makedirs(os.path.join(case_dir,'system'), exist_ok=True)
@@ -141,6 +186,8 @@ class OpenFoamWrapper(BaseModelWrapper):
                 process.wait()
 
                 log_file.write(f"\nProcess exited with code {process.returncode}\n")
+
+            rewrite_boundary_cond(case_context=case_context, case_dir=case_dir, Ncells=)
 
     def postprocess_case(
         self,
