@@ -205,6 +205,24 @@ class OpenFoamWrapper(BaseModelWrapper):
 
             self.rescale_mesh_ppw(ppw=ppw, wavelength=wavelength, input_file=input_base_path, output_file=output_mesh_path)
         
+
+        if case_context['createmesh_script'] is not None:
+            script_path = case_context['createmesh_script']
+            arg1 = case_dir
+            log_file_path = f"logs/cases_openfoam/{case_context['case_num']:04d}_createmesh.log"
+
+            with open(log_file_path, "w") as log_file:
+
+                process = subprocess.Popen(["bash", script_path, arg1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True) #### TODO write stdout and stderr into the log
+
+                for line in process.stdout:
+                    log_file.write(line)
+                    log_file.flush()
+
+                process.wait()
+
+                log_file.write(f"\nProcess exited with code {process.returncode}\n")
+
         self.rewrite_boundary_cond(case_context=case_context, case_dir=case_dir)
 
         if case_context['preprocess_script'] is not None:
