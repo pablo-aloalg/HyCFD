@@ -1,3 +1,4 @@
 outputs/openfoam_cases/*/processor*/
 outputs/openfoam_cases/*/constant/polyMesh/*
-outputs/hyswash_cases
+outputs/hyswash_casesoutputs/openfoam_cases/
+inputs/scripts_hyswash/slurm-*.out
