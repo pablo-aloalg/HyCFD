@@ -110,13 +110,45 @@ class OpenFoamWrapper(BaseModelWrapper):
         with open(output_file, "w") as f:
             f.write(text_new)
 
-    def rewrite_boundary_cond(self, case_context: str, case_dir: str, Ncells) -> None:
+    def get_n_cells(self, case_dir: str) -> int:
+        """
+        Return the number of cells in an OpenFOAM mesh.
+        
+        It reads the 'owner' file in constant/polyMesh and extracts nCells from the header.
+        
+        Parameters
+        ----------
+        case_dir : str
+            Path to the OpenFOAM case directory.
+        
+        Returns
+        -------
+        int
+            Number of cells in the mesh.
+        """
+        owner_file = os.path.join(case_dir, "constant", "polyMesh", "owner")
+        
+        if not os.path.isfile(owner_file):
+            raise FileNotFoundError(f"'owner' file not found at {owner_file}")
+        
+        with open(owner_file, "r") as f:
+            for line in f:
+                # Look for the line containing nCells in the header
+                if "note" in line and "nCells" in line:
+                    match = re.search(r"nCells\s*:\s*(\d+)", line)
+                    if match:
+                        return int(match.group(1))
+        
+        raise ValueError("Could not find nCells in the owner file header.")
+
+    def rewrite_boundary_cond(self, case_context: str, case_dir: str) -> None:
 
         boundary_file = case_context['boundary_file']
         patches = read_boundary_patches(boundary_file)
 
         alpha_inlet_patch_vals = case_context['alpha_inlet_patch_vals']
-
+        
+        Ncells = get_n_cells(case_dir)
         Uvec = np.zeros((Ncells, 3))
         p_rgh_vec = np.zeros(Ncells)
         alphaCol = np.zeros(Ncells) 
