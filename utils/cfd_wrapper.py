@@ -7,7 +7,8 @@ from typing import List, Union
 import math
 import numpy as np
 import xarray as xr
-
+import pandas as pd
+from collections import deque
 from bluemath_tk.wrappers._base_wrappers import BaseModelWrapper
 
 import sys
@@ -33,6 +34,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
     available_launchers = {
         "mpi": "bash inputs/scripts_openfoam/run_case.sh /case_dir",
+        "mpi_continuerun": "bash inputs/scripts_openfoam/continue_run_case.sh /case_dir",
     }
 
     def __init__(
@@ -66,6 +68,18 @@ class OpenFoamWrapper(BaseModelWrapper):
         "mpi_continuerun": "bash /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/continue_run_case.sh", #TODO Test behavior
     }
         
+    def check_last_lines(self, filename):
+        with open(filename, "r", encoding="utf-8", errors="ignore") as f:
+            last_lines = deque(f, maxlen=10)
+
+        # Normalize (strip whitespace/newlines)
+        normalized = [line.strip() for line in last_lines]
+
+        return (
+            "End" in normalized and
+            "Finalising parallel run" in normalized
+        )
+
     def rescale_mesh_ppw(self, ppw, wavelength, input_file, output_file):
         with open(input_file, "r") as f:
             text = f.read()
@@ -242,6 +256,26 @@ class OpenFoamWrapper(BaseModelWrapper):
                 process.wait()
 
                 log_file.write(f"\nProcess exited with code {process.returncode}\n") 
+
+    def monitor_cases(self, value_counts: str = None) -> Union[pd.DataFrame, dict]:
+        """
+        Monitor the cases based on different model log files.
+        """
+
+        cases_status = {}
+
+        for case_dir in self.cases_dirs:
+            case_dir_name = os.path.basename(case_dir)
+            if os.path.exists(os.path.join(case_dir, "waveFoam.log")):
+                cases_status[case_dir_name] = "Running"
+                if self.check_last_lines(os.path.join(case_dir, "waveFoam.log")):
+                    cases_status[case_dir_name] = "Completed"
+            else:
+                cases_status[case_dir_name] = "Not Started"
+
+        return super().monitor_cases(
+            cases_status=cases_status, value_counts=value_counts
+        )
 
     def postprocess_case(
         self,
