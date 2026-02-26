@@ -34,8 +34,8 @@ class OpenFoamWrapper(BaseModelWrapper):
         }
 
     available_launchers = {
-        "mpi": "bash inputs/scripts_openfoam/run_case.sh /case_dir",
-        "mpi_continuerun": "bash inputs/scripts_openfoam/continue_run_case.sh /case_dir",
+        "mpi": "bash /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/run_case.sh /case_dir",
+        "mpi_continuerun": "bash /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/continue_run_case.sh /case_dir",
     }
 
     postprocess_functions = {
@@ -294,6 +294,7 @@ class OpenFoamWrapper(BaseModelWrapper):
         case_num: int,
         case_dir: str,
         case_context: dict,
+        output_vars: List[str] = None,
         overwrite_output: bool = True,
         overwrite_output_postprocessed: bool = True,
         remove_tab: bool = False,
@@ -356,13 +357,15 @@ class OpenFoamWrapper(BaseModelWrapper):
 
                 output_df = readWaveGauge(case_dir=case_dir, func_name=func_name)
 
-                wave_params_df = get_waveparams_from_gauge(output_df)
+                wave_params_df = get_waveparams_from_gauge(output_df, reflevel=case_context['swl'])
 
                 output_postprocessed_file_path = op.join(
                     case_dir, f"{var}_postprocessed.csv"
                 )
-                
+
                 wave_params_df.to_csv(output_postprocessed_file_path)
+        
+        return wave_params_df.to_xarray().expand_dims(case_num=[case_context["case_num"]])
 
     def postprocess_cases(
         self,
@@ -463,3 +466,21 @@ class OpenFoamWrapper(BaseModelWrapper):
             return postprocessed_files
 
 
+    def join_postprocessed_files(
+        self, postprocessed_files: List[xr.Dataset]
+    ) -> xr.Dataset:
+        """
+        Join postprocessed files in a single Dataset.
+
+        Parameters
+        ----------
+        postprocessed_files : list
+            The postprocessed files.
+
+        Returns
+        -------
+        xr.Dataset
+            The joined Dataset.
+        """
+
+        return xr.concat(postprocessed_files, dim="case_num")
