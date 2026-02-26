@@ -13,7 +13,7 @@ from bluemath_tk.wrappers._base_wrappers import BaseModelWrapper
 
 import sys
 sys.path.append(os.path.dirname(__file__))
-from cfd_functions import read_boundary_patches, write_openfoam_field
+from utils.cfd_functions_pre import read_boundary_patches, write_openfoam_field
 
 class OpenFoamWrapper(BaseModelWrapper):
 

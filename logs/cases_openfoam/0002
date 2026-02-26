@@ -7,11 +7,11 @@
 \*---------------------------------------------------------------------------*/
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
-Exec   : setWaveParameters
-Date   : Feb 25 2026
-Time   : 08:14:59
+Exec   : reconstructPar -fields (U alpha.water p_rgh zeta)
+Date   : Feb 26 2026
+Time   : 03:53:02
 Host   : geoocean27
-PID    : 85151
+PID    : 315811
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
 nProcs : 1
@@ -26,19 +26,285 @@ Create time
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
+--> FOAM Warning : 
+    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
+    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
+    Unknown compression specifier 'uncompressed', assuming no compression
 
-Reading g
 
-Reading waveProperties
+Reconstructing fields for mesh region0
 
+// using new solver syntax:
+pcorr
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-06;
+    relTol          0.01;
+}
 
-Constructing: irregularProperties
+// using new solver syntax:
+pcorrFinal
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-06;
+    relTol          0.01;
+}
 
-Constructing: randomPhase
+// using new solver syntax:
+p_rgh
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-07;
+    relTol          0.001;
+}
 
-Constructing: JONSWAP
+// using new solver syntax:
+p_rghFinal
+{
+    solver          PCG;
+    preconditioner  DIC;
+    tolerance       1e-07;
+    relTol          0;
+}
 
-Constructing: potentialCurrentProperties
+// using new solver syntax:
+U
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+}
+
+// using new solver syntax:
+UFinal
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+}
+
+// using new solver syntax:
+gamma
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-07;
+    relTol          0;
+}
+
+// using new solver syntax:
+alpha.water
+{
+    solver          PBiCG;
+    preconditioner  DILU;
+    tolerance       1e-09;
+    relTol          0;
+    nAlphaCorr      1;
+    nAlphaSubCycles 1;
+    cAlpha          1;
+}
+
+Time = 6.5
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alpha.water
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 7
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alpha.water
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 7.5
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alpha.water
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 8
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alpha.water
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 8.5
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alpha.water
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 9
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alpha.water
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 9.5
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alpha.water
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
+Time = 10
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alpha.water
+        p_rgh
+
+    Reconstructing volVectorFields
+
+        U
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+No FA fields
+
 
 End
 
@@ -51,11 +317,11 @@ End
 \*---------------------------------------------------------------------------*/
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
-Exec   : setWaveField
-Date   : Feb 25 2026
-Time   : 08:14:59
+Exec   : foamToVTK
+Date   : Feb 26 2026
+Time   : 03:53:05
 Host   : geoocean27
-PID    : 85152
+PID    : 315824
 I/O    : uncollated
 Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
 nProcs : 1
@@ -70,6 +336,7 @@ Create time
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
+Initial memory 205604 kB
 Create mesh for time = 0
 
 // using new solver syntax:
@@ -147,248 +414,212 @@ alpha.water
     cAlpha          1;
 }
 
+VTK mesh topology: 0.51 s, 289628 kB
+Time: 0
+    volScalar    : alpha.water alpha1.org k nut omega p p_rgh pd.org
+    volVector    : U U.org zeta.org
+    volSymTensor : R
+    Internal  : "VTK/0002_0/internal.vtu"
+    Boundary  : "VTK/0002_0/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_0/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_0/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_0/boundary/bottom.vtp"
+Wrote in 0.72 s, 404220 kB
+Time: 0.5
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_237/internal.vtu"
+    Boundary  : "VTK/0002_237/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_237/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_237/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_237/boundary/bottom.vtp"
+Wrote in 1.05 s, 406256 kB
+Time: 1
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_552/internal.vtu"
+    Boundary  : "VTK/0002_552/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_552/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_552/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_552/boundary/bottom.vtp"
+Wrote in 1.04 s, 406256 kB
+Time: 1.5
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_1022/internal.vtu"
+    Boundary  : "VTK/0002_1022/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_1022/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_1022/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_1022/boundary/bottom.vtp"
+Wrote in 1.05 s, 406256 kB
+Time: 2
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_1739/internal.vtu"
+    Boundary  : "VTK/0002_1739/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_1739/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_1739/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_1739/boundary/bottom.vtp"
+Wrote in 1.03 s, 406256 kB
+Time: 2.5
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_2315/internal.vtu"
+    Boundary  : "VTK/0002_2315/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_2315/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_2315/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_2315/boundary/bottom.vtp"
+Wrote in 1.04 s, 406256 kB
+Time: 3
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_2786/internal.vtu"
+    Boundary  : "VTK/0002_2786/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_2786/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_2786/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_2786/boundary/bottom.vtp"
+Wrote in 1.04 s, 406256 kB
+Time: 3.5
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_3231/internal.vtu"
+    Boundary  : "VTK/0002_3231/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_3231/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_3231/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_3231/boundary/bottom.vtp"
+Wrote in 1.04 s, 406256 kB
+Time: 4
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_3625/internal.vtu"
+    Boundary  : "VTK/0002_3625/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_3625/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_3625/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_3625/boundary/bottom.vtp"
+Wrote in 1.04 s, 406256 kB
+Time: 4.5
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_4194/internal.vtu"
+    Boundary  : "VTK/0002_4194/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_4194/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_4194/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_4194/boundary/bottom.vtp"
+Wrote in 1.04 s, 406256 kB
+Time: 5
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_4640/internal.vtu"
+    Boundary  : "VTK/0002_4640/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_4640/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_4640/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_4640/boundary/bottom.vtp"
+Wrote in 1.03 s, 406256 kB
+Time: 5.5
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_5072/internal.vtu"
+    Boundary  : "VTK/0002_5072/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_5072/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_5072/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_5072/boundary/bottom.vtp"
+Wrote in 1.05 s, 406256 kB
+Time: 6
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_5446/internal.vtu"
+    Boundary  : "VTK/0002_5446/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_5446/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_5446/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_5446/boundary/bottom.vtp"
+Wrote in 1.04 s, 406256 kB
+Time: 6.5
+    volScalar    : alpha.water k nut omega p p_rgh
+    volVector    : U
+    volSymTensor : R
+    Internal  : "VTK/0002_5818/internal.vtu"
+    Boundary  : "VTK/0002_5818/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_5818/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_5818/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_5818/boundary/bottom.vtp"
+Wrote in 1.05 s, 406260 kB
+Time: 7
+    volScalar    : alpha.water p_rgh
+    volVector    : U
+    Internal  : "VTK/0002_6407/internal.vtu"
+    Boundary  : "VTK/0002_6407/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_6407/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_6407/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_6407/boundary/bottom.vtp"
+Wrote in 0.44 s, 424068 kB
+Time: 7.5
+    volScalar    : alpha.water p_rgh
+    volVector    : U
+    Internal  : "VTK/0002_7081/internal.vtu"
+    Boundary  : "VTK/0002_7081/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_7081/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_7081/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_7081/boundary/bottom.vtp"
+Wrote in 0.45 s, 424068 kB
+Time: 8
+    volScalar    : alpha.water p_rgh
+    volVector    : U
+    Internal  : "VTK/0002_7427/internal.vtu"
+    Boundary  : "VTK/0002_7427/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_7427/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_7427/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_7427/boundary/bottom.vtp"
+Wrote in 0.44 s, 424068 kB
+Time: 8.5
+    volScalar    : alpha.water p_rgh
+    volVector    : U
+    Internal  : "VTK/0002_7866/internal.vtu"
+    Boundary  : "VTK/0002_7866/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_7866/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_7866/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_7866/boundary/bottom.vtp"
+Wrote in 0.46 s, 424072 kB
+Time: 9
+    volScalar    : alpha.water p_rgh
+    volVector    : U
+    Internal  : "VTK/0002_8223/internal.vtu"
+    Boundary  : "VTK/0002_8223/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_8223/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_8223/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_8223/boundary/bottom.vtp"
+Wrote in 0.44 s, 424072 kB
+Time: 9.5
+    volScalar    : alpha.water p_rgh
+    volVector    : U
+    Internal  : "VTK/0002_8695/internal.vtu"
+    Boundary  : "VTK/0002_8695/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_8695/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_8695/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_8695/boundary/bottom.vtp"
+Wrote in 0.45 s, 424072 kB
+Time: 10
+    volScalar    : alpha.water p_rgh
+    volVector    : U
+    Internal  : "VTK/0002_9107/internal.vtu"
+    Boundary  : "VTK/0002_9107/boundary/atmosphere.vtp"
+    Boundary  : "VTK/0002_9107/boundary/inlet.vtp"
+    Boundary  : "VTK/0002_9107/boundary/outlet.vtp"
+    Boundary  : "VTK/0002_9107/boundary/bottom.vtp"
+Wrote in 0.45 s, 424072 kB
 
-Reading g
-
-Reading waveProperties
-
-Reading waveProperties
-
-Reading field alpha
-
-Reading field U
-
-Reading field p
-
-Setting the wave field ...
-
-Global
-
-End
-
-/*---------------------------------------------------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1912                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
-Build  : _f3950763fe-20191219 OPENFOAM=1912
-Arch   : "LSB;label=32;scalar=64"
-Exec   : waveGaugesNProbes
-Date   : Feb 25 2026
-Time   : 08:15:00
-Host   : geoocean27
-PID    : 85153
-I/O    : uncollated
-Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
-nProcs : 1
-trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
-fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
-allowSystemOperations : Allowing user-supplied system call operations
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-Create time
-
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-
-End
-/*---------------------------------------------------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1912                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
-Build  : _f3950763fe-20191219 OPENFOAM=1912
-Arch   : "LSB;label=32;scalar=64"
-Exec   : decomposePar
-Date   : Feb 25 2026
-Time   : 08:15:00
-Host   : geoocean27
-PID    : 85154
-I/O    : uncollated
-Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0002
-nProcs : 1
-trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
-fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
-allowSystemOperations : Allowing user-supplied system call operations
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-Create time
-
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-
-Decomposing mesh region0
-
-Create mesh
-
-Calculating distribution of cells
-Selecting decompositionMethod simple [8]
-
-Finished decomposition in 0.04 s
-
-Calculating original mesh data
-
-Distributing cells to processors
-
-Distributing faces to processors
-
-Distributing points to processors
-
-Constructing processor meshes
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 0
-    Number of cells = 23469
-    Number of faces shared with processor 1 = 88
-    Number of processor patches = 1
-    Number of processor faces = 88
-    Number of boundary faces = 47564
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 1
-    Number of cells = 23469
-    Number of faces shared with processor 0 = 88
-    Number of faces shared with processor 2 = 88
-    Number of processor patches = 2
-    Number of processor faces = 176
-    Number of boundary faces = 47478
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 2
-    Number of cells = 23468
-    Number of faces shared with processor 1 = 88
-    Number of faces shared with processor 3 = 88
-    Number of processor patches = 2
-    Number of processor faces = 176
-    Number of boundary faces = 47476
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 3
-    Number of cells = 23468
-    Number of faces shared with processor 2 = 88
-    Number of faces shared with processor 4 = 88
-    Number of processor patches = 2
-    Number of processor faces = 176
-    Number of boundary faces = 47476
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 4
-    Number of cells = 23468
-    Number of faces shared with processor 3 = 88
-    Number of faces shared with processor 5 = 90
-    Number of processor patches = 2
-    Number of processor faces = 178
-    Number of boundary faces = 47474
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 5
-    Number of cells = 23468
-    Number of faces shared with processor 4 = 90
-    Number of faces shared with processor 6 = 88
-    Number of processor patches = 2
-    Number of processor faces = 178
-    Number of boundary faces = 47476
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 6
-    Number of cells = 23468
-    Number of faces shared with processor 5 = 88
-    Number of faces shared with processor 7 = 88
-    Number of processor patches = 2
-    Number of processor faces = 176
-    Number of boundary faces = 47476
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 7
-    Number of cells = 23468
-    Number of faces shared with processor 6 = 88
-    Number of processor patches = 1
-    Number of processor faces = 88
-    Number of boundary faces = 47562
-
-Number of processor faces = 618
-Max number of cells = 23469 (0.00319581% above average 23468.2)
-Max number of processor patches = 2 (14.2857% above average 1.75)
-Max number of faces between processors = 178 (15.2104% above average 154.5)
-
-Time = 0
-
-Processor 0: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 1: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 2: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 3: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 4: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 5: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 6: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 7: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-End
+End: 17.9 s, 490808 kB (peak)
 
 
 Process exited with code 0
