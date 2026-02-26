@@ -14,6 +14,7 @@ from bluemath_tk.wrappers._base_wrappers import BaseModelWrapper
 import sys
 sys.path.append(os.path.dirname(__file__))
 from utils.cfd_functions_pre import read_boundary_patches, write_openfoam_field
+from utils.cfd_functions_post import readWaveGauge, get_waveparams_from_gauge
 
 class OpenFoamWrapper(BaseModelWrapper):
 
@@ -35,6 +36,10 @@ class OpenFoamWrapper(BaseModelWrapper):
     available_launchers = {
         "mpi": "bash inputs/scripts_openfoam/run_case.sh /case_dir",
         "mpi_continuerun": "bash inputs/scripts_openfoam/continue_run_case.sh /case_dir",
+    }
+
+    postprocess_functions = {
+        "wave_gauges": "surfaceElevationAnyName",
     }
 
     def __init__(
@@ -63,22 +68,30 @@ class OpenFoamWrapper(BaseModelWrapper):
             name=self.__class__.__name__, level="DEBUG" if debug else "INFO"
         )
 
-    available_launchers = {
-        "mpi": "bash /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/run_case.sh",
-        "mpi_continuerun": "bash /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/inputs/scripts_openfoam/continue_run_case.sh", #TODO Test behavior
-    }
+    def list_available_postprocess_functions(self) -> List[str]:
+        """
+        List available postprocess functions.
+
+        Returns
+        -------
+        List[str]
+            The available postprocess functions.
+        """
+
+        return list(self.postprocess_functions.keys())
         
     def check_last_lines(self, filename):
         with open(filename, "r", encoding="utf-8", errors="ignore") as f:
             last_lines = deque(f, maxlen=10)
 
-        # Normalize (strip whitespace/newlines)
         normalized = [line.strip() for line in last_lines]
 
-        return (
-            "End" in normalized and
-            "Finalising parallel run" in normalized
-        )
+        if any("End" in line for line in normalized) and any("Finalising parallel run" in line for line in normalized):
+            return "Completed"
+        elif any("End of error message" in line for line in normalized):
+            return "Error"
+        else:
+            return "Running"
 
     def rescale_mesh_ppw(self, ppw, wavelength, input_file, output_file):
         with open(input_file, "r") as f:
@@ -267,9 +280,8 @@ class OpenFoamWrapper(BaseModelWrapper):
         for case_dir in self.cases_dirs:
             case_dir_name = os.path.basename(case_dir)
             if os.path.exists(os.path.join(case_dir, "waveFoam.log")):
-                cases_status[case_dir_name] = "Running"
-                if self.check_last_lines(os.path.join(case_dir, "waveFoam.log")):
-                    cases_status[case_dir_name] = "Completed"
+                status_case = self.check_last_lines(os.path.join(case_dir, "waveFoam.log"))
+                cases_status[case_dir_name] = status_case
             else:
                 cases_status[case_dir_name] = "Not Started"
 
@@ -333,6 +345,24 @@ class OpenFoamWrapper(BaseModelWrapper):
                 process.wait()
 
                 log_file.write(f"\nProcess exited with code {process.returncode}\n")
+
+        if output_vars is None:
+            self.logger.debug(f"[{case_num}]: Postprocessing all available variables.")
+            output_vars = list(self.postprocess_functions.keys())
+
+        for var in output_vars:
+            if var == "wave_gauges":
+                func_name = self.postprocess_functions[var]
+
+                output_df = readWaveGauge(case_dir=case_dir, func_name=func_name)
+
+                wave_params_df = get_waveparams_from_gauge(output_df)
+
+                output_postprocessed_file_path = op.join(
+                    case_dir, f"{var}_postprocessed.csv"
+                )
+                
+                wave_params_df.to_csv(output_postprocessed_file_path)
 
     def postprocess_cases(
         self,
