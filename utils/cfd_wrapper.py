@@ -362,9 +362,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
                 wave_params_df = get_waveparams_from_gauge(output_df, reflevel=case_context['swl'])
 
-                output_postprocessed_file_path = op.join(
-                    case_dir, f"{var}_postprocessed.csv"
-                )
+                output_postprocessed_file_path = op.join(case_dir, f"{var}_postprocessed.csv")
 
                 wave_params_df.to_csv(output_postprocessed_file_path)
 
@@ -376,9 +374,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
                 runup_df = pd.DataFrame({"time": t, "runup": ru})
 
-                output_postprocessed_file_path = op.join(
-                    case_dir, f"{var}_postprocessed.csv"
-                )
+                output_postprocessed_file_path = op.join(case_dir, f"{var}_postprocessed.csv")
 
                 runup_df.to_csv(output_postprocessed_file_path)
 
