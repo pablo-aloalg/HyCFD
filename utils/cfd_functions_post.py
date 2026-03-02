@@ -547,7 +547,7 @@ def get_free_surface(case_dir, deltaX=1.0, alpha_threshold=0.5):
     times = times[sort_idx]
     fs_data = fs_data[sort_idx, :]
 
-    fs_sr = xr.Dataset(
+    fs_xr = xr.Dataset(
         {
             "free_surface": (["time", "x"], fs_data)
         },
