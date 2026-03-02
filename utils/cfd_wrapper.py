@@ -14,7 +14,7 @@ from bluemath_tk.wrappers._base_wrappers import BaseModelWrapper
 import sys
 sys.path.append(os.path.dirname(__file__))
 from utils.cfd_functions_pre import read_boundary_patches, write_openfoam_field
-from utils.cfd_functions_post import readWaveGauge, get_waveparams_from_gauge, get_run_up_sim
+from utils.cfd_functions_post import readWaveGauge, get_waveparams_from_gauge, get_run_up_sim, get_free_surface
 
 class OpenFoamWrapper(BaseModelWrapper):
 
@@ -41,6 +41,7 @@ class OpenFoamWrapper(BaseModelWrapper):
     postprocess_functions = {
         "wave_gauges": "surfaceElevationAnyName",
         "runup":'runup2',
+        "free_surface": "get_free_surface",
     }
 
     def __init__(
@@ -389,7 +390,10 @@ class OpenFoamWrapper(BaseModelWrapper):
                 else:
                     # Create a new Dataset with ru2 only
                     output_xr = xr.Dataset({ru2_da.name: ru2_da})
-        
+
+            if var == "free_surface":
+
+
         return output_xr
 
     def postprocess_cases(

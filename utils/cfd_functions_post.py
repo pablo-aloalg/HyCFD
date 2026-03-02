@@ -3,6 +3,7 @@ import re
 
 import pandas as pd
 import numpy as np
+import xarray as xr
 
 from bluemath_tk.waves.spectra import spectral_analysis 
 
@@ -451,3 +452,109 @@ def get_run_up_sim(case_dir = '/nfs/home/geocean/alonsoap/projects/HyCFD/outputs
         ru2 = np.percentile(ru_stats, 98)
 
     return times, ru, ru2
+
+import numpy as np
+import xarray as xr
+import os
+
+def estimate_eta_column(y_col, alpha_col, alphaIso=0.5):
+    """
+    Estimate free surface along a single vertical column using linear interpolation.
+    """
+    # Remove NaNs
+    mask = np.isfinite(y_col) & np.isfinite(alpha_col)
+    y = y_col[mask]
+    a = alpha_col[mask]
+    if y.size < 2:
+        return np.nan
+
+    # Sort bottom -> top
+    sort_idx = np.argsort(y)
+    y = y[sort_idx]
+    a = a[sort_idx]
+
+    # Average alpha at duplicate y values (exact duplicates only)
+    unique_y, inverse_idx = np.unique(y, return_inverse=True)
+    alpha_avg = np.array([a[inverse_idx == i].mean() for i in range(len(unique_y))])
+
+    # Find crossings of alphaIso
+    s = alpha_avg - alphaIso
+    cross_idx = np.where(s[:-1] * s[1:] <= 0)[0]
+    if cross_idx.size == 0:
+        # Fallback
+        if np.mean(alpha_avg > alphaIso) > 0.8:
+            return np.max(unique_y)
+        else:
+            return np.nan
+
+    # Linear interpolation for each crossing
+    eta_all = []
+    for i in cross_idx:
+        y1, y2 = unique_y[i], unique_y[i+1]
+        a1, a2 = alpha_avg[i], alpha_avg[i+1]
+        if np.abs(a2 - a1) < 1e-14:
+            eta_all.append(0.5 * (y1 + y2))
+        else:
+            eta_all.append(y1 + (alphaIso - a1) * (y2 - y1) / (a2 - a1))
+
+    return np.max(eta_all)
+
+
+def get_free_surface(case_dir, deltaX=1.0, alpha_threshold=0.5):
+    """
+    Compute the free surface profile over time with sub-cell interpolation.
+    """
+    mesh_dir = os.path.join(case_dir, 'constant', 'polyMesh')
+    xC, yC, zC, nCells = get_cell_centers(mesh_dir)
+
+    time_dirs = list_time_dirs(case_dir)
+    times = []
+    fs_data = []
+
+    x_min, x_max = xC.min(), xC.max()
+    x_grid = np.arange(x_min, x_max + deltaX, deltaX)
+
+    for t_dir in time_dirs:
+        t_val = float(t_dir)
+        times.append(t_val)
+
+        alpha_file_path = os.path.join(case_dir, t_dir, 'alpha.water')
+        if not os.path.isfile(alpha_file_path):
+            fs_data.append(np.full_like(x_grid, np.nan))
+            continue
+
+        alpha = read_foam_internal_scalar(alpha_file_path, nCells)
+
+        # --- Compute eta per vertical column ---
+        fs_column = []
+        unique_x = np.unique(xC)
+        for xi in unique_x:
+            mask = xC == xi
+            eta = estimate_eta_column(yC[mask], alpha[mask], alphaIso=alpha_threshold)
+            fs_column.append(eta)
+
+        fs_column = np.array(fs_column)
+
+        # --- Interpolate to regular x_grid ---
+        fs_interp = np.interp(x_grid, unique_x, fs_column, left=np.nan, right=np.nan)
+        fs_data.append(fs_interp)
+
+    times = np.array(times)
+    fs_data = np.array(fs_data)  # shape: n_times x n_x
+
+    # --- Sort by time ---
+    sort_idx = np.argsort(times)
+    times = times[sort_idx]
+    fs_data = fs_data[sort_idx, :]
+
+    fs_sr = xr.Dataset(
+        {
+            "free_surface": (["time", "x"], fs_data)
+        },
+        coords={
+            "time": times,
+            "x": x_grid
+        }
+    )
+
+    return times, fs_xr
