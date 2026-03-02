@@ -8,15 +8,33 @@ from bluemath_tk.waves.spectra import spectral_analysis
 
 def readWaveGauge(case_dir, func_name, alphaIso=0.5):
    
-    post_output_dir = os.path.join(case_dir, 'postProcessing', func_name, '0')
+    post_output_dir = os.path.join(case_dir, 'postProcessing', func_name)
     
     if not os.path.exists(post_output_dir):
         raise FileNotFoundError(f"Post-processing output directory '{post_output_dir}' not found.")
 
     if func_name == 'surfaceElevationAnyName':
-        output_df = read_surfaceelevation_dat(post_output_dir)
 
-    return output_df
+        time_dirs = list_time_dirs(post_output_dir)
+
+        output_df_list = []
+        for t_dir in time_dirs:
+            t_dir_path = os.path.join(post_output_dir, t_dir)
+            if os.path.isdir(t_dir_path):
+                df = read_surfaceelevation_dat(t_dir_path)
+                df.index = df.index.round(2)
+                output_df_list.append(df)
+
+        final_df = output_df_list[0].copy()
+
+        for df in output_df_list[1:]:
+            restart_time = df.index.min()
+            final_df = final_df[final_df.index < restart_time]
+            final_df = pd.concat([final_df, df])
+
+        final_df = final_df.sort_index()
+
+    return final_df
 
 def read_surfaceelevation_dat(post_output_dir):
     
@@ -208,3 +226,228 @@ def read_foam_internal_scalar(file, nCells):
         )
 
     return nums.reshape(-1)
+
+def list_time_dirs(case_dir):
+    # List all entries in the directory
+    all_entries = os.listdir(case_dir)
+    
+    # Filter to only directories
+    dirs = [name for name in all_entries if os.path.isdir(os.path.join(case_dir, name))]
+    
+    # Remove unwanted directories
+    excluded = {'.', '..', 'constant', 'system', 'postProcessing'}
+    dirs = [name for name in dirs if name not in excluded]
+    
+    # Convert directory names to floats where possible
+    t = []
+    valid_dirs = []
+    for name in dirs:
+        try:
+            t_val = float(name)
+            t.append(t_val)
+            valid_dirs.append(name)
+        except ValueError:
+            continue
+    
+    # Sort directories by numeric value
+    t = np.array(t)
+    sorted_indices = np.argsort(t)
+    time_list = [valid_dirs[i] for i in sorted_indices]
+    
+    return time_list
+
+def get_patch_faces_and_owner_cells(mesh_dir, patch_name):
+    """
+    Get face IDs and corresponding owner cells for a given patch in an OpenFOAM mesh.
+    
+    Parameters:
+        mesh_dir (str): Path to the OpenFOAM mesh directory.
+        patch_name (str): Name of the patch.
+    
+    Returns:
+        face_ids (np.ndarray): 0-based face IDs for the patch.
+        owner_cells (np.ndarray): 0-based owner cell IDs for these faces.
+    """
+    bnd_file = os.path.join(mesh_dir, 'boundary')
+    if not os.path.isfile(bnd_file):
+        raise FileNotFoundError(f"Cannot find boundary file: {bnd_file}")
+    
+    with open(bnd_file, 'r') as f:
+        txt = f.read()
+    
+    # Match the patch block
+    blk_match = re.search(rf'{patch_name}\s*\{{([^}}]*)\}}', txt, re.DOTALL)
+    if not blk_match:
+        raise ValueError(f"Patch {patch_name} not found in boundary file")
+    
+    blk = blk_match.group(1)
+    
+    # Extract nFaces and startFace
+    n_faces_match = re.search(r'nFaces\s+(\d+)\s*;', blk)
+    start_face_match = re.search(r'startFace\s+(\d+)\s*;', blk)
+    if not n_faces_match or not start_face_match:
+        raise ValueError(f"Patch block missing nFaces or startFace for patch {patch_name}")
+    
+    n_faces = int(n_faces_match.group(1))
+    start_face = int(start_face_match.group(1))
+    
+    face_ids = np.arange(start_face, start_face + n_faces, dtype=int)  # 0-based face IDs
+    
+    # Read owner list and get corresponding owner cells
+    owner_file = os.path.join(mesh_dir, 'owner')
+    owner_list = read_foam_label_list(owner_file)
+    
+    if np.any(face_ids >= len(owner_list)):
+        raise IndexError("Face IDs exceed owner list length")
+    
+    owner_cells = owner_list[face_ids]
+    
+    return face_ids, owner_cells
+
+def get_cell_centers(mesh_dir):
+    """
+    Compute cell centers for an OpenFOAM polyMesh.
+    
+    Parameters
+    ----------
+    mesh_dir : str
+        Path to constant/polyMesh folder
+    
+    Returns
+    -------
+    xC, yC, zC : np.ndarray, shape (nCells,)
+        Cell center coordinates
+    nCells : int
+        Total number of cells
+    """
+    
+    P   = read_foam_points(os.path.join(mesh_dir, 'points'))      # nPoints x 3
+    F   = read_foam_faces_quad(os.path.join(mesh_dir, 'faces'))   # nFaces x 4
+    own = read_foam_label_list(os.path.join(mesh_dir, 'owner'))   # nFaces
+    nei = read_foam_label_list(os.path.join(mesh_dir, 'neighbour'))  # nInternalFaces
+    
+    nCells    = int(np.max(own)) + 1
+    nInternal = len(nei)
+    
+    x = P[:,0]; y = P[:,1]; z = P[:,2]
+    
+    # face vertex indices (0-based)
+    p1 = F[:,0]; p2 = F[:,1]; p3 = F[:,2]; p4 = F[:,3]
+    
+    # face bounding box
+    faceMinX = np.min(np.column_stack([x[p1], x[p2], x[p3], x[p4]]), axis=1)
+    faceMaxX = np.max(np.column_stack([x[p1], x[p2], x[p3], x[p4]]), axis=1)
+    faceMinY = np.min(np.column_stack([y[p1], y[p2], y[p3], y[p4]]), axis=1)
+    faceMaxY = np.max(np.column_stack([y[p1], y[p2], y[p3], y[p4]]), axis=1)
+    faceMinZ = np.min(np.column_stack([z[p1], z[p2], z[p3], z[p4]]), axis=1)
+    faceMaxZ = np.max(np.column_stack([z[p1], z[p2], z[p3], z[p4]]), axis=1)
+    
+    # internal faces only
+    faceMinX_int = faceMinX[:nInternal]
+    faceMaxX_int = faceMaxX[:nInternal]
+    faceMinY_int = faceMinY[:nInternal]
+    faceMaxY_int = faceMaxY[:nInternal]
+    faceMinZ_int = faceMinZ[:nInternal]
+    faceMaxZ_int = faceMaxZ[:nInternal]
+    
+    # accumarray-like min/max per cell
+    cellIdx_all = np.concatenate([own, nei])
+    
+    def accum_min(indices, values, n):
+        out = np.full(n, np.inf)
+        for i,v in zip(indices, values):
+            out[i] = min(out[i], v)
+        return out
+    
+    def accum_max(indices, values, n):
+        out = np.full(n, -np.inf)
+        for i,v in zip(indices, values):
+            out[i] = max(out[i], v)
+        return out
+    
+    minX = accum_min(cellIdx_all, np.concatenate([faceMinX, faceMinX_int]), nCells)
+    maxX = accum_max(cellIdx_all, np.concatenate([faceMaxX, faceMaxX_int]), nCells)
+    minY = accum_min(cellIdx_all, np.concatenate([faceMinY, faceMinY_int]), nCells)
+    maxY = accum_max(cellIdx_all, np.concatenate([faceMaxY, faceMaxY_int]), nCells)
+    minZ = accum_min(cellIdx_all, np.concatenate([faceMinZ, faceMinZ_int]), nCells)
+    maxZ = accum_max(cellIdx_all, np.concatenate([faceMaxZ, faceMaxZ_int]), nCells)
+    
+    # cell centers
+    xC = 0.5*(minX + maxX)
+    yC = 0.5*(minY + maxY)
+    zC = 0.5*(minZ + maxZ)
+    
+    return xC, yC, zC, nCells
+
+def select_patch_cells(mesh_dir, patch_name, zC, yC, y_min_phys=None, tol_z=1e-6):
+
+    # --- Middle z-plane (optional thin slice) ---
+    z_mid = np.median(zC)
+    keep2D = np.abs(zC - z_mid) < tol_z
+
+    # --- Get patch faces and owner cells ---
+    patch_face_ids, patch_owner_cells = get_patch_faces_and_owner_cells(mesh_dir, patch_name)
+
+    # Unique patch cells
+    patch_cells = np.unique(patch_owner_cells)  # already 0-based in Python
+
+    # Keep only middle z-layer
+    patch_cells = patch_cells[keep2D[patch_cells]]
+
+    # Restrict by minimum y if specified
+    if y_min_phys is not None and np.isfinite(y_min_phys):
+        patch_cells = patch_cells[yC[patch_cells] >= y_min_phys]
+
+    return patch_cells
+
+def get_run_up_sim(case_dir = '/nfs/home/geocean/alonsoap/projects/HyCFD/outputs/openfoam_cases_backup/0000', t_min_stats=0.0):
+
+    mesh_dir = os.path.join(case_dir, 'constant', 'polyMesh')
+    xC, yC, zC, nCells = get_cell_centers(mesh_dir)
+    bottom_cells = select_patch_cells(mesh_dir, patch_name='bottom', zC=zC, yC=yC, y_min_phys=None)
+
+    times = []
+    ru = []
+
+    time_dirs = list_time_dirs(case_dir)
+
+    for t_dir in time_dirs:
+        times.append(float(t_dir))
+
+        alpha_file_path = os.path.join(case_dir, t_dir, 'alpha.water')
+
+        if not os.path.isfile(alpha_file_path):
+            continue
+
+        # Read alpha.water file and compute run-up
+        alpha = read_foam_internal_scalar(alpha_file_path, nCells)
+        alpha_bottom = alpha[bottom_cells]
+
+        alpha_water = alpha_bottom >= 0.5
+        if np.any(alpha_water):
+            y_water = yC[bottom_cells][alpha_water]
+            ru.append(np.max(y_water))
+
+        else:
+            ru.append(np.nan)
+
+    times = np.array(times)
+    ru = np.array(ru)
+
+    sort_idx = np.argsort(times)
+    times = times[sort_idx]
+    ru = ru[sort_idx]
+
+    good = np.isfinite(times) & np.isfinite(ru)
+    times = times[good]
+    ru = ru[good]
+
+    use = times >= t_min_stats
+    ru_stats = ru[use]
+
+    if ru_stats.size == 0:
+        ru2 = np.nan
+    else:
+        ru2 = np.percentile(ru_stats, 98)
+
+    return times, ru, ru2

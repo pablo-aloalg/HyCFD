@@ -14,7 +14,7 @@ from bluemath_tk.wrappers._base_wrappers import BaseModelWrapper
 import sys
 sys.path.append(os.path.dirname(__file__))
 from utils.cfd_functions_pre import read_boundary_patches, write_openfoam_field
-from utils.cfd_functions_post import readWaveGauge, get_waveparams_from_gauge
+from utils.cfd_functions_post import readWaveGauge, get_waveparams_from_gauge, get_run_up_sim
 
 class OpenFoamWrapper(BaseModelWrapper):
 
@@ -40,6 +40,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
     postprocess_functions = {
         "wave_gauges": "surfaceElevationAnyName",
+        "runup":'runup2',
     }
 
     def __init__(
@@ -352,10 +353,12 @@ class OpenFoamWrapper(BaseModelWrapper):
             output_vars = list(self.postprocess_functions.keys())
 
         for var in output_vars:
+
             if var == "wave_gauges":
                 func_name = self.postprocess_functions[var]
 
                 output_df = readWaveGauge(case_dir=case_dir, func_name=func_name)
+                output_df.to_csv(op.join(case_dir, 'wavegauges.csv'))
 
                 wave_params_df = get_waveparams_from_gauge(output_df, reflevel=case_context['swl'])
 
@@ -364,8 +367,34 @@ class OpenFoamWrapper(BaseModelWrapper):
                 )
 
                 wave_params_df.to_csv(output_postprocessed_file_path)
+
+                output_xr = wave_params_df.to_xarray().expand_dims(case_num=[case_context["case_num"]])
+
+            if var == "runup":
+
+                t, ru, ru2 = get_run_up_sim(case_dir=case_dir)
+
+                runup_df = pd.DataFrame({"time": t, "runup": ru})
+
+                output_postprocessed_file_path = op.join(
+                    case_dir, f"{var}_postprocessed.csv"
+                )
+
+                runup_df.to_csv(output_postprocessed_file_path)
+
+                ru2_da = xr.DataArray(
+                    [ru2], dims=["case_num"], coords={"case_num": [case_context["case_num"]]},
+                    name="R2_percent"
+                )
+
+                if "output_xr" in locals() and output_xr is not None:
+                    # Merge ru2 into existing xarray Dataset
+                    output_xr = xr.merge([output_xr, ru2_da])
+                else:
+                    # Create a new Dataset with ru2 only
+                    output_xr = xr.Dataset({ru2_da.name: ru2_da})
         
-        return wave_params_df.to_xarray().expand_dims(case_num=[case_context["case_num"]])
+        return output_xr
 
     def postprocess_cases(
         self,
