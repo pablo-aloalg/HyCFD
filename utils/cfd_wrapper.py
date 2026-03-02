@@ -15,14 +15,26 @@ import sys
 sys.path.append(os.path.dirname(__file__))
 from utils.cfd_functions_pre import read_boundary_patches, write_openfoam_field
 from utils.cfd_functions_post import readWaveGauge, get_waveparams_from_gauge, get_run_up_sim, get_free_surface
-
+from utils.cfd_functions_formatter import get_n_cells, readWaveGauge
 class OpenFoamWrapper(BaseModelWrapper):
 
     default_parameters = {
+        "warmup_time": {
+            "type": 300,
+            "value": None,
+            "description": "Warmup time in seconds (removed from postprocessed stats)."}, 
+        "computational_time": {
+            "type": 3600,
+            "value": None,
+            "description": "Computational time in seconds (excluding warmup)."}, 
+        "total_run_time": {
+            "type": int,
+            "value": None,
+            "description": "Total run time in seconds (including warmup)."}, 
         "points_per_wavelenght": {
             "type": int,
             "value": None,
-            "description": "Bash script for preprocessing case files."},        
+            "description": "Points per wavelength for mesh resolution."},        
         "preprocess_script": {
             "type": str,
             "value": None,
@@ -30,7 +42,7 @@ class OpenFoamWrapper(BaseModelWrapper):
         "postprocess_script": {
             "type": str,
             "value": None,
-            "description": "Bash script for preprocessing case files."},        
+            "description": "Bash script for postprocessing case files."},        
         }
 
     available_launchers = {
@@ -40,7 +52,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
     postprocess_functions = {
         "wave_gauges": "surfaceElevationAnyName",
-        "runup":'runup2',
+        "runup":"runup2",
         "free_surface": "get_free_surface",
     }
 
@@ -70,30 +82,7 @@ class OpenFoamWrapper(BaseModelWrapper):
             name=self.__class__.__name__, level="DEBUG" if debug else "INFO"
         )
 
-    def list_available_postprocess_functions(self) -> List[str]:
-        """
-        List available postprocess functions.
-
-        Returns
-        -------
-        List[str]
-            The available postprocess functions.
-        """
-
-        return list(self.postprocess_functions.keys())
-        
-    def check_last_lines(self, filename):
-        with open(filename, "r", encoding="utf-8", errors="ignore") as f:
-            last_lines = deque(f, maxlen=10)
-
-        normalized = [line.strip() for line in last_lines]
-
-        if any("End" in line for line in normalized) and any("Finalising parallel run" in line for line in normalized):
-            return "Completed"
-        elif any("End of error message" in line for line in normalized):
-            return "Error"
-        else:
-            return "Running"
+#### A. Methods for preprocessing Cases
 
     def rescale_mesh_ppw(self, ppw, wavelength, input_file, output_file):
         with open(input_file, "r") as f:
@@ -140,37 +129,6 @@ class OpenFoamWrapper(BaseModelWrapper):
         with open(output_file, "w") as f:
             f.write(text_new)
 
-    def get_n_cells(self, case_dir: str) -> int:
-        """
-        Return the number of cells in an OpenFOAM mesh.
-        
-        It reads the 'owner' file in constant/polyMesh and extracts nCells from the header.
-        
-        Parameters
-        ----------
-        case_dir : str
-            Path to the OpenFOAM case directory.
-        
-        Returns
-        -------
-        int
-            Number of cells in the mesh.
-        """
-        owner_file = os.path.join(case_dir, "constant", "polyMesh", "owner")
-        
-        if not os.path.isfile(owner_file):
-            raise FileNotFoundError(f"'owner' file not found at {owner_file}")
-        
-        with open(owner_file, "r") as f:
-            for line in f:
-                # Look for the line containing nCells in the header
-                if "note" in line and "nCells" in line:
-                    match = re.search(r"nCells\s*:\s*(\d+)", line)
-                    if match:
-                        return int(match.group(1))
-        
-        raise ValueError("Could not find nCells in the owner file header.")
-
     def rewrite_boundary_cond(self, case_context: str, case_dir: str) -> None:
 
         boundary_file = case_context['boundary_file']
@@ -178,7 +136,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
         alpha_inlet_patch_vals = case_context['alpha_inlet_patch_vals']
         
-        Ncells = self.get_n_cells(case_dir)
+        Ncells = get_n_cells(case_dir)
         Uvec = np.zeros((Ncells, 3))
         p_rgh_vec = np.zeros(Ncells)
         alphaCol = np.zeros(Ncells) 
@@ -272,6 +230,21 @@ class OpenFoamWrapper(BaseModelWrapper):
 
                 log_file.write(f"\nProcess exited with code {process.returncode}\n") 
 
+#### B. Methods for running and monitoring cases
+
+    def check_last_lines(self, filename):
+        with open(filename, "r", encoding="utf-8", errors="ignore") as f:
+            last_lines = deque(f, maxlen=10)
+
+        normalized = [line.strip() for line in last_lines]
+
+        if any("End" in line for line in normalized) and any("Finalising parallel run" in line for line in normalized):
+            return "Completed"
+        elif any("End of error message" in line for line in normalized):
+            return "Error"
+        else:
+            return "Running"
+
     def monitor_cases(self, value_counts: str = None) -> Union[pd.DataFrame, dict]:
         """
         Monitor the cases based on different model log files.
@@ -291,6 +264,20 @@ class OpenFoamWrapper(BaseModelWrapper):
             cases_status=cases_status, value_counts=value_counts
         )
 
+#### C. Methods for postprocessing cases
+
+    def list_available_postprocess_functions(self) -> List[str]:
+        """
+        List available postprocess functions.
+
+        Returns
+        -------
+        List[str]
+            The available postprocess functions.
+        """
+
+        return list(self.postprocess_functions.keys())
+        
     def postprocess_case(
         self,
         case_num: int,
@@ -359,13 +346,11 @@ class OpenFoamWrapper(BaseModelWrapper):
                 func_name = self.postprocess_functions[var]
 
                 output_df = readWaveGauge(case_dir=case_dir, func_name=func_name)
-                output_df.to_csv(op.join(case_dir, 'wavegauges.csv'))
+                output_df.to_csv(op.join(case_dir, 'wave_gauges.csv'))
 
                 wave_params_df = get_waveparams_from_gauge(output_df, reflevel=case_context['swl'])
 
-                output_postprocessed_file_path = op.join(case_dir, f"{var}_postprocessed.csv")
-
-                wave_params_df.to_csv(output_postprocessed_file_path)
+                wave_params_df.to_csv(op.join(case_dir, f"{var}_postprocessed.csv"))
 
                 output_xr = wave_params_df.to_xarray().expand_dims(case_num=[case_context["case_num"]])
 
@@ -374,10 +359,7 @@ class OpenFoamWrapper(BaseModelWrapper):
                 t, ru, ru2 = get_run_up_sim(case_dir=case_dir)
 
                 runup_df = pd.DataFrame({"time": t, "runup": ru})
-
-                output_postprocessed_file_path = op.join(case_dir, f"{var}_postprocessed.csv")
-
-                runup_df.to_csv(output_postprocessed_file_path)
+                runup_df.to_csv(op.join(case_dir, f"{var}_postprocessed.csv"))
 
                 ru2_da = xr.DataArray(
                     [ru2], dims=["case_num"], coords={"case_num": [case_context["case_num"]]},
@@ -392,7 +374,8 @@ class OpenFoamWrapper(BaseModelWrapper):
                     output_xr = xr.Dataset({ru2_da.name: ru2_da})
 
             if var == "free_surface":
-
+                _, free_surface_ds = get_free_surface(case_dir=case_dir)
+                free_surface_ds.to_netcdf((op.join(case_dir, f"{var}_postprocessed.nc")))
 
         return output_xr
 
@@ -433,7 +416,7 @@ class OpenFoamWrapper(BaseModelWrapper):
             self.output_dir, "output_postprocessed.nc"
         )
 
-        '''self.logger.warning(
+        '''self.logger.warning(.    #### TODO This needs to be revised with an overwrite parameters (default False?) and checked with final configuration of postprocessing. 
         if op.exists(output_postprocessed_file_path):
                 "Output postprocessed file already exists. Skipping postprocessing."
             )
@@ -493,7 +476,6 @@ class OpenFoamWrapper(BaseModelWrapper):
         except NotImplementedError as exc:
             self.logger.error(f"Error joining postprocessed files: {exc}")
             return postprocessed_files
-
 
     def join_postprocessed_files(
         self, postprocessed_files: List[xr.Dataset]
