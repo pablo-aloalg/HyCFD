@@ -20,12 +20,12 @@ class OpenFoamWrapper(BaseModelWrapper):
 
     default_parameters = {
         "warmup_time": {
-            "type": 300,
-            "value": None,
+            "type": int,
+            "value": 50,
             "description": "Warmup time in seconds (removed from postprocessed stats)."}, 
         "computational_time": {
-            "type": 3600,
-            "value": None,
+            "type": int,
+            "value": 600,
             "description": "Computational time in seconds (excluding warmup)."}, 
         "total_run_time": {
             "type": int,
@@ -182,6 +182,9 @@ class OpenFoamWrapper(BaseModelWrapper):
 
     def build_case_and_render_files(self, case_context: str, case_dir: str) -> None:
         super().build_case_and_render_files(case_context=case_context, case_dir=case_dir)
+
+        if case_context['total_run_time'] is None:
+            case_context['total_run_time'] = case_context['warmup_time'] + case_context['computational_time']
 
         if case_context['points_per_wavelenght'] is not None:
             ppw = case_context['points_per_wavelenght']
@@ -348,7 +351,7 @@ class OpenFoamWrapper(BaseModelWrapper):
                 output_df = readWaveGauge(case_dir=case_dir, func_name=func_name)
                 output_df.to_csv(op.join(case_dir, 'wave_gauges.csv'))
 
-                wave_params_df = get_waveparams_from_gauge(output_df, reflevel=case_context['swl'])
+                wave_params_df = get_waveparams_from_gauge(output_df, reflevel=case_context['swl'], warmup_time=case_context['warmup_time'])
 
                 wave_params_df.to_csv(op.join(case_dir, f"{var}_postprocessed.csv"))
 
@@ -356,7 +359,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
             if var == "runup":
 
-                t, ru, ru2 = get_run_up_sim(case_dir=case_dir)
+                t, ru, ru2 = get_run_up_sim(case_dir=case_dir, warm_up_time=case_context['warmup_time'])
 
                 runup_df = pd.DataFrame({"time": t, "runup": ru})
                 runup_df.to_csv(op.join(case_dir, f"{var}_postprocessed.csv"))

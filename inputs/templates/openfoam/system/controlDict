@@ -23,7 +23,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         600; //250
+endTime         {{ total_run_time }};
 
 deltaT          0.001;
 

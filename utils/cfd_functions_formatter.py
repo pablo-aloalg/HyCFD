@@ -3,6 +3,8 @@ import re
 
 import numpy as np
 
+#### Read Mesh Files
+
 def get_n_cells(case_dir: str): 
     """
     Return the number of cells in an OpenFOAM mesh.
@@ -172,3 +174,51 @@ def read_foam_internal_scalar(file, nCells):
         )
 
     return nums.reshape(-1)
+
+#### Read Output Files
+
+def list_time_dirs(case_dir):
+    # List all entries in the directory
+    all_entries = os.listdir(case_dir)
+    
+    # Filter to only directories
+    dirs = [name for name in all_entries if os.path.isdir(os.path.join(case_dir, name))]
+    
+    # Remove unwanted directories
+    excluded = {'.', '..', 'constant', 'system', 'postProcessing'}
+    dirs = [name for name in dirs if name not in excluded]
+    
+    # Convert directory names to floats where possible
+    t = []
+    valid_dirs = []
+    for name in dirs:
+        try:
+            t_val = float(name)
+            t.append(t_val)
+            valid_dirs.append(name)
+        except ValueError:
+            continue
+    
+    # Sort directories by numeric value
+    t = np.array(t)
+    sorted_indices = np.argsort(t)
+    time_list = [valid_dirs[i] for i in sorted_indices]
+    
+    return time_list
+
+def read_surfaceelevation_dat(post_output_dir):
+    
+    if not os.path.exists(os.path.join(post_output_dir, 'surfaceElevation.dat')):
+        raise FileNotFoundError(f"Post-processing file surfaceElevation.dat not found in '{post_output_dir}'.")
+
+    data = pd.read_csv(os.path.join(post_output_dir, 'surfaceElevation.dat'), sep='\t', header=0)
+    
+    if data.shape[0] < 2 or data.shape[1] < 2:
+        raise ValueError("Invalid surface elevation data format.")
+
+    if not data.iloc[3:, 0].is_monotonic_increasing:
+        raise ValueError("Time values in surface elevation data are not monotonically increasing.")
+
+    data = data.iloc[3:].reset_index(drop=True)
+    data = data.set_index('Time')
+    return data

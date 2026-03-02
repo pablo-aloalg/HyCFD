@@ -9,14 +9,46 @@ from bluemath_tk.waves.spectra import spectral_analysis
 
 import sys
 sys.path.append(os.path.dirname(__file__))
-from utils.cfd_functions_formatter import read_foam_faces_quad, read_foam_points, read_foam_label_list, read_foam_internal_scalar, list_time_dirs
+from utils.cfd_functions_formatter import read_foam_faces_quad, read_foam_points, read_foam_label_list, read_foam_internal_scalar, list_time_dirs, read_surfaceelevation_dat
 
-def get_waveparams_from_gauge(df_gauges, reflevel=0.0):
+def readWaveGauge(case_dir, func_name, alphaIso=0.5):
+   
+    post_output_dir = os.path.join(case_dir, 'postProcessing', func_name)
+    
+    if not os.path.exists(post_output_dir):
+        raise FileNotFoundError(f"Post-processing output directory '{post_output_dir}' not found.")
+
+    if func_name == 'surfaceElevationAnyName':
+
+        time_dirs = list_time_dirs(post_output_dir)
+
+        output_df_list = []
+        for t_dir in time_dirs:
+            t_dir_path = os.path.join(post_output_dir, t_dir)
+            if os.path.isdir(t_dir_path):
+                df = read_surfaceelevation_dat(t_dir_path)
+                df.index = df.index.round(2)
+                output_df_list.append(df)
+
+        final_df = output_df_list[0].copy()
+
+        for df in output_df_list[1:]:
+            restart_time = df.index.min()
+            final_df = final_df[final_df.index < restart_time]
+            final_df = pd.concat([final_df, df])
+
+        final_df = final_df.sort_index()
+
+    return final_df
+
+def get_waveparams_from_gauge(df_gauges, reflevel=0.0, warmup_time=0.0):
     """
     Extract wave parameters from gauge data.
     """
     df_gauges = df_gauges - reflevel
     
+    # Remove warmup time data
+    df_gauges = df_gauges[df_gauges.index >= warmup_time]
     df_out = pd.DataFrame(index=df_gauges.columns)
 
     #Statistical Analysis [Hrms]
@@ -190,7 +222,7 @@ def select_patch_cells(mesh_dir, patch_name, zC, yC, y_min_phys=None, tol_z=1e-6
 
     return patch_cells
 
-def get_run_up_sim(case_dir = '/nfs/home/geocean/alonsoap/projects/HyCFD/outputs/openfoam_cases_backup/0000', t_min_stats=0.0):
+def get_run_up_sim(case_dir = '/nfs/home/geocean/alonsoap/projects/HyCFD/outputs/openfoam_cases_backup/0000', warm_up_time=0.0):
 
     mesh_dir = os.path.join(case_dir, 'constant', 'polyMesh')
     xC, yC, zC, nCells = get_cell_centers(mesh_dir)
@@ -232,7 +264,7 @@ def get_run_up_sim(case_dir = '/nfs/home/geocean/alonsoap/projects/HyCFD/outputs
     times = times[good]
     ru = ru[good]
 
-    use = times >= t_min_stats
+    use = times >= warm_up_time
     ru_stats = ru[use]
 
     if ru_stats.size == 0:
@@ -241,10 +273,6 @@ def get_run_up_sim(case_dir = '/nfs/home/geocean/alonsoap/projects/HyCFD/outputs
         ru2 = np.percentile(ru_stats, 98)
 
     return times, ru, ru2
-
-import numpy as np
-import xarray as xr
-import os
 
 def estimate_eta_column(y_col, alpha_col, alphaIso=0.5):
     """
