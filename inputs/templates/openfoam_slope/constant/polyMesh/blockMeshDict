@@ -1,0 +1,72 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+convertToMeters 1;
+
+vertices
+(
+    (0   -10 0) // v0
+    (515 -10 0) // v1
+    (515 10 0) // v2
+    (0   10 0) // v3
+
+    (0   -10 0.1) // v4
+    (515 -10 0.1) // v5
+    (515 10 0.1) // v6
+    (0   10 0.1) // v7
+);
+
+blocks
+(
+    // 2DV domain: X = 100 cells, Y = 50 cells (stretched), Z = 1 cell (thin)
+    hex (0 1 2 3 4 5 6 7) (100 50 1) simpleGrading (1 5 1)
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (1 2 6 5)
+        );
+    }
+
+    atmosphere
+    {
+        type patch;
+        faces
+        (
+            (3 7 6 2)
+        );
+    }
+
+    frontAndBack
+    {
+        type empty;
+        faces
+        (
+            (0 1 5 4)
+            (3 2 6 7)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);

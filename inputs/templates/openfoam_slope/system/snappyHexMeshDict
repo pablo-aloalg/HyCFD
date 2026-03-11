@@ -1,0 +1,115 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object snappyHexMeshDict;
+}
+
+castellatedMesh true;
+snap            true;
+addLayers       false;
+
+// -------------------------------------------------
+// Geometry (your STL)
+// -------------------------------------------------
+
+geometry
+{
+    bathymetry.stl
+    {
+        type triSurfaceMesh;
+        name bathymetry;
+    }
+
+    freeSurfaceBox
+    {
+        type searchableBox;
+        min (0 -4 0);
+        max (600 4 0.1);
+    }
+};
+
+// -------------------------------------------------
+// Castellated mesh controls
+// -------------------------------------------------
+
+castellatedMeshControls
+{
+
+    maxLocalCells 100000;
+    maxGlobalCells 2000000;
+
+    minRefinementCells 0;
+
+    nCellsBetweenLevels 2;
+
+    features
+    (
+    );
+
+    refinementSurfaces
+    {
+        bathymetry
+        {
+            level (2 3);
+
+            patchInfo
+            {
+                type wall;
+            }
+        }
+    }
+
+    resolveFeatureAngle 30;
+
+    refinementRegions
+    {
+    }
+
+    locationInMesh (100 0 0.05);
+
+    allowFreeStandingZoneFaces true;
+}
+
+// -------------------------------------------------
+// Snap controls
+// -------------------------------------------------
+
+snapControls
+{
+    nSmoothPatch 5;
+    tolerance 2.0;
+    nSolveIter 30;
+    nRelaxIter 5;
+}
+
+
+// -------------------------------------------------
+// Layer controls (disabled)
+// -------------------------------------------------
+
+addLayersControls
+{
+}
+
+
+// -------------------------------------------------
+// Mesh quality
+// -------------------------------------------------
+
+meshQualityControls
+{
+    maxNonOrtho 65;
+}
+
+// -------------------------------------------------
+
+
+
+writeFlags
+(
+    scalarLevels
+    layerSets
+    layerFields
+);
