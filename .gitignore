@@ -4,3 +4,5 @@ inputs/scripts_hyswash/slurm-*.out
 logs/*
 outputs/openfoam_cases_backup
 outputs/openfoam_cases_backup/*
+trash/*
+trash
