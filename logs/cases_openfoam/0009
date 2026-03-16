@@ -8,12 +8,12 @@
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveParameters
-Date   : Feb 26 2026
-Time   : 08:23:59
-Host   : geoocean27
-PID    : 415553
+Date   : Mar 12 2026
+Time   : 03:43:56
+Host   : geocean08.sci.unican.es
+PID    : 3535472
 I/O    : uncollated
-Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0009
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0009
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -52,12 +52,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveField
-Date   : Feb 26 2026
-Time   : 08:23:59
-Host   : geoocean27
-PID    : 415554
+Date   : Mar 12 2026
+Time   : 03:43:56
+Host   : geocean08.sci.unican.es
+PID    : 3535477
 I/O    : uncollated
-Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0009
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0009
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -176,12 +176,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : waveGaugesNProbes
-Date   : Feb 26 2026
-Time   : 08:23:59
-Host   : geoocean27
-PID    : 415558
+Date   : Mar 12 2026
+Time   : 03:43:57
+Host   : geocean08.sci.unican.es
+PID    : 3535480
 I/O    : uncollated
-Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0009
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0009
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -207,12 +207,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : decomposePar
-Date   : Feb 26 2026
-Time   : 08:23:59
-Host   : geoocean27
-PID    : 415562
+Date   : Mar 12 2026
+Time   : 03:43:57
+Host   : geocean08.sci.unican.es
+PID    : 3535485
 I/O    : uncollated
-Case   : /home/alonsoap_foam/OpenFOAM/alonsoap_foam-v1912/run/HyCFD/outputs/openfoam_cases/0009
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0009
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -251,97 +251,97 @@ Constructing processor meshes
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 0
-    Number of cells = 1371
+    Number of cells = 1643
     Number of faces shared with processor 1 = 88
     Number of processor patches = 1
     Number of processor faces = 88
-    Number of boundary faces = 2860
+    Number of boundary faces = 3410
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 1
-    Number of cells = 1371
+    Number of cells = 1642
     Number of faces shared with processor 0 = 88
     Number of faces shared with processor 2 = 88
     Number of processor patches = 2
     Number of processor faces = 176
-    Number of boundary faces = 2774
+    Number of boundary faces = 3322
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 2
-    Number of cells = 1370
+    Number of cells = 1642
     Number of faces shared with processor 1 = 88
     Number of faces shared with processor 3 = 88
     Number of processor patches = 2
     Number of processor faces = 176
-    Number of boundary faces = 2772
+    Number of boundary faces = 3322
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 3
-    Number of cells = 1370
+    Number of cells = 1642
     Number of faces shared with processor 2 = 88
     Number of faces shared with processor 4 = 89
     Number of processor patches = 2
     Number of processor faces = 177
-    Number of boundary faces = 2771
+    Number of boundary faces = 3323
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 4
-    Number of cells = 1370
+    Number of cells = 1642
     Number of faces shared with processor 3 = 89
     Number of faces shared with processor 5 = 90
     Number of processor patches = 2
     Number of processor faces = 179
-    Number of boundary faces = 2771
+    Number of boundary faces = 3321
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 5
-    Number of cells = 1370
+    Number of cells = 1642
     Number of faces shared with processor 4 = 90
     Number of faces shared with processor 6 = 88
     Number of processor patches = 2
     Number of processor faces = 178
-    Number of boundary faces = 2772
+    Number of boundary faces = 3322
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 6
-    Number of cells = 1370
+    Number of cells = 1642
     Number of faces shared with processor 5 = 88
     Number of faces shared with processor 7 = 89
     Number of processor patches = 2
     Number of processor faces = 177
-    Number of boundary faces = 2771
+    Number of boundary faces = 3321
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 7
-    Number of cells = 1370
+    Number of cells = 1642
     Number of faces shared with processor 6 = 89
     Number of processor patches = 1
     Number of processor faces = 89
-    Number of boundary faces = 2859
+    Number of boundary faces = 3409
 
 Number of processor faces = 620
-Max number of cells = 1371 (0.0547345% above average 1370.25)
+Max number of cells = 1643 (0.0532846% above average 1642.12)
 Max number of processor patches = 2 (14.2857% above average 1.75)
 Max number of faces between processors = 179 (15.4839% above average 155)
 

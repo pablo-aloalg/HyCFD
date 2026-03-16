@@ -6,7 +6,7 @@
 #SBATCH --partition=geocean
 
 formated_case=$(printf "%04d" $SLURM_ARRAY_TASK_ID)
-route="/nfs/home/geocean/alonsoap/projects/HyCFD/outputs/openfoam_cases/$formated_case"
+route="/lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/$formated_case"
 cd $route
 
 . /nfs/software/geocean/spack/share/spack/setup-env.sh

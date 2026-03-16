@@ -15,7 +15,8 @@ import sys
 sys.path.append(os.path.dirname(__file__))
 from utils.cfd_functions_pre import read_boundary_patches, write_openfoam_field
 from utils.cfd_functions_post import readWaveGauge, get_waveparams_from_gauge, get_run_up_sim, get_free_surface
-from utils.cfd_functions_formatter import get_n_cells, readWaveGauge
+from utils.cfd_functions_formatter import get_n_cells
+
 class OpenFoamWrapper(BaseModelWrapper):
 
     default_parameters = {

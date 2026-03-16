@@ -185,7 +185,7 @@ PIMPLE
     momentumPredictor yes;
     nOuterCorrectors 1; 
     nCorrectors     4;
-    nNonOrthogonalCorrectors 1;
+    nNonOrthogonalCorrectors 2;
     nAlphaCorr      1;
     nAlphaSubCycles 1;
     cAlpha          1;
