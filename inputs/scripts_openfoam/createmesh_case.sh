@@ -14,4 +14,5 @@ export LD_LIBRARY_PATH=$GSL_PREFIX/lib:$LD_LIBRARY_PATH
 cd "$CASE_DIR" 
 
 blockMesh # 1. Generate mesh
-checkMesh # 2. Optional: check mesh quality
+snappyHexMesh -overwrite # 2. Clip Bathymetry
+checkMesh # 3. Optional: check mesh quality

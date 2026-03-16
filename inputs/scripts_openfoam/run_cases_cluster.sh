@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=foam
-#SBATCH --ntasks=8
+#SBATCH --ntasks=32
 #SBATCH --mem=4GB
 #SBATCH --time=24:00:00
 #SBATCH --partition=geocean
@@ -18,4 +18,4 @@ export LD_LIBRARY_PATH=$GSL_PREFIX/lib:$LD_LIBRARY_PATH
 
 . /nfs/software/geocean/NEW/OpenFOAM-v1912/etc/bashrc
 
-mpirun -np 8 waveFoam -parallel > waveFoam.log 2>&1
+mpirun -np 32 waveFoam -parallel > waveFoam.log 2>&1

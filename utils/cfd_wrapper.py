@@ -85,7 +85,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
 #### A. Methods for preprocessing Cases
 
-    def rescale_mesh_ppw(self, ppw, wavelength, input_file, output_file):
+    '''def rescale_mesh_ppw(self, ppw, wavelength, input_file, output_file):
         with open(input_file, "r") as f:
             text = f.read()
         
@@ -174,7 +174,7 @@ class OpenFoamWrapper(BaseModelWrapper):
             location="0",
             force_nonuniform=True,
             alpha_inlet_patch_vals=alpha_inlet_patch_vals,
-        )
+        )'''
 
     def build_case(self, case_context: dict, case_dir: str) -> None:
         os.makedirs(os.path.join(case_dir,'0'), exist_ok=True)
@@ -195,10 +195,10 @@ class OpenFoamWrapper(BaseModelWrapper):
 
             wavelength = 9.81 * ( (case_context['tp']) ** 2 ) / (2 * math.pi)
 
-            self.rescale_mesh_ppw(ppw=ppw, wavelength=wavelength, input_file=input_base_path, output_file=output_mesh_path)
+            #self.rescale_mesh_ppw(ppw=ppw, wavelength=wavelength, input_file=input_base_path, output_file=output_mesh_path)
         
 
-        if case_context['createmesh_script'] is not None:
+        '''if case_context['createmesh_script'] is not None:
             script_path = case_context['createmesh_script']
             arg1 = case_dir
             log_file_path = f"logs/cases_openfoam/{case_context['case_num']:04d}_createmesh.log"
@@ -215,7 +215,7 @@ class OpenFoamWrapper(BaseModelWrapper):
 
                 log_file.write(f"\nProcess exited with code {process.returncode}\n")
 
-        self.rewrite_boundary_cond(case_context=case_context, case_dir=case_dir)
+        self.rewrite_boundary_cond(case_context=case_context, case_dir=case_dir)'''
 
         if case_context['preprocess_script'] is not None:
             script_path = case_context['preprocess_script']

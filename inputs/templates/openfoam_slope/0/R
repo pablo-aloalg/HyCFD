@@ -22,7 +22,7 @@ internalField   uniform     (8.00903e-7 -1.358e-7 0 8.00903e-7 0 8.00903e-7);
 boundaryField
 {
  
-    bottom
+    bathymetry
     {
 //	 type zeroGradient;  
 

@@ -13,6 +13,10 @@ export LD_LIBRARY_PATH=$GSL_PREFIX/lib:$LD_LIBRARY_PATH
 
 cd "$CASE_DIR" 
 
+blockMesh # 1. Generate mesh
+snappyHexMesh -overwrite # 2. Clip Bathymetry
+checkMesh # Optional: check mesh quality
+
 setWaveParameters # 3. Set wave parameters 
 setWaveField # 4. Initialize wave field in 0/ folder
 waveGaugesNProbes # 5. Set up wave gauges and probes 
