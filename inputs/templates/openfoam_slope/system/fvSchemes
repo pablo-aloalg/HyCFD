@@ -79,4 +79,9 @@ fluxRequired
     alpha.water;
 }
 
+wallDist // needed for k-omega
+{
+    method meshWave;
+}
+
 // ************************************************************************* //

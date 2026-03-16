@@ -16,7 +16,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 castellatedMesh true;
-snap true; 
+snap false;
 addLayers false;
 
 geometry
@@ -44,17 +44,17 @@ castellatedMeshControls
         }
     }
 
-    resolveFeatureAngle 35; 
+    resolveFeatureAngle 65;
     refinementRegions {};
     locationInMesh (100 0 0.05);
-    allowFreeStandingZoneFaces false; 
+    allowFreeStandingZoneFaces true;
 };
 
 snapControls
 {
-    nSmoothPatch 3; 
-    tolerance 4.0; 
-    nSolveIter 3; 
+    nSmoothPatch 10;
+    tolerance 2.0;
+    nSolveIter 30;
     nRelaxIter 5;
 };
 

@@ -9,4 +9,4 @@ reconstructPar
 rm -r processor*
 decomposePar
 
-mpirun -np 8 waveFoam -parallel > waveFoam.log 2>&1
+mpirun -np 32 waveFoam -parallel > waveFoam.log 2>&1

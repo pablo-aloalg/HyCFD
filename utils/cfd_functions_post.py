@@ -226,7 +226,7 @@ def get_run_up_sim(case_dir = '/nfs/home/geocean/alonsoap/projects/HyCFD/outputs
 
     mesh_dir = os.path.join(case_dir, 'constant', 'polyMesh')
     xC, yC, zC, nCells = get_cell_centers(mesh_dir)
-    bottom_cells = select_patch_cells(mesh_dir, patch_name='bottom', zC=zC, yC=yC, y_min_phys=None)
+    bottom_cells = select_patch_cells(mesh_dir, patch_name='bathymetry', zC=zC, yC=yC, y_min_phys=None)
 
     times = []
     ru = []
