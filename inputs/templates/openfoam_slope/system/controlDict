@@ -23,7 +23,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         100;
+endTime         {{ total_run_time }};
 
 deltaT          0.001;
 
@@ -52,8 +52,6 @@ maxCo           0.1;
 maxAlphaCo      0.1;
 
 maxDeltaT       0.5;
-
-minDeltaT       1e-6;
 
 functions
 {
