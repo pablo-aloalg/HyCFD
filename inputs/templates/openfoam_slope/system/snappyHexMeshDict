@@ -44,7 +44,7 @@ castellatedMeshControls
         }
     }
 
-    resolveFeatureAngle 35; 
+    resolveFeatureAngle 60; 
     refinementRegions {};
     locationInMesh (100 0 0.05);
     allowFreeStandingZoneFaces false; 
@@ -52,10 +52,10 @@ castellatedMeshControls
 
 snapControls
 {
-    nSmoothPatch 3; 
+    nSmoothPatch 2; 
     tolerance 4.0; 
-    nSolveIter 3; 
-    nRelaxIter 5;
+    nSolveIter 2; 
+    nRelaxIter 3;
 };
 
 addLayersControls

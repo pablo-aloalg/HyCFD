@@ -181,22 +181,24 @@ class OpenFoamWrapper(BaseModelWrapper):
         os.makedirs(os.path.join(case_dir,'constant','polyMesh'), exist_ok=True)
         os.makedirs(os.path.join(case_dir,'system'), exist_ok=True)
 
-    def build_case_and_render_files(self, case_context: str, case_dir: str) -> None:
-        super().build_case_and_render_files(case_context=case_context, case_dir=case_dir)
-
         if case_context['total_run_time'] is None:
             case_context['total_run_time'] = case_context['warmup_time'] + case_context['computational_time']
 
         if case_context['points_per_wavelenght'] is not None:
-            ppw = case_context['points_per_wavelenght']
-
-            input_base_path  = case_context['block_mesh_dict']
-            output_mesh_path = os.path.join(case_dir,'constant','polyMesh','blockMeshDict')
 
             wavelength = 9.81 * ( (case_context['tp']) ** 2 ) / (2 * math.pi)
-
-            #self.rescale_mesh_ppw(ppw=ppw, wavelength=wavelength, input_file=input_base_path, output_file=output_mesh_path)
+            ppw = case_context['points_per_wavelenght']
+            delta_x = wavelength / ppw
+            case_context['n_x_cells'] = math.ceil(case_context['domain_lenght'] / delta_x)
         
+        if case_context['points_per_waveheight'] is not None:
+
+            pph = case_context['points_per_waveheight']
+            delta_y = case_context['hs'] / pph
+            case_context['n_y_cells'] = math.ceil(case_context['domain_height'] / delta_y)
+
+    def build_case_and_render_files(self, case_context: str, case_dir: str) -> None:
+        super().build_case_and_render_files(case_context=case_context, case_dir=case_dir)           
 
         '''if case_context['createmesh_script'] is not None:
             script_path = case_context['createmesh_script']

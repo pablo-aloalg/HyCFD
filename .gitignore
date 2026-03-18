@@ -5,5 +5,7 @@ inputs/scripts_openfoam/slurm-*.out
 logs/*
 outputs/openfoam_cases_backup
 outputs/openfoam_cases_backup/*
+outputs/openfoam_nproc_test
+outputs/openfoam_nproc_test/*
 trash/*
 trash
