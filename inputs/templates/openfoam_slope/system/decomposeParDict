@@ -14,13 +14,13 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-numberOfSubdomains 32;
+numberOfSubdomains 12;
 
 method          simple;
 
 simpleCoeffs
 {
-    n               (32 1 1);
+    n               (12 1 1);
     delta           0.001;
 }
 

@@ -1,0 +1,71 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| waves2Foam waveProperties.input (irregular JONSWAP)                         |
+| flume: x 0~1200, y vertical, z thin (0~0.1)                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      waveProperties;
+}
+
+seaLevel             {{ swl }};
+seaLevelAsReference  true;
+
+relaxationNames     ( inlet );
+
+initializationName  init;
+
+inletCoeffs
+{
+    waveType            irregular;
+
+    N                   200;
+
+    depth               {{ depth }};
+
+    Tsoft               {{ tpsoft }};
+
+    direction           (1 0 0);
+
+    spectrum            JONSWAP;
+    Hs                  {{ hs }};
+    Tp                  {{ tp }};
+    gamma               3.3;
+
+    phaseMethod         randomPhase;
+    seedForRandomPhase  12345;
+
+    frequencyAxis
+    {
+        discretisation         cosineStretchedFrequencyAxis;
+        lowerFrequencyCutoff   {{ lowfreqcutoff }};   // 1/(3*Tp)
+        upperFrequencyCutoff   {{ uppfreqcutoff }};   // 3/Tp
+        writeSpectrum          true;
+    }
+
+    relaxationZone
+    {
+        relaxationScheme    Spatial;
+        relaxationShape     Rectangular;
+        beachType           Empty;
+        relaxType           INLET;
+
+
+        startX              (0    0   -1);
+        endX                (150  0    1);
+
+        orientation         (1 0 0);
+
+        fieldNames          (alpha.water U);
+    }
+}
+
+initCoeffs
+{
+    waveType            potentialCurrent;
+    U                   ( 0 0 0 );
+    Tsoft               10;
+}

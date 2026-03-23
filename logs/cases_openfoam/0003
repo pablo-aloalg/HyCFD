@@ -8,12 +8,12 @@
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : blockMesh
-Date   : Mar 17 2026
-Time   : 05:41:07
+Date   : Mar 19 2026
+Time   : 05:33:59
 Host   : geocean08.sci.unican.es
-PID    : 2477471
+PID    : 586798
 I/O    : uncollated
-Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0003
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/molokai_cases/0003
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -34,7 +34,7 @@ Create time
 
 Creating block mesh from "constant/polyMesh/blockMeshDict"
 --> FOAM IOWarning :
-    Found [v1012] 'convertToMeters' entry instead of 'scale' in dictionary "/lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0003/constant/polyMesh/blockMeshDict" 
+    Found [v1012] 'convertToMeters' entry instead of 'scale' in dictionary "/lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/molokai_cases/0003/constant/polyMesh/blockMeshDict" 
 
     This keyword is deemed to be 108 months old.
 
@@ -68,8 +68,8 @@ Creating patches
 Creating cells
 Creating points with scale 1
     Block 0 cell size :
-        i : 5.85106 .. 5.85106
-        j : 0.149254 .. 0.149254
+        i : 31.0233 .. 31.0233
+        j : 0.0941176 .. 0.0941176
         k : 0.1 .. 0.1
 
 
@@ -79,19 +79,19 @@ Writing polyMesh with 0 cellZones
 ----------------
 Mesh Information
 ----------------
-  boundingBox: (0 -10 0) (550 10 0.1)
-  nPoints: 25650
-  nCells: 12596
-  nFaces: 50612
-  nInternalFaces: 24964
+  boundingBox: (0 -25 0) (1334 7 0.1)
+  nPoints: 30008
+  nCells: 14620
+  nFaces: 58863
+  nInternalFaces: 28857
 ----------------
 Patches
 ----------------
-  patch 0 (start: 24964 size: 134) name: inlet
-  patch 1 (start: 25098 size: 134) name: outlet
-  patch 2 (start: 25232 size: 94) name: atmosphere
-  patch 3 (start: 25326 size: 25192) name: frontAndBack
-  patch 4 (start: 50518 size: 94) name: defaultFaces
+  patch 0 (start: 28857 size: 340) name: inlet
+  patch 1 (start: 29197 size: 340) name: outlet
+  patch 2 (start: 29537 size: 43) name: atmosphere
+  patch 3 (start: 29580 size: 29240) name: frontAndBack
+  patch 4 (start: 58820 size: 43) name: defaultFaces
 
 End
 
@@ -105,12 +105,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : snappyHexMesh -overwrite
-Date   : Mar 17 2026
-Time   : 05:41:08
+Date   : Mar 19 2026
+Time   : 05:33:59
 Host   : geocean08.sci.unican.es
-PID    : 2477533
+PID    : 586803
 I/O    : uncollated
-Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0003
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/molokai_cases/0003
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -200,11 +200,11 @@ alpha.water
     cAlpha          1;
 }
 
-Read mesh in = 0.06 s
+Read mesh in = 0.07 s
 
-Overall mesh bounding box  : (0 -10 0) (550 10 0.1)
+Overall mesh bounding box  : (0 -25 0) (1334 7 0.1)
 Relative tolerance         : 1e-06
-Absolute matching distance : 0.000550364
+Absolute matching distance : 0.00133438
 
 Reading refinement surfaces.
 Read refinement surfaces in = 0 s
@@ -213,7 +213,8 @@ Reading refinement shells.
 Read refinement shells in = 0 s
 
 Setting refinement level of surface to be consistent with shells.
-Checked shell refinement in = 0 s
+For geometry bathymetry.stl detected 0 uncached triangles out of 2668
+Checked shell refinement in = 0.03 s
 
 Reading features.
 Read features in = 0 s
@@ -223,18 +224,18 @@ Determining initial surface intersections
 -----------------------------------------
 
 Edge intersection testing:
-    Number of edges             : 50612
+    Number of edges             : 58863
     Number of edges to retest   : 0
     Number of intersected edges : 0
 Edge intersection testing:
-    Number of edges             : 50612
-    Number of edges to retest   : 50612
-    Number of intersected edges : 215
-Calculated surface intersections in = 0.05 s
+    Number of edges             : 58863
+    Number of edges to retest   : 58863
+    Number of intersected edges : 467
+Calculated surface intersections in = 0.19 s
 
-Initial mesh : cells:12596  faces:50612  points:25650
+Initial mesh : cells:14620  faces:58863  points:30008
 Cells per refinement level:
-    0	12596
+    0	14620
 
 Adding patches for surface regions
 ----------------------------------
@@ -245,25 +246,25 @@ bathymetry:
 
 5     wall                bathymetry                    
 
-Added patches in = 0 s
+Added patches in = 0.01 s
 
 Edge intersection testing:
-    Number of edges             : 50612
+    Number of edges             : 58863
     Number of edges to retest   : 0
-    Number of intersected edges : 215
+    Number of intersected edges : 467
 Selecting decompositionMethod none [1]
 
 Refinement phase
 ----------------
 
-Found point (100 0 0.05) in cell 6221 on processor 0
+Found point (100 0 0.05) in cell 11398 on processor 0
 
 Surface refinement iteration 0
 ------------------------------
 
 Marked for refinement due to surface intersection          : 0 cells.
 Determined cells to refine in = 0.01 s
-Selected for refinement : 0 cells (out of 12596)
+Selected for refinement : 0 cells (out of 14620)
 Stopping refining since too few cells selected.
 
 
@@ -276,30 +277,30 @@ Location : (100 0 0.05)
 
 For cellZone none found point (100 0 0.05) in global region 0 out of 2 regions.
 Keeping all cells containing inside points
-Selected for keeping : 12596 cells.
+Selected for keeping : 14620 cells.
 Edge intersection testing:
-    Number of edges             : 50612
+    Number of edges             : 58863
     Number of edges to retest   : 0
-    Number of intersected edges : 215
+    Number of intersected edges : 467
 Setting cellZones according to locationsInMesh:
 Location : (100 0 0.05)
     cellZone : none
 
 For cellZone none found point (100 0 0.05) in global region 0 out of 2 regions.
 Keeping all cells containing inside points
-Selected for keeping : 12596 cells.
+Selected for keeping : 14620 cells.
 Edge intersection testing:
-    Number of edges             : 50612
+    Number of edges             : 58863
     Number of edges to retest   : 0
-    Number of intersected edges : 215
+    Number of intersected edges : 467
 
 Shell refinement iteration 0
 ----------------------------
 
 Marked for refinement due to distance to explicit features : 0 cells.
 Marked for refinement due to refinement shells             : 0 cells.
-Determined cells to refine in = 0.06 s
-Selected for internal refinement : 0 cells (out of 12596)
+Determined cells to refine in = 0.08 s
+Selected for internal refinement : 0 cells (out of 14620)
 Stopping refining since too few cells selected.
 
 
@@ -307,7 +308,7 @@ Dangling coarse cells refinement iteration 0
 --------------------------------------------
 
 Determined cells to refine in = 0 s
-Selected for refinement : 0 cells (out of 12596)
+Selected for refinement : 0 cells (out of 14620)
 Stopping refining since too few cells selected.
 
 
@@ -315,22 +316,22 @@ Dangling coarse cells refinement iteration 0
 --------------------------------------------
 
 Determined cells to refine in = 0 s
-Selected for refinement : 0 cells (out of 12596)
+Selected for refinement : 0 cells (out of 14620)
 Stopping refining since too few cells selected.
 
 
 Refinement transition refinement iteration 0
 --------------------------------------------
 
-Determined cells to refine in = 0.01 s
-Selected for refinement : 0 cells (out of 12596)
+Determined cells to refine in = 0 s
+Selected for refinement : 0 cells (out of 14620)
 Stopping refining since too few cells selected.
 
 
 Splitting mesh at surface intersections
 ---------------------------------------
 
-Introducing baffles for 215 faces that are intersected by the surface.
+Introducing baffles for 467 faces that are intersected by the surface.
 
 Setting cellZones according to locationsInMesh:
 Location : (100 0 0.05)
@@ -338,56 +339,60 @@ Location : (100 0 0.05)
 
 For cellZone none found point (100 0 0.05) in global region 0 out of 2 regions.
 Edge intersection testing:
-    Number of edges             : 50792
-    Number of edges to retest   : 1491
-    Number of intersected edges : 395
-Created baffles in = 0.02 s
+    Number of edges             : 59311
+    Number of edges to retest   : 3893
+    Number of intersected edges : 915
+Created baffles in = 0.06 s
 
 
-After introducing baffles : cells:12596  faces:50792  points:25650
+After introducing baffles : cells:14620  faces:59311  points:30008
 Cells per refinement level:
-    0	12596
+    0	14620
 
 Introducing baffles to block off problem cells
 ----------------------------------------------
 
-markFacesOnProblemCells : marked 0 additional internal faces to be converted into baffles.
-Analyzed problem cells in = 0.02 s
+markFacesOnProblemCells : marked 90 additional internal faces to be converted into baffles.
+Analyzed problem cells in = 0.01 s
 
 
 Introducing baffles to delete problem cells.
 
-Created baffles in = 0 s
+Edge intersection testing:
+    Number of edges             : 59401
+    Number of edges to retest   : 693
+    Number of intersected edges : 915
+Created baffles in = 0.03 s
 
 
-After introducing baffles : cells:12596  faces:50792  points:25650
+After introducing baffles : cells:14620  faces:59401  points:30008
 Cells per refinement level:
-    0	12596
+    0	14620
 Setting cellZones according to locationsInMesh:
 Location : (100 0 0.05)
     cellZone : none
 
-For cellZone none found point (100 0 0.05) in global region 0 out of 2 regions.
+For cellZone none found point (100 0 0.05) in global region 0 out of 92 regions.
 Edge intersection testing:
-    Number of edges             : 50792
-    Number of edges to retest   : 1491
-    Number of intersected edges : 395
+    Number of edges             : 59401
+    Number of edges to retest   : 3976
+    Number of intersected edges : 915
 
 Remove unreachable sections of mesh
 -----------------------------------
 
 Keeping all cells containing points 1((100 0 0.05))
-Selected for keeping : 8990 cells.
+Selected for keeping : 7684 cells.
 Edge intersection testing:
-    Number of edges             : 36188
+    Number of edges             : 31125
     Number of edges to retest   : 0
-    Number of intersected edges : 215
-Split mesh in = 0.05 s
+    Number of intersected edges : 351
+Split mesh in = 0.09 s
 
 
-After subsetting : cells:8990  faces:36188  points:18438
+After subsetting : cells:7684  faces:31125  points:16138
 Cells per refinement level:
-    0	8990
+    0	7684
 
 Introducing zones for interfaces
 --------------------------------
@@ -400,14 +405,14 @@ For cellZone none found point (100 0 0.05) in global region 0 out of 1 regions.
 Setting faceZones according to neighbouring cellZones:
 
 Edge intersection testing:
-    Number of edges             : 36188
+    Number of edges             : 31125
     Number of edges to retest   : 0
-    Number of intersected edges : 215
+    Number of intersected edges : 351
 
 Handling cells with snap problems
 ---------------------------------
 
-Introducing baffles for 215 faces that are intersected by the surface.
+Introducing baffles for 351 faces that are intersected by the surface.
 
 Setting cellZones according to locationsInMesh:
 Location : (100 0 0.05)
@@ -415,15 +420,15 @@ Location : (100 0 0.05)
 
 For cellZone none found point (100 0 0.05) in global region 0 out of 1 regions.
 Edge intersection testing:
-    Number of edges             : 36188
-    Number of edges to retest   : 831
-    Number of intersected edges : 215
+    Number of edges             : 31125
+    Number of edges to retest   : 1698
+    Number of intersected edges : 351
 Created baffles in = 0.04 s
 
 
-After introducing baffles : cells:8990  faces:36188  points:18438
+After introducing baffles : cells:7684  faces:31125  points:16138
 Cells per refinement level:
-    0	8990
+    0	7684
 
 Introducing baffles to block off problem cells
 ----------------------------------------------
@@ -434,42 +439,72 @@ Analyzed problem cells in = 0.01 s
 
 Introducing baffles to delete problem cells.
 
-Created baffles in = 0.01 s
+Created baffles in = 0 s
 
 
-After introducing baffles : cells:8990  faces:36188  points:18438
+After introducing baffles : cells:7684  faces:31125  points:16138
 Cells per refinement level:
-    0	8990
+    0	7684
 Setting cellZones according to locationsInMesh:
 Location : (100 0 0.05)
     cellZone : none
 
 For cellZone none found point (100 0 0.05) in global region 0 out of 1 regions.
 Edge intersection testing:
-    Number of edges             : 36188
-    Number of edges to retest   : 831
-    Number of intersected edges : 215
+    Number of edges             : 31125
+    Number of edges to retest   : 1698
+    Number of intersected edges : 351
 
 Remove unreachable sections of mesh
 -----------------------------------
 
-Split mesh in = 0.02 s
+Split mesh in = 0.04 s
 
 
-After subsetting : cells:8990  faces:36188  points:18438
+After subsetting : cells:7684  faces:31125  points:16138
 Cells per refinement level:
-    0	8990
+    0	7684
 
 Merge free-standing baffles
 ---------------------------
 
-freeStandingBaffles : detected 0 free-standing baffles out of 0
+freeStandingBaffles : detected 3 free-standing baffles out of 5
 
-Detected free-standing baffles : 0
+freeStandingBaffles : detected 3 planar (within 60 degrees) free-standing baffles out of 3
+
+Detected free-standing baffles : 3
+Edge intersection testing:
+    Number of edges             : 31122
+    Number of edges to retest   : 3
+    Number of intersected edges : 348
+
+Introducing baffles to block off problem cells
+----------------------------------------------
+
+markFacesOnProblemCells : marked 0 additional internal faces to be converted into baffles.
+Analyzed problem cells in = 0.03 s
+
+
+Introducing baffles to delete problem cells.
+
+Created baffles in = 0 s
+
+
+After introducing baffles : cells:7684  faces:31122  points:16138
+Cells per refinement level:
+    0	7684
+
+Remove unreachable sections of mesh
+-----------------------------------
+
 Merged free-standing baffles in = 0.01 s
 
 
-dupNonManifoldPoints : Found : 0 non-manifold points (out of 18438)
+dupNonManifoldPoints : Found : 4 non-manifold points (out of 16138)
+Edge intersection testing:
+    Number of edges             : 31122
+    Number of edges to retest   : 0
+    Number of intersected edges : 348
 Detected unsplittable baffles : 0
 
 Merge refined boundary faces
@@ -484,372 +519,25 @@ Merging all points on surface that
 - make an angle with a cosine of more than 0.707107.
 
 No straight edges simplified and no points removed ...
-Refined mesh : cells:8990  faces:36188  points:18438
+Refined mesh : cells:7684  faces:31122  points:16142
 Cells per refinement level:
-    0	8990
+    0	7684
 Writing mesh to time constant
 Wrote mesh in = 0.07 s.
-Mesh refined in = 0.33 s.
-
-Morphing phase
---------------
-
-Duplicating 0 points on faceZones of type boundary
-Constructing mesh displacer ...
-Using mesh parameters 
-{
-    maxNonOrtho     65;
-    maxBoundarySkewness 20;
-    maxInternalSkewness 4;
-    maxConcave      80;
-    minVol          1e-13;
-    minTetQuality   1e-09;
-    minArea         -1;
-    minTwist        0.02;
-    minDeterminant  0.001;
-    minFaceWeight   0.02;
-    minVolRatio     0.01;
-    minTriangleTwist -1;
-    nSmoothScale    4;
-    errorReduction  0.75;
-}
-
-
-Checking initial mesh ...
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 0
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-Detected 0 illegal faces (concave, zero area or negative cell pyramid volume)
-Checked initial mesh in = 0.02 s
-
-
-Smoothing patch points ...
-Smoothing iteration 0
-Found 0 non-manifold point(s).
-
-Scaling iteration 0
-Moving mesh using displacement scaling : min:1  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 180
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Scaling iteration 1
-Moving mesh using displacement scaling : min:0.75  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 120
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Scaling iteration 2
-Moving mesh using displacement scaling : min:0.5625  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 62
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Scaling iteration 3
-Displacement scaling for error reduction set to 0.
-Moving mesh using displacement scaling : min:0.421875  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 62
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Scaling iteration 4
-Moving mesh using displacement scaling : min:0  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 0
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-Successfully moved mesh
-
-Smoothing iteration 1
-Found 0 non-manifold point(s).
-
-Scaling iteration 0
-Moving mesh using displacement scaling : min:1  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 179
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Scaling iteration 1
-Moving mesh using displacement scaling : min:0.75  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 120
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Scaling iteration 2
-Moving mesh using displacement scaling : min:0.5625  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 62
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Scaling iteration 3
-Displacement scaling for error reduction set to 0.
-Moving mesh using displacement scaling : min:0.421875  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 63
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Scaling iteration 4
-Moving mesh using displacement scaling : min:0  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 0
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-Successfully moved mesh
-
-Patch points smoothed in = 8.19 s
-
-
-
-Morph iteration 0
------------------
-Calculating patchDisplacement as distance to nearest surface point ...
-    non-zone points : attract to nearest of all non-zone surfaces
-    zone points     : attract to zone surface only
-
-Wanted displacement : average:0.0948172 min:0.000588978 max:0.224083
-Calculated surface displacement in = 0 s
-
-
-Detecting near surfaces ...
-Overriding nearest with intersection of close gaps at 0 out of 432 points.
---> FOAM Warning : Displacement (-0.00497269 0.0966911 0) at mesh point 70 coord (204.787 -9.85075 0) points through the surrounding patch faces
-Smoothing displacement ...
-Iteration 0
-Displacement smoothed in = 0.04 s
-
-
-Moving mesh ...
-
-Iteration 0
-Moving mesh using displacement scaling : min:1  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 61
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 362
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 1
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Iteration 1
-Moving mesh using displacement scaling : min:0.75  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 61
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Iteration 2
-Moving mesh using displacement scaling : min:0.5625  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 61
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Iteration 3
-Displacement scaling for error reduction set to 0.
-Moving mesh using displacement scaling : min:0.421875  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 61
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Iteration 4
-Moving mesh using displacement scaling : min:0  max:1
-Correcting 2-D mesh motion ...done
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 0
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-Successfully moved mesh
-Moved mesh in = 4.1 s
-
-
-Repatching faces according to nearest surface ...
-Repatched 0 faces in = 0.01 s
-
-
-Edge intersection testing:
-    Number of edges             : 36188
-    Number of edges to retest   : 36188
-    Number of intersected edges : 210
-Merging 1 sets of faces.
-
-Edge intersection testing:
-    Number of edges             : 36187
-    Number of edges to retest   : 5
-    Number of intersected edges : 209
-
-Undo iteration 0
-----------------
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 1
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-Masters that need to be restored:1
-Edge intersection testing:
-    Number of edges             : 36188
-    Number of edges to retest   : 6
-    Number of intersected edges : 210
-
-
-Undo iteration 1
-----------------
-Checking faces in error :
-    non-orthogonality > 65  degrees                        : 0
-    faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
-    faces with concavity > 80  degrees                     : 0
-    faces with skewness > 4   (internal) or 20  (boundary) : 0
-    faces with interpolation weights (0..1)  < 0.02        : 0
-    faces with volume ratio of neighbour cells < 0.01      : 0
-    faces with face twist < 0.02                           : 0
-    faces on cells with determinant < 0.001                : 0
-
-Merging all points on surface that
-- are used by only two boundary faces and
-- make an angle with a cosine of more than 0.5.
-
-No straight edges simplified and no points removed ...
-Snapped mesh : cells:8990  faces:36188  points:18438
-Cells per refinement level:
-    0	8990
-Writing mesh to time constant
-Wrote mesh in = 0.16 s.
-Mesh snapped in = 12.52 s.
+Mesh refined in = 0.48 s.
 Checking final mesh ...
 Checking faces in error :
     non-orthogonality > 65  degrees                        : 0
     faces with face pyramid volume < 1e-13                 : 0
-    faces with face-decomposition tet quality < 1e-09      : 0
+    faces with face-decomposition tet quality < 1e-09      : 23095
     faces with concavity > 80  degrees                     : 0
     faces with skewness > 4   (internal) or 20  (boundary) : 0
     faces with interpolation weights (0..1)  < 0.02        : 0
     faces with volume ratio of neighbour cells < 0.01      : 0
     faces with face twist < 0.02                           : 0
     faces on cells with determinant < 0.001                : 0
-Finished meshing without any errors
-Finished meshing in = 12.98 s.
+Finished meshing with 23095 illegal faces (concave, zero area or negative cell pyramid volume)
+Finished meshing in = 0.8 s.
 End
 
 /*---------------------------------------------------------------------------*\
@@ -862,12 +550,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : checkMesh
-Date   : Mar 17 2026
-Time   : 05:41:27
+Date   : Mar 19 2026
+Time   : 05:34:01
 Host   : geocean08.sci.unican.es
-PID    : 2478256
+PID    : 586876
 I/O    : uncollated
-Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0003
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/molokai_cases/0003
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -960,11 +648,11 @@ alpha.water
 Time = 0
 
 Mesh stats
-    points:           18438
+    points:           16142
     internal points:  0
-    faces:            36188
-    internal faces:   17752
-    cells:            8990
+    faces:            31122
+    internal faces:   14982
+    cells:            7684
     faces per cell:   6
     boundary patches: 5
     point zones:      0
@@ -972,7 +660,7 @@ Mesh stats
     cell zones:       0
 
 Overall number of cells of each type:
-    hexahedra:     8990
+    hexahedra:     7684
     prisms:        0
     wedges:        0
     pyramids:      0
@@ -990,11 +678,11 @@ Checking topology...
 
 Checking patch topology for multiply connected surfaces...
     Patch               Faces    Points   Surface topology                  
-    inlet               134      270      ok (non-closed singly connected)  
-    outlet              13       28       ok (non-closed singly connected)  
-    atmosphere          94       190      ok (non-closed singly connected)  
-    frontAndBack        17980    18438    ok (non-closed singly connected)  
-    bathymetry          215      432      ok (non-closed singly connected)  
+    inlet               340      682      ok (non-closed singly connected)  
+    outlet              31       64       ok (non-closed singly connected)  
+    atmosphere          43       88       ok (non-closed singly connected)  
+    frontAndBack        15368    16142    ok (non-closed singly connected)  
+    bathymetry          358      718      ok (non-closed singly connected)  
 
 Checking faceZone topology for multiply connected surfaces...
     No faceZones found.
@@ -1003,23 +691,22 @@ Checking basic cellZone addressing...
     No cellZones found.
 
 Checking geometry...
-    Overall domain bounding box (0 -10 0) (550 10 0.1)
+    Overall domain bounding box (0 -25 0) (1334 7 0.1)
     Mesh has 2 geometric (non-empty/wedge) directions (1 1 0)
     Mesh has 2 solution (non-empty) directions (1 1 0)
     All edges aligned with or perpendicular to non-empty directions.
-    Boundary openness (-7.51131e-20 3.98386e-18 1.251e-14) OK.
-    Max cell openness = 1.4611e-16 OK.
-    Max aspect ratio = 40.0411 OK.
-    Minimum face area = 0.00840952. Maximum face area = 0.889387.  Face area magnitudes OK.
-    Min volume = 0.0682074. Max volume = 0.0889387.  Total volume = 784.373.  Cell volumes OK.
-    Mesh non-orthogonality Max: 63.8474 average: 2.69617
+    Boundary openness (-4.54418e-19 6.88582e-20 2.08177e-14) OK.
+    Max cell openness = 9.21745e-17 OK.
+    Max aspect ratio = 329.721 OK.
+    Minimum face area = 0.00941. Maximum face area = 3.103.  Face area magnitudes OK.
+    Min volume = 0.291926. Max volume = 0.292246.  Total volume = 2243.6.  Cell volumes OK.
+    Mesh non-orthogonality Max: 0 average: 0
     Non-orthogonality check OK.
     Face pyramids OK.
- ***Max skewness = 5.07817, 1 highly skew faces detected which may impair the quality of the results
-  <<Writing 1 skew faces to set skewFaces
+    Max skewness = 1.51019e-13 OK.
     Coupled point location match (average 0) OK.
 
-Failed 1 mesh checks.
+Mesh OK.
 
 End
 
@@ -1033,12 +720,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveParameters
-Date   : Mar 17 2026
-Time   : 05:41:27
+Date   : Mar 19 2026
+Time   : 05:34:01
 Host   : geocean08.sci.unican.es
-PID    : 2478336
+PID    : 586927
 I/O    : uncollated
-Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0003
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/molokai_cases/0003
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -1077,12 +764,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : setWaveField
-Date   : Mar 17 2026
-Time   : 05:41:27
+Date   : Mar 19 2026
+Time   : 05:34:01
 Host   : geocean08.sci.unican.es
-PID    : 2478344
+PID    : 586932
 I/O    : uncollated
-Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0003
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/molokai_cases/0003
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -1201,12 +888,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : waveGaugesNProbes
-Date   : Mar 17 2026
-Time   : 05:41:28
+Date   : Mar 19 2026
+Time   : 05:34:01
 Host   : geocean08.sci.unican.es
-PID    : 2478357
+PID    : 586935
 I/O    : uncollated
-Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0003
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/molokai_cases/0003
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -1232,12 +919,12 @@ End
 Build  : _f3950763fe-20191219 OPENFOAM=1912
 Arch   : "LSB;label=32;scalar=64"
 Exec   : decomposePar
-Date   : Mar 17 2026
-Time   : 05:41:28
+Date   : Mar 19 2026
+Time   : 05:34:01
 Host   : geocean08.sci.unican.es
-PID    : 2478428
+PID    : 586941
 I/O    : uncollated
-Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/openfoam_cases/0003
+Case   : /lustre/geocean/WORK/users/alonsoap/personal/estancia_NUS_2026/HyCFD/outputs/molokai_cases/0003
 nProcs : 1
 trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
 fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
@@ -1257,7 +944,7 @@ Decomposing mesh region0
 Create mesh
 
 Calculating distribution of cells
-Selecting decompositionMethod simple [32]
+Selecting decompositionMethod simple [24]
 
 Finished decomposition in 0 s
 
@@ -1279,387 +966,317 @@ Reading hexRef8 data : level0Edge
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 0
-    Number of cells = 281
-    Number of faces shared with processor 1 = 135
-    Number of processor patches = 1
-    Number of processor faces = 135
-    Number of boundary faces = 701
+    Number of cells = 321
+    Number of faces shared with processor 1 = 303
+    Number of faces shared with processor 2 = 19
+    Number of processor patches = 2
+    Number of processor faces = 322
+    Number of boundary faces = 964
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 1
-    Number of cells = 281
-    Number of faces shared with processor 0 = 135
-    Number of faces shared with processor 2 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 321
+    Number of faces shared with processor 0 = 303
+    Number of faces shared with processor 2 = 303
+    Number of faces shared with processor 3 = 19
+    Number of processor patches = 3
+    Number of processor faces = 625
+    Number of boundary faces = 663
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 2
-    Number of cells = 281
-    Number of faces shared with processor 1 = 135
-    Number of faces shared with processor 3 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 321
+    Number of faces shared with processor 0 = 19
+    Number of faces shared with processor 1 = 303
+    Number of faces shared with processor 3 = 303
+    Number of faces shared with processor 4 = 19
+    Number of processor patches = 4
+    Number of processor faces = 644
+    Number of boundary faces = 644
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 3
-    Number of cells = 281
-    Number of faces shared with processor 2 = 135
-    Number of faces shared with processor 4 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 321
+    Number of faces shared with processor 1 = 19
+    Number of faces shared with processor 2 = 303
+    Number of faces shared with processor 4 = 302
+    Number of faces shared with processor 5 = 20
+    Number of processor patches = 4
+    Number of processor faces = 644
+    Number of boundary faces = 644
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 4
-    Number of cells = 281
-    Number of faces shared with processor 3 = 135
-    Number of faces shared with processor 5 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 2 = 19
+    Number of faces shared with processor 3 = 302
+    Number of faces shared with processor 5 = 301
+    Number of faces shared with processor 6 = 20
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 642
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 5
-    Number of cells = 281
-    Number of faces shared with processor 4 = 135
-    Number of faces shared with processor 6 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 3 = 20
+    Number of faces shared with processor 4 = 301
+    Number of faces shared with processor 6 = 301
+    Number of faces shared with processor 7 = 20
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 642
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 6
-    Number of cells = 281
-    Number of faces shared with processor 5 = 135
-    Number of faces shared with processor 7 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 4 = 20
+    Number of faces shared with processor 5 = 301
+    Number of faces shared with processor 7 = 301
+    Number of faces shared with processor 8 = 20
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 642
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 7
-    Number of cells = 281
-    Number of faces shared with processor 6 = 135
-    Number of faces shared with processor 8 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 5 = 20
+    Number of faces shared with processor 6 = 301
+    Number of faces shared with processor 8 = 301
+    Number of faces shared with processor 9 = 20
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 642
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 8
-    Number of cells = 281
-    Number of faces shared with processor 7 = 135
-    Number of faces shared with processor 9 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 6 = 20
+    Number of faces shared with processor 7 = 301
+    Number of faces shared with processor 9 = 301
+    Number of faces shared with processor 10 = 20
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 642
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 9
-    Number of cells = 281
-    Number of faces shared with processor 8 = 135
-    Number of faces shared with processor 10 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 7 = 20
+    Number of faces shared with processor 8 = 301
+    Number of faces shared with processor 10 = 301
+    Number of faces shared with processor 11 = 20
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 642
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 10
-    Number of cells = 281
-    Number of faces shared with processor 9 = 135
-    Number of faces shared with processor 11 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 568
+    Number of cells = 320
+    Number of faces shared with processor 8 = 20
+    Number of faces shared with processor 9 = 301
+    Number of faces shared with processor 11 = 301
+    Number of faces shared with processor 12 = 20
+    Number of processor patches = 4
+    Number of processor faces = 642
+    Number of boundary faces = 642
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 11
-    Number of cells = 281
-    Number of faces shared with processor 10 = 135
-    Number of faces shared with processor 12 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 9 = 20
+    Number of faces shared with processor 10 = 301
+    Number of faces shared with processor 12 = 301
+    Number of faces shared with processor 13 = 11
+    Number of processor patches = 4
+    Number of processor faces = 633
+    Number of boundary faces = 651
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 12
-    Number of cells = 281
-    Number of faces shared with processor 11 = 135
-    Number of faces shared with processor 13 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 10 = 20
+    Number of faces shared with processor 11 = 301
+    Number of faces shared with processor 13 = 310
+    Number of faces shared with processor 14 = 2
+    Number of processor patches = 4
+    Number of processor faces = 633
+    Number of boundary faces = 651
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 13
-    Number of cells = 281
-    Number of faces shared with processor 12 = 135
-    Number of faces shared with processor 14 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 11 = 11
+    Number of faces shared with processor 12 = 310
+    Number of faces shared with processor 14 = 308
+    Number of processor patches = 3
+    Number of processor faces = 629
+    Number of boundary faces = 655
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 14
-    Number of cells = 281
-    Number of faces shared with processor 13 = 135
-    Number of faces shared with processor 15 = 135
-    Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 566
+    Number of cells = 320
+    Number of faces shared with processor 12 = 2
+    Number of faces shared with processor 13 = 308
+    Number of faces shared with processor 15 = 293
+    Number of processor patches = 3
+    Number of processor faces = 603
+    Number of boundary faces = 659
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 15
-    Number of cells = 281
-    Number of faces shared with processor 14 = 135
-    Number of faces shared with processor 16 = 135
+    Number of cells = 320
+    Number of faces shared with processor 14 = 293
+    Number of faces shared with processor 16 = 213
     Number of processor patches = 2
-    Number of processor faces = 270
-    Number of boundary faces = 568
+    Number of processor faces = 506
+    Number of boundary faces = 722
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 16
-    Number of cells = 281
-    Number of faces shared with processor 15 = 135
-    Number of faces shared with processor 17 = 132
+    Number of cells = 320
+    Number of faces shared with processor 15 = 213
+    Number of faces shared with processor 17 = 169
     Number of processor patches = 2
-    Number of processor faces = 267
-    Number of boundary faces = 569
+    Number of processor faces = 382
+    Number of boundary faces = 688
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 17
-    Number of cells = 281
-    Number of faces shared with processor 16 = 132
-    Number of faces shared with processor 18 = 128
+    Number of cells = 320
+    Number of faces shared with processor 16 = 169
+    Number of faces shared with processor 18 = 117
     Number of processor patches = 2
-    Number of processor faces = 260
-    Number of boundary faces = 570
+    Number of processor faces = 286
+    Number of boundary faces = 696
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 18
-    Number of cells = 281
-    Number of faces shared with processor 17 = 128
-    Number of faces shared with processor 19 = 122
+    Number of cells = 320
+    Number of faces shared with processor 17 = 117
+    Number of faces shared with processor 19 = 101
     Number of processor patches = 2
-    Number of processor faces = 250
-    Number of boundary faces = 574
+    Number of processor faces = 218
+    Number of boundary faces = 662
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 19
-    Number of cells = 281
-    Number of faces shared with processor 18 = 122
-    Number of faces shared with processor 20 = 118
+    Number of cells = 320
+    Number of faces shared with processor 18 = 101
+    Number of faces shared with processor 20 = 87
     Number of processor patches = 2
-    Number of processor faces = 240
-    Number of boundary faces = 570
+    Number of processor faces = 188
+    Number of boundary faces = 666
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 20
-    Number of cells = 281
-    Number of faces shared with processor 19 = 118
-    Number of faces shared with processor 21 = 114
+    Number of cells = 320
+    Number of faces shared with processor 19 = 87
+    Number of faces shared with processor 21 = 83
     Number of processor patches = 2
-    Number of processor faces = 232
-    Number of boundary faces = 570
+    Number of processor faces = 170
+    Number of boundary faces = 650
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 21
-    Number of cells = 281
-    Number of faces shared with processor 20 = 114
-    Number of faces shared with processor 22 = 108
+    Number of cells = 320
+    Number of faces shared with processor 20 = 83
+    Number of faces shared with processor 22 = 84
     Number of processor patches = 2
-    Number of processor faces = 222
-    Number of boundary faces = 574
+    Number of processor faces = 167
+    Number of boundary faces = 649
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 22
-    Number of cells = 281
-    Number of faces shared with processor 21 = 108
-    Number of faces shared with processor 23 = 102
+    Number of cells = 320
+    Number of faces shared with processor 21 = 84
+    Number of faces shared with processor 23 = 82
     Number of processor patches = 2
-    Number of processor faces = 210
-    Number of boundary faces = 574
+    Number of processor faces = 166
+    Number of boundary faces = 650
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 
 Processor 23
-    Number of cells = 281
-    Number of faces shared with processor 22 = 102
-    Number of faces shared with processor 24 = 96
-    Number of processor patches = 2
-    Number of processor faces = 198
-    Number of boundary faces = 574
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 24
-    Number of cells = 281
-    Number of faces shared with processor 23 = 96
-    Number of faces shared with processor 25 = 90
-    Number of processor patches = 2
-    Number of processor faces = 186
-    Number of boundary faces = 574
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 25
-    Number of cells = 281
-    Number of faces shared with processor 24 = 90
-    Number of faces shared with processor 26 = 84
-    Number of processor patches = 2
-    Number of processor faces = 174
-    Number of boundary faces = 574
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 26
-    Number of cells = 281
-    Number of faces shared with processor 25 = 84
-    Number of faces shared with processor 27 = 78
-    Number of processor patches = 2
-    Number of processor faces = 162
-    Number of boundary faces = 574
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 27
-    Number of cells = 281
-    Number of faces shared with processor 26 = 78
-    Number of faces shared with processor 28 = 70
-    Number of processor patches = 2
-    Number of processor faces = 148
-    Number of boundary faces = 578
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 28
-    Number of cells = 281
-    Number of faces shared with processor 27 = 70
-    Number of faces shared with processor 29 = 60
-    Number of processor patches = 2
-    Number of processor faces = 130
-    Number of boundary faces = 582
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 29
-    Number of cells = 281
-    Number of faces shared with processor 28 = 60
-    Number of faces shared with processor 30 = 50
-    Number of processor patches = 2
-    Number of processor faces = 110
-    Number of boundary faces = 582
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 30
-    Number of cells = 280
-    Number of faces shared with processor 29 = 50
-    Number of faces shared with processor 31 = 38
-    Number of processor patches = 2
-    Number of processor faces = 88
-    Number of boundary faces = 584
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-
-Processor 31
-    Number of cells = 280
-    Number of faces shared with processor 30 = 38
+    Number of cells = 320
+    Number of faces shared with processor 22 = 82
     Number of processor patches = 1
-    Number of processor faces = 38
-    Number of boundary faces = 618
+    Number of processor faces = 82
+    Number of boundary faces = 732
 
-Number of processor faces = 3550
-Max number of cells = 281 (0.0222469% above average 280.938)
-Max number of processor patches = 2 (3.22581% above average 1.9375)
-Max number of faces between processors = 270 (21.6901% above average 221.875)
+Number of processor faces = 5696
+Max number of cells = 321 (0.260281% above average 320.167)
+Max number of processor patches = 4 (33.3333% above average 3)
+Max number of faces between processors = 644 (35.6742% above average 474.667)
 
 Time = 0
 
@@ -1779,46 +1396,6 @@ Processor 22: field transfer
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
     Unknown compression specifier 'uncompressed', assuming no compression
 Processor 23: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 24: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 25: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 26: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 27: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 28: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 29: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 30: field transfer
---> FOAM Warning : 
-    From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
-    in file db/IOstreams/IOstreams/IOstreamOption.C at line 88
-    Unknown compression specifier 'uncompressed', assuming no compression
-Processor 31: field transfer
 --> FOAM Warning : 
     From function static Foam::IOstreamOption::compressionType Foam::IOstreamOption::compressionEnum(const Foam::word&)
     in file db/IOstreams/IOstreams/IOstreamOption.C at line 88

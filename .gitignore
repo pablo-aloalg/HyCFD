@@ -7,5 +7,7 @@ outputs/openfoam_cases_backup
 outputs/openfoam_cases_backup/*
 outputs/openfoam_nproc_test
 outputs/openfoam_nproc_test/*
+outputs/molokai_cases
+outputs/molokai_cases/*
 trash/*
 trash
