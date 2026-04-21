@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+castellatedMesh true;
+snap false;
+addLayers false;
+
+geometry
+{
+    bathymetry.stl
+    {
+        type triSurfaceMesh;
+        name bathymetry;
+    }
+};
+
+castellatedMeshControls
+{
+    maxLocalCells 100000;
+    maxGlobalCells 2000000;
+    minRefinementCells 0;
+    nCellsBetweenLevels 1;
+
+    features ();
+    refinementSurfaces
+    {
+        bathymetry
+        {
+            level (0 0);
+        }
+    }
+
+    resolveFeatureAngle 65;
+    refinementRegions {};
+    locationInMesh (100 0 0.05);
+    allowFreeStandingZoneFaces true;
+};
+
+snapControls
+{
+    nSmoothPatch 10;
+    tolerance 2.0;
+    nSolveIter 30;
+    nRelaxIter 5;
+};
+
+addLayersControls
+{
+    // empty if not adding layers
+};
+
+meshQualityControls
+{
+    maxNonOrtho 65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave 80;
+    minVol 1e-13;
+    minTetQuality 1e-9;
+    minArea -1;
+    minTwist 0.02;
+    minDeterminant 0.001;
+    minFaceWeight 0.02;
+    minVolRatio 0.01;
+    minTriangleTwist -1;
+    nSmoothScale 4;
+    errorReduction 0.75;
+};
+
+mergeTolerance 1e-6;

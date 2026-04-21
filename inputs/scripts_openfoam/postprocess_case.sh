@@ -13,5 +13,5 @@ export LD_LIBRARY_PATH=$GSL_PREFIX/lib:$LD_LIBRARY_PATH
 
 cd "$CASE_DIR" 
 
-reconstructPar -fields '(U alpha.water p_rgh zeta)'
-foamToVTK
+#foamToVTK
+#reconstructPar -fields '(U alpha.water p_rgh zeta)'

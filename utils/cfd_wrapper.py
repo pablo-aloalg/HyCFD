@@ -22,11 +22,11 @@ class OpenFoamWrapper(BaseModelWrapper):
     default_parameters = {
         "warmup_time": {
             "type": int,
-            "value": 50,
+            "value": 300,
             "description": "Warmup time in seconds (removed from postprocessed stats)."}, 
         "computational_time": {
             "type": int,
-            "value": 600,
+            "value": 1800,
             "description": "Computational time in seconds (excluding warmup)."}, 
         "total_run_time": {
             "type": int,
@@ -354,7 +354,7 @@ class OpenFoamWrapper(BaseModelWrapper):
                 output_df = readWaveGauge(case_dir=case_dir, func_name=func_name)
                 output_df.to_csv(op.join(case_dir, 'wave_gauges.csv'))
 
-                wave_params_df = get_waveparams_from_gauge(output_df, reflevel=case_context['swl'], warmup_time=case_context['warmup_time'])
+                wave_params_df = get_waveparams_from_gauge(output_df, reflevel=case_context['swl'], warmup_time=300)#  warmup_time=case_context['warmup_time'])
 
                 wave_params_df.to_csv(op.join(case_dir, f"{var}_postprocessed.csv"))
 

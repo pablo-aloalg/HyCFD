@@ -10,52 +10,35 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      controlDict;
+    object      loggingProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-libs ("libRSM.so");
-
-application interFoam;
-
-startFrom       latestTime;
-
-startTime       0;
-
-stopAt          endTime;
-
-endTime         {{ total_run_time }};
-
-deltaT          0.001;
-
-writeControl    adjustableRunTime;
-
-writeInterval   1; 
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep  yes;
-
-maxCo           0.3;
-
-maxAlphaCo      0.3;
-
-maxDeltaT       0.5;
-
-functions
+surfaceElevationAnyName
 {
-  #includeIfPresent "../waveGaugesNProbes/surfaceElevationAnyName_controlDict";
+    type waveGauge;
+
+    // 沿 x 方向布置 N 个浪高仪
+    pointDistribution lineDistribution;
+
+    // 你要多少个测点（例如每 5 m 一个：1200/5 +1 = 241）
+    N 400;
+
+    // 起点/终点：y 是竖直，这里给一个固定高度（建议放在水体里，比如 y = -0.9 静水位）
+    // z 放在薄域中间 0.05
+    linestart (000 -10 0.05);
+    lineend   (1800 -10 0.05);
+
+    // 竖直方向
+    axis y;
+    add       ( 0 20 0);
+    // 是否拉伸（=1 表示均匀）
+    stretch 1;
+
+    // 输出频率：每一步写一次会很大，建议按物理时间写
+    writeControl runTime;
+    writeInterval 0.02;   // 每 0.02s 输出一次（你可改）
 }
+
+
 
 // ************************************************************************* //

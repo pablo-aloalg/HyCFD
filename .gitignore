@@ -11,3 +11,5 @@ outputs/molokai_cases
 outputs/molokai_cases/*
 trash/*
 trash
+outputs
+outputs/*
